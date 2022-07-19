@@ -17,6 +17,7 @@ body {
 /*header section*/
 header {
     display: block;
+    z-index: 1;
 }
 .hero_area {
     position: relative;
