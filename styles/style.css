@@ -3,6 +3,9 @@ body {
     text-align: center;
 }
 
+.worksafe-logo {
+    border-radius: 0.1rem;
+}
 /* Header */
 /* Default height for small devices */
 #intro-example {
