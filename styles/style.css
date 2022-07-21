@@ -92,3 +92,17 @@ html {
 .about-oneLiner{
     font-size: 20px;
 }
+
+.our-team-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #197e00;
+    color: white;
+}
+
+.how-to-use{
+    color:white;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
