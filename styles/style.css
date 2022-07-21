@@ -33,9 +33,10 @@ html {
 
 .column {
     float: left;
-    width: 33.3%;
+    width: 25%;
     margin-bottom: 16px;
     padding: 0 8px;
+    /* --mdb-gutter-x: 0rem !important; */
 }
 
 .card {
@@ -86,4 +87,27 @@ html {
         width: 100%;
         display: block;
     }
+}
+
+.about-oneLiner{
+    font-size: 20px;
+}
+
+.our-team-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #197e00;
+    color: white;
+}
+
+.how-to-use{
+    color:white;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#contact-google-maps{
+    height: auto;
+    width: auto;
 }
