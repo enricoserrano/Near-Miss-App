@@ -67,6 +67,13 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.worksafe-details {
+    width: 100%;
+    position: absolute;
+    bottom: -140%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* Header */
 /* Default height for small devices */
 #intro-example {
