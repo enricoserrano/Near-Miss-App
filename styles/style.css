@@ -3,10 +3,10 @@ body {
     text-align: center;
     height: 100%;
 }
+/*homepage styling */
 .worksafe-logo {
     border-radius: 0.1rem;
 }
-/*index/homepage styling */
 .fade-in-effect { 
     animation: fadeIn 7s; 
 }
@@ -17,7 +17,6 @@ body {
 .title-main {
     font-size:calc(40px + 9vw);
 }
-/*header section*/
 header {
     display: block;
     z-index: 1;
@@ -84,7 +83,6 @@ header {
     display: flex;
     justify-content: flex-start !important;
 }
-/* Header */
 /* Default height for small devices */
 #intro-example {
     height: 400px;
@@ -95,3 +93,4 @@ header {
         height: 600px;
     }
 }
+/*homepage styling end */
