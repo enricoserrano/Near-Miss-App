@@ -80,7 +80,10 @@ header {
 .navbarlogo-text{
     font-family: Verdana, sans-serif;
 }
-
+.container-fluid {
+    display: flex;
+    justify-content: flex-start !important;
+}
 /* Header */
 /* Default height for small devices */
 #intro-example {
