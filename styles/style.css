@@ -213,6 +213,17 @@ html {
     padding-top: 50px;
 }
 
+/* Styling for the preview of the image uploaded */
+
+#uploaded-image-preview{
+    width: 400px;
+    height: 225px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+
 /* a {
     padding: 10px;
     background-color: orange;
