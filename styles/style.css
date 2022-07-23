@@ -206,7 +206,14 @@ html {
 
 /**Record Case Page Webcam**/
 
-a {
+#upload-image{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    padding-top: 50px;
+}
+
+/* a {
     padding: 10px;
     background-color: orange;
     color: white;
@@ -215,4 +222,4 @@ a {
 
 canvas {
     display: none;
-}
+} */
