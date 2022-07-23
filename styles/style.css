@@ -132,7 +132,47 @@ html {
     text-align: center;
 }
 
+/**Styling for Google Maps**/
+
 #contact-google-maps{
     height: auto;
     width: auto;
+}
+
+/**Styling for Address Container**/
+
+#address-container{
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+#address-container p{
+    font-size: 16px;
+}
+
+/**Styling for Physical Address**/
+
+#phys-address{
+    display:inline-block;
+    color: white;
+    text-align: left;
+    padding-bottom: 50px;
+}
+/**Styling for Postal Address**/
+
+#postal-address{
+    display: inline-block;
+    color: white;
+    text-align: left;
+    /* padding: 20px;
+    margin: 15px; */
+    position: relative;
+    top: -40px;
+}
+
+/**Styling for Find Us**/
+
+#find-us{
+    text-align: center;
 }
