@@ -51,6 +51,7 @@ html {
     box-sizing: inherit;
 }
 
+/* About Us Page styling */
 .column {
     float: left;
     width: 33.3%;
@@ -59,10 +60,23 @@ html {
     /* --mdb-gutter-x: 0rem !important; */
 }
 
-.card {
+.difference-column {
+    width: 50%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+    /* --mdb-gutter-x: 0rem !important; */
+}
+
+
+.card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
 }
+
+.difference-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+} 
 
 .about-section {
     padding-top: 100px;
@@ -130,6 +144,11 @@ html {
     padding-top: 30px;
     padding-bottom: 20px;
     text-align: center;
+}
+
+.difference-container{
+    text-align: left;
+    display: inline-block;
 }
 
 /**Styling for Google Maps**/
