@@ -10,8 +10,8 @@
 //     document.querySelector("a").href = picture;
 // }
 
-// Code for the uploaded image preview
 
+// Code for the uploaded image preview
 const imageInput = document.querySelector("#uploaded-image"); 
 var uploadedImage = "";
 
@@ -27,17 +27,3 @@ imageInput.addEventListener("change", function()
     imageReader.readAsDataURL(this.files[0]);
 });
 
-// const imageInput = document.querySelector("#uploadedImage");
-// var uploadedImage = "";
-
-// imageInput.addEventListener("change", function()
-// {
-//     const imageReader = new FileReader();
-//     imageReader.addEventListener("load", () =>
-//     {
-//         uploadedImage = imageReader.result;
-//         document.querySelector("#show-uploaded-image").style.backgroundImage = `url(${uploadedImage})`;
-//     });
-
-//     imageReader.readAsDataURL(this.files[0]);
-// });

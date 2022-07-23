@@ -213,12 +213,17 @@ html {
     padding-top: 50px;
 }
 
+#upload-image h3{
+    font-size: 18px;
+    color: rgb(255, 210, 11);
+}
+
 /* Styling for the preview of the image uploaded */
 
 #show-uploaded-image{
-    width: 400px;
-    height: 225px;
-    border: 1px solid black;
+    width: 550px;
+    height: 330px;
+    border: 3px solid black;
     background-position: center;
     background-size: cover;
     margin: auto;
