@@ -215,7 +215,7 @@ html {
 
 /* Styling for the preview of the image uploaded */
 
-#uploaded-image-preview{
+#show-uploaded-image{
     width: 400px;
     height: 225px;
     border: 1px solid black;
