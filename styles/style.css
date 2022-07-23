@@ -203,3 +203,16 @@ html {
 #find-us{
     text-align: center;
 }
+
+/**Record Case Page Webcam**/
+
+a {
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+}
+
+canvas {
+    display: none;
+}
