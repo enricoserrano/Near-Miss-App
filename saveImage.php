@@ -18,8 +18,6 @@
         else
         {
             //echo"<p>Connection to the Database is successful!</p>";
-
-            
             $tableExist = @mysqli_query($dbConn, "SELECT * FROM nearMissImages;");
 
             if(!$tableExist)
@@ -61,7 +59,8 @@
                     else
                     {
                         echo "<p>Congratulations! The near-miss image has been successfully stored in the Database!</p>";
-
+                        echo "<p>The following was saved into the database</p>";
+                        echo "<p><b>Uploaded images:</b> " .$imageFileName. "</p>";
                     }
                 }
             }
