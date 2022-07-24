@@ -59,19 +59,22 @@
         <!-- Navbar -->
     </header>
 
-    <div id = "upload-image">
-        <h2>Upload an Image</h2>
-        <label for="uploadImage">Select files:</label>
-        <input type="file" id="uploaded-image" name="uploadedImage" multiple>
-        <br><br>
-
-        <h3>Uploaded Image Preview</h3>
-        <div id="show-uploaded-image"></div>
-
-        <br>
-        <input type="submit">
-
-    </div>
+    <form action="saveImage.php" method="POST" enctype="multipart/form-data">
+        <div id = "upload-image">
+            <h2>Upload an Image</h2>
+            <label for="uploadImage">Select files:</label>
+            <input type="file" id="uploaded-image" name="uploadedImage" multiple>
+            <br><br>
+    
+            <h3>Uploaded Image Preview</h3>
+            <div id="show-uploaded-image"></div>
+    
+            <br>
+            <input type="submit">
+    
+        </div>
+    </form>
+    
     
     <!-- <script>
         // const webCamElement = document.getElementById("webCam");
