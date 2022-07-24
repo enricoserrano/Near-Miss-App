@@ -17,8 +17,30 @@
         }
         else
         {
-            echo"<p>Connection to the Database is successful!</p>";
+            //echo"<p>Connection to the Database is successful!</p>";
+
+            
+            $tableExist = @mysqli_query($dbConn, "SELECT * FROM nearMissImages;");
+
+            if(!$tableExist)
+            {
+                $createTableQuery = "CREATE TABLE nearMissImages (imageID INT AUTO_INCREMENT PRIMARY KEY, imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+
+                $createTableResult = mysqli_query($dbConn, $createTableQuery);
+
+                if(!$createTableResult)
+                {   
+                    echo "<p>An error has occured in the creating the table. Please try again.</p>";
+                }
+                else
+                {
+                    echo "<p>The 'nearMissImages' table has been created successfully.</p>";
+                }
+            }
         }
+
+        mysqli_close($dbConn);    
+
     ?>
     
 </body>
