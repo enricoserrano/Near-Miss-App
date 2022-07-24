@@ -37,6 +37,34 @@
                     echo "<p>The 'nearMissImages' table has been created successfully.</p>";
                 }
             }
+
+            if(isset($_POST['submit'])) 
+            {
+                if (getimagesize($_FILES['uploadedImageFile']['tmp_name']) == false) 
+                {
+                    echo "<p>Please choose a valid image file!</p>";
+                } 
+                else 
+                {
+                    $image = $_FILES['uploadedImageFile']['tmp_name'];
+                    $imageFileName = $_FILES['uploadedImageFile']['name'];
+                    $image = base64_encode(file_get_contents(addslashes($image)));
+
+                    $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
+                                        VALUES ('$imageFileName', '$image')";
+                    $insertImageIntoDBResult = mysqli_query($dbConn, $insertImageIntoDBQuery);
+
+                    if(!$insertImageIntoDBResult)
+                    {   
+                        echo "<p>An error has occured when inserting the image data in the table. Please try again.</p>";
+                    }
+                    else
+                    {
+                        echo "<p>Congratulations! The near-miss image has been successfully stored in the Database!</p>";
+
+                    }
+                }
+            }
         }
 
         mysqli_close($dbConn);    
