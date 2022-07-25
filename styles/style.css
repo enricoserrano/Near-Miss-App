@@ -87,7 +87,9 @@ header {
     overflow:auto !important;
 }
 .navigation-buttons {
-    float:right !important;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
 }
 .navigation-logo {
     float: left !important;
@@ -96,6 +98,9 @@ header {
     display: none;
 }
 .button-text-record {
+    display: none;
+}
+.button-text-logo {
     display: none;
 }
 /* Default height for small devices */
@@ -113,6 +118,8 @@ header {
     .button-text-record {
         display: unset;
     }
-
+    .button-text-logo {
+        display: unset;
+    }
 }
 /*homepage styling end */
