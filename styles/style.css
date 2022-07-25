@@ -92,7 +92,10 @@ header {
 .navigation-logo {
     float: left !important;
 }
-.button-text {
+.button-text-login {
+    display: none;
+}
+.button-text-record {
     display: none;
 }
 /* Default height for small devices */
@@ -104,8 +107,12 @@ header {
     #intro-example {
         height: 600px;
     }
-    .button-text {
+    .button-text-login {
         display: unset;
     }
+    .button-text-record {
+        display: unset;
+    }
+
 }
 /*homepage styling end */
