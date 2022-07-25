@@ -83,6 +83,15 @@ header {
     display: flex;
     justify-content: flex-start !important;
 }
+.navigation-wrapper {
+    overflow:auto !important;
+}
+.navigation-buttons {
+    float:right !important;
+}
+.navigation-logo {
+    float: left !important;
+}
 /* Default height for small devices */
 #intro-example {
     height: 400px;
