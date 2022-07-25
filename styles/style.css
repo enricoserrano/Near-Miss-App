@@ -92,6 +92,9 @@ header {
 .navigation-logo {
     float: left !important;
 }
+.button-text {
+    display: none;
+}
 /* Default height for small devices */
 #intro-example {
     height: 400px;
@@ -100,6 +103,9 @@ header {
 @media (min-width: 992px) {
     #intro-example {
         height: 600px;
+    }
+    .button-text {
+        display: unset;
     }
 }
 /*homepage styling end */
