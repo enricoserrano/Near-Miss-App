@@ -103,6 +103,12 @@ header {
 .button-text-logo {
     display: none;
 }
+.nav-item {
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #3c3c3c7c;
+    border-top: none;
+}
 /* Default height for small devices */
 #intro-example {
     height: 400px;
@@ -120,6 +126,12 @@ header {
     }
     .button-text-logo {
         display: unset;
+    }
+    .nav-item {
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-top: none;
     }
 }
 /*homepage styling end */
