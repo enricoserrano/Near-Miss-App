@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <title>Record Near-miss</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <img src="./images/logo.png" height="45" width="45" alt="MDB Logo" loading="lazy" />
+                        <b>Near-miss Application</b></a>
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Record Near-miss</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                </div>
+                <!-- Collapsible wrapper -->
+                <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+        <!-- Background image -->
+
+        <div>
+            <h1 class="mb-3">Record a Near-miss</h1>
+            <form id="mainForm"></form>
+            <div class="form-group">
+                <label for="name" style="color: white;">Name(required): </label>
+                <input type="text" id="cname" name="cname" class="form-control">
+                <span id="errName" style="color: red; display: none"></span>
+            </div>
+            <div>
+                <label for="image" style="color: white;">Image(*add logo for it)</label>
+                <input type="text" id="image" name="image" class="form-control">
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+            <div>
+                <label for="Description" style="color: white;">description</label>
+                <input type="text" id="image" name="image" class="form-control">
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+            <div>
+                <label for="Priority" style="color: white;">Image(*add logo for it)</label>
+                <input type="text" id="image" name="image" class="form-control">
+                <span id="errImage" style="color: red; display: none"></span>
+                <!-- Here needs to be 3 boxes to choose from: low, medium and high-->
+            </div>
+            <div>
+                <label for="submit" style="color: white;">Image(*add logo for it)</label>
+                <input type="button" id="image" name="image" class="form-control">
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+
+            <button type="button" onclick="javascript:submit()">submit </button>
+            <button type="button" onclick="javascript:cancelForm()">Cancel </button>
+            </form>
+        </div>
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        resetForm();
+        console.log($(document));
+    })
+
+    function submit(){
+
+    }
+
+    function cancelForm(){
+
+    }
+
+
+
+</script>
+
+
+
+
+</html>
