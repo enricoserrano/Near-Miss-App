@@ -79,6 +79,9 @@
     // Closes the connection to the DB
     mysqli_close($dbConn);
     ?>
+
+    <!-- Temporary link back to the upload image page for testing -->
+    <a href="record-case.html">Upload image page</a>
     
 </body>
 </html>
