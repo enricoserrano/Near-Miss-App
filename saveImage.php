@@ -38,9 +38,9 @@
         // Checks if post is clicked
         if (isset($_POST["submit"])) {
             // Checks if the uploaded image is valid
-            // if (getimagesize($_FILES["uploadedImageFile"]["tmp_name"]) == false) {
-            //     echo "<p>Please choose a valid image file!</p>";
-            // } else {
+            if (getimagesize($_FILES["uploadedImageFile"]["tmp_name"]) == false) {
+                echo "<p>Please choose a valid image file!</p>";
+            } else {
                 // If the image uploaded is valid, the following occurs
 
                 // Declare and store image file and file name into variables
@@ -67,7 +67,7 @@
                         $imageFileName .
                         "</p>";
                 }
-            //}
+            }
         }
     }
 
