@@ -2,6 +2,15 @@ body {
     background-color: #45637d;;
     text-align: center;
     height: 100%;
+    margin: 0;
+}
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
 /*homepage styling */
 .worksafe-logo {
@@ -113,6 +122,16 @@ header {
 #intro-example {
     height: 400px;
 }
+
+#about-bg{
+    height: 200px;
+}
+
+#contact-bg{
+    height: 200px;
+    font-weight: bold;
+}
+
 /* Height for devices larger than 992px */
 @media (min-width: 992px) {
     #intro-example {
@@ -135,3 +154,201 @@ header {
     }
 }
 /*homepage styling end */
+
+#about-bg{
+    height: 400px;
+}
+
+#contact-bg{
+    height: 400px;
+    font-weight: bold;
+}
+
+/* About Page styling */
+.column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+    /* --mdb-gutter-x: 0rem !important; */
+}
+
+.difference-column{
+    float: left;
+    width: 50%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+}
+
+.about-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+    color: white;
+}
+
+.about-section img{
+    object-fit: contain;
+
+}
+
+.container {
+    padding: 0 16px 100px;
+}
+
+.difference-container{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 70px;
+    padding-bottom: 20px;
+}
+
+.container::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+
+    .difference-column {
+        width: 100%;
+        display: block;
+    }
+
+    .difference-container{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+}
+
+.about-oneLiner{
+    font-size: 20px;
+}
+
+.our-team-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #197e00;
+    color: white;
+}
+
+.how-to-use{
+    color:white;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+/**Styling for Google Maps**/
+
+#contact-google-maps{
+    height: auto;
+    width: auto;
+}
+
+/**Styling for Address Container**/
+
+#address-container{
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+#address-container p{
+    font-size: 16px;
+}
+
+/**Styling for Physical Address**/
+
+#phys-address{
+    display:inline-block;
+    color: white;
+    text-align: left;
+    padding-bottom: 50px;
+}
+/**Styling for Postal Address**/
+
+#postal-address{
+    display: inline-block;
+    color: white;
+    text-align: left;
+    /* padding: 20px;
+    margin: 15px; */
+    position: relative;
+    top: -40px;
+}
+
+/**Styling for Find Us**/
+
+#find-us{
+    text-align: center;
+}
+
+/**Record Case Page Webcam**/
+
+#upload-image{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    padding-top: 50px;
+}
+
+#upload-image h3{
+    font-size: 18px;
+    color: rgb(255, 210, 11);
+}
+
+/* Styling for the preview of the image uploaded */
+
+#show-uploaded-image{
+    width: 550px;
+    height: 330px;
+    border: 3px solid black;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+
+/* a {
+    padding: 10px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+}
+
+canvas {
+    display: none;
+} */
