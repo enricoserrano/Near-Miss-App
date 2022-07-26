@@ -40,7 +40,11 @@
             // Checks if the uploaded image is valid by checking if the file size is larger than 2,048KiB file size
             // Only an image file less than around 2.5MB/2,048KiB file size will be successfully uploaded in the DB when using the "longblob" datatype
             if (getimagesize($_FILES["uploadedImageFile"]["tmp_name"]) == false) {
-                echo "<p>Please choose a valid image file!</p>";
+                echo "<p>Error: Please choose a valid image file! </p>";
+                echo "<p>Error: The file uploaded is larger than 2.5MB or 2,048KiB file size!</p>";
+                // --The two lines of code below does not show the accurate image size yet
+                // $image = $_POST["uploadedImageFile"];
+                // echo "Error: File size is" .getimagesize($image)."";
             } else {
                 // If the image uploaded is valid, the following occurs
 
