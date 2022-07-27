@@ -65,17 +65,18 @@
             <!-- <label>Please upload your photo</label>
             <input  type='file' name="image" onchange="readURL(this);" />
             <img id="blah" src="#" alt="your image" /> 
-            This one will make you browse your documents to get the image!-->
-            
+            This one will make you browse your documents to get the image
+             -->
 
 
             <div>
                 <label for="image" style="color: white;">Image(*add logo for it)</label>
                 <br><i class="fa-solid fa-file-image" style="color: White;"></i>
-                <input type="button">
-                <i class="fa-solid fa-camera" style="color: white;"></i>
-                <input type="button">
-                <span id="errImage" style="color: red; display: none"></span>
+                <!-- <input type="button" > -->
+                <button type="button" style="border: 1px;">Upload a image</button>
+                <br><br><i class="fa-solid fa-camera" style="color: white;"></i>
+                <!-- <input type="button"> -->
+                <button type="button" style="border: 1px; ">Take a Photo</button>
             </div>
             <div>
                 <i class="fa-solid fa-note-sticky" style="color: white;"></i>
@@ -84,12 +85,21 @@
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
+                <i class="fa-solid fa-clock" style="color: white;"></i>
+                <label for="Time" style="color: white;">Time of Near-miss</label>
+                <input type="text" id="time" name="time" class="form-control">
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+            <div>
                 <label for="priority" style="color: white;" >Priority(*add logo for it)</label>
                 <input type="checkbox" id="lowPriority" name="lowPriority" value="Low">
-                <label for="lowPriority" style="color: green;"> Low</label><br>
+                <!-- <label for="lowPriority" style="color: green;"> Low</label><br> -->
                 <input type="checkbox" id="mediumPriority" name="mediumPriority" value="Medium">
-                <label for="mediumPriority" style="color: yellow;"> Medium</label><br>
-                <input type="checkbox" id="highPriority" name="highPriority" value="High">
+                <!-- <label for="mediumPriority" style="color: yellow;"> Medium</label><br> -->
+                <button type="button" style=" background-color: green;">Low</button>
+                <button type="button" style=" background-color: yellow;">Medium</button>
+                <button type="button" style=" background-color: red;">High</button>
+                <!-- <input type="checkbox" id="highPriority" name="highPriority" value="High"> -->
                 <label for="highPriority" style="color: red;"> High</label><br>
             </div>
             
