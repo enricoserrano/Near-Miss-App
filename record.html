@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous""></script>
+
 </head>
 
 <body>
@@ -23,13 +25,13 @@
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
-                    <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                    <a class="navbar-brand mt-2 mt-lg-0" href="index.html">
                         <img src="./images/logo.png" height="45" width="45" alt="MDB Logo" loading="lazy" />
                         <b>Near-miss Application</b></a>
                     <!-- Left links -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Record Near-miss</a>
@@ -53,32 +55,44 @@
             <h1 class="mb-3">Record a Near-miss</h1>
             <form id="mainForm"></form>
             <div class="form-group">
-                <label for="name" style="color: white;">Name(required): </label>
-                <input type="text" id="cname" name="cname" class="form-control">
+                <i class="fa-solid fa-location-dot" style="color: white;"></i>
+                <label for="location" style="color: white;">Location(required): </label>
+                <input type="text" id="location" name="location" class="form-control">
                 <span id="errName" style="color: red; display: none"></span>
-            </div>
-            <div>
-                <label for="image" style="color: white;">Image(*add logo for it)</label>
-                <input type="text" id="image" name="image" class="form-control">
-                <span id="errImage" style="color: red; display: none"></span>
-            </div>
-            <div>
-                <label for="Description" style="color: white;">description</label>
-                <input type="text" id="image" name="image" class="form-control">
-                <span id="errImage" style="color: red; display: none"></span>
-            </div>
-            <div>
-                <label for="Priority" style="color: white;">Image(*add logo for it)</label>
-                <input type="text" id="image" name="image" class="form-control">
-                <span id="errImage" style="color: red; display: none"></span>
-                <!-- Here needs to be 3 boxes to choose from: low, medium and high-->
-            </div>
-            <div>
-                <label for="submit" style="color: white;">Image(*add logo for it)</label>
-                <input type="button" id="image" name="image" class="form-control">
-                <span id="errImage" style="color: red; display: none"></span>
+
             </div>
 
+            <!-- <label>Please upload your photo</label>
+            <input  type='file' name="image" onchange="readURL(this);" />
+            <img id="blah" src="#" alt="your image" /> 
+            This one will make you browse your documents to get the image!-->
+            
+
+
+            <div>
+                <label for="image" style="color: white;">Image(*add logo for it)</label>
+                <br><i class="fa-solid fa-file-image" style="color: White;"></i>
+                <input type="button">
+                <i class="fa-solid fa-camera" style="color: white;"></i>
+                <input type="button">
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+            <div>
+                <i class="fa-solid fa-note-sticky" style="color: white;"></i>
+                <label for="Description" style="color: white;">Description</label>
+                <input type="text" id="image" name="image" class="form-control">
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+            <div>
+                <label for="priority" style="color: white;" >Priority(*add logo for it)</label>
+                <input type="checkbox" id="lowPriority" name="lowPriority" value="Low">
+                <label for="lowPriority" style="color: green;"> Low</label><br>
+                <input type="checkbox" id="mediumPriority" name="mediumPriority" value="Medium">
+                <label for="mediumPriority" style="color: yellow;"> Medium</label><br>
+                <input type="checkbox" id="highPriority" name="highPriority" value="High">
+                <label for="highPriority" style="color: red;"> High</label><br>
+            </div>
+            
             <button type="button" onclick="javascript:submit()">submit </button>
             <button type="button" onclick="javascript:cancelForm()">Cancel </button>
             </form>
@@ -96,7 +110,7 @@
     })
 
     function submit(){
-
+    //This part will neend to validate all the information inserted into the form.
     }
 
     function cancelForm(){
