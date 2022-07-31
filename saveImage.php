@@ -8,20 +8,6 @@
 </head>
 <body>
     <?php
-    // Declare and store image file and file name into variables
-    $image = $_FILES["uploadedImageFile"]["tmp_name"];
-    $imageFileName = $_FILES["uploadedImageFile"]["name"];
-    $image = base64_encode(file_get_contents(addslashes($image)));
-
-    //Checks the type of an image uploaded
-    if(exif_imagetype($imageFileName) = IMAGETYPE_PNG){
-        echo 'PNG';
-    } else if (exif_imagetype($imageFileName) = IMAGETYPE_JPEG) {
-        echo 'JPG';
-    } else if (exif_imagetype($imageFileName) = IMAGETYPE_WEBP) {
-        echo 'WEBP'
-    }
-
     // Establishes connection to the DB by declaring and initialising the DB login details
     require_once "../../conf/connectionInfo.php";
     $dbConn = @mysqli_connect($sql_host, $sql_user, $sql_pass, $sql_db);
@@ -56,6 +42,11 @@
                 echo "<p>Please choose a valid image file!</p>";
             } else {
                 // If the image uploaded is valid, the following occurs
+
+                // Declare and store image file and file name into variables
+                $image = $_FILES["uploadedImageFile"]["tmp_name"];
+                $imageFileName = $_FILES["uploadedImageFile"]["name"];
+                $image = base64_encode(file_get_contents(addslashes($image)));
 
                 // Insert the uploaded image and file name onto the database table
                 $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
