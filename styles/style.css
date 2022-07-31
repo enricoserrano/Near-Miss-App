@@ -201,6 +201,11 @@ header {
     padding: 0 16px 100px;
 }
 
+.difference-card-container{
+    padding: 0 16px 20px;
+    padding-top: 20px;
+}
+
 .difference-container{
     padding-left: 100px;
     padding-right: 100px;
