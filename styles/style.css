@@ -348,6 +348,15 @@ header {
     margin: auto;
 }
 
+/* Media responsiveness for preview of the image uploaded */
+@media screen and (max-width: 650px) {
+    #show-uploaded-image{
+        width: 300px;
+        height: 200px; 
+    }
+}
+
+
 /* a {
     padding: 10px;
     background-color: orange;
