@@ -176,7 +176,7 @@ header {
 .difference-column{
     float: left;
     width: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     padding: 0 8px;
 }
 
@@ -198,7 +198,7 @@ header {
 }
 
 .about-container {
-    padding: 0 16px 100px;
+    padding: 0 16px 30px;
 }
 
 .difference-card-container{
