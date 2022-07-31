@@ -13,6 +13,15 @@
     $imageFileName = $_FILES["uploadedImageFile"]["name"];
     $image = base64_encode(file_get_contents(addslashes($image)));
 
+    //Checks the type of an image uploaded
+    if(exif_imagetype($imageFileName) = IMAGETYPE_PNG){
+        echo 'PNG';
+    } else if (exif_imagetype($imageFileName) = IMAGETYPE_JPEG) {
+        echo 'JPG';
+    } else if (exif_imagetype($imageFileName) = IMAGETYPE_JPEG) {
+        echo 'WEBP'
+    }
+
     // Establishes connection to the DB by declaring and initialising the DB login details
     require_once "../../conf/connectionInfo.php";
     $dbConn = @mysqli_connect($sql_host, $sql_user, $sql_pass, $sql_db);
