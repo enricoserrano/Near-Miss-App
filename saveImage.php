@@ -18,7 +18,7 @@
         echo 'PNG';
     } else if (exif_imagetype($imageFileName) = IMAGETYPE_JPEG) {
         echo 'JPG';
-    } else if (exif_imagetype($imageFileName) = IMAGETYPE_JPEG) {
+    } else if (exif_imagetype($imageFileName) = IMAGETYPE_WEBP) {
         echo 'WEBP'
     }
 
