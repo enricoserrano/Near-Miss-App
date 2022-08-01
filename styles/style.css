@@ -220,9 +220,6 @@ header {
 
 #learn-accidents-button-right-align{
     text-align: right;
-
-
-
 }
 
 .about-container::after,
@@ -269,6 +266,20 @@ header {
         padding-top: 20px;
         padding-bottom: 10px;
     }
+
+    #learn-nearmiss-button-left-align{
+        display: block;
+        margin: 0%;
+        text-align: center;
+    }
+
+    #learn-accidents-button-right-align{
+        display: block;
+        text-align: center;
+        padding-top: 5%;
+    }
+
+    
 }
 
 .about-oneLiner{
