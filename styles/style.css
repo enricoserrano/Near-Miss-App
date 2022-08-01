@@ -213,6 +213,18 @@ header {
     padding-bottom: 20px;
 }
 
+#learn-nearmiss-button-left-align{
+    text-align: left;
+    margin-right: 20%;
+}
+
+#learn-accidents-button-right-align{
+    text-align: right;
+
+
+
+}
+
 .about-container::after,
 .about-row::after {
     content: "";
@@ -233,7 +245,7 @@ header {
     background-color: #000;
     text-align: center;
     cursor: pointer;
-    width: 100%;
+    width: 20%;
 }
 
 .about-button:hover {
