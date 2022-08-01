@@ -276,6 +276,10 @@ header {
     padding-bottom: 20px;
     text-align: center;
 }
+
+.record-button-img-in-card{
+    border: 2px solid black;
+}
 /* About Page styling end */
 
 /**Styling for Google Maps**/
