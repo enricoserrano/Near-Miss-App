@@ -10,12 +10,12 @@
     <h1>Upload an Image</h1>
     <form action ="" method = "POST" enctype="multipart/form-data">
         <p>
-           <label for="img">Select image:</label>
-           <input type="file" id="img" name="imagefile" accept=".jpg, .jpeg, .png">
+           <label for="imginput">Select image:</label>
+           <input type="file" id="imginput" name="imagefile" accept=".jpg, .jpeg, .png">
         </p>
         <input type="submit" value="Post" name="submit1">
      </form>
-     
+     <div id="wrapper"></div>
      <?php 
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
         if(isset($_POST["submit1"])) {
@@ -54,6 +54,6 @@
     }
 
 ?>
-<script src="camera-rescale-function.js"> </script>
+<script src="camera-rescale-function.js" defer> </script>
 </body>
 </html>
