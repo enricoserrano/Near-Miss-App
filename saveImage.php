@@ -39,46 +39,6 @@
 
         // Checks if post is clicked
         if (isset($_POST["submit"])) {
-
-            // $fn = $_FILES['uploadedImageFile']['tmp_name'];
-            // $size = getimagesize($fn);
-            // $ratio = $size[0]/$size[1]; // width/height
-            // if( $ratio > 1) {
-            //     $width = 500;
-            //     $height = 500/$ratio;
-            // }
-            // else {
-            //     $width = 500*$ratio;
-            //     $height = 500;
-            // }
-            // $src = imagecreatefromstring(file_get_contents($fn));
-            // $dst = imagecreatetruecolor($width,$height);
-            // imagecopyresampled($dst,$src,0,0,0,0,$width,$height,$size[0],$size[1]);
-            // imagedestroy($src);
-            // imagepng($dst,$target_filename_here); // adjust format as needed
-            // imagedestroy($dst);
-
-            // $maxDim = 800;
-            // $file_name = $_FILES['uploadedImageFile']['tmp_name'];
-            // list($width, $height, $type, $attr) = getimagesize( $file_name );
-            // if ( $width > $maxDim || $height > $maxDim ) {
-            //     $target_filename = $file_name;
-            //     $ratio = $width/$height;
-            //     if( $ratio > 1) {
-            //         $new_width = $maxDim;
-            //         $new_height = $maxDim/$ratio;
-            //     } else {
-            //         $new_width = $maxDim*$ratio;
-            //         $new_height = $maxDim;
-            //     }
-            //     $src = imagecreatefromstring( file_get_contents( $file_name ) );
-            //     $dst = imagecreatetruecolor( $new_width, $new_height );
-            //     imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
-            //     imagedestroy( $src );
-            //     imagepng( $dst, $target_filename ); // adjust format as needed
-            //     imagedestroy( $dst );
-            }
-
             // Checks if the uploaded image is valid by checking if the file size is larger than 2,048KiB file size
             // Only an image file less than around 2.5MB/2,048KiB file size will be successfully uploaded in the DB when using the "longblob" datatype
             if (getimagesize($_FILES["uploadedImageFile"]["tmp_name"]) == false) {
