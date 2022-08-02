@@ -22,6 +22,22 @@
             $image = file_get_contents($_FILES['imagefile']['tmp_name']);
             $name = $_FILES['imagefile']['name'];
 
+            //Rescaling image
+            $handle = new \Verot\Upload\Upload($_FILES['image_field']);
+            if ($handle->uploaded) {
+              $handle->file_new_name_body   = 'image_resized';
+              $handle->image_resize         = true;
+              $handle->image_x              = 100;
+              $handle->image_ratio_y        = true;
+              $handle->process('/home/user/files/');
+              if ($handle->processed) {
+                echo 'image resized';
+                $handle->clean();
+              } else {
+                echo 'error : ' . $handle->error;
+              }
+            }
+
             if(!$establishCon) {
                 echo "<p>Failed to establish connection! Please try again</p>";
                 exit();
