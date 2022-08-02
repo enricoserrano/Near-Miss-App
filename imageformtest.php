@@ -49,14 +49,14 @@ $log = '';
               $handle->process();
               die();
                 
-              $resizedimage = file_get_contents(addslashes($handle));
-
+              //$resizedimage = file_get_contents(addslashes($handle));
+            /*
               if ($handle->processed) {
                 echo 'image resized';
                 $handle->clean();
               } else {
                 echo 'error : ' . $handle->error;
-              }
+              }*/
             }
 
             if(!$establishCon) {
@@ -78,7 +78,7 @@ $log = '';
                      }
                  }
      
-                $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$resizedimage');";
+                $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$handle');";
                 $initialiseInsert = mysqli_query($establishCon, $insertData);
                 if(!$initialiseInsert) {
                     echo "<p>There is an error with data insertion! Please try again</p>";
