@@ -19,30 +19,30 @@
      <?php 
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
         if(isset($_POST["submit1"])) {
-            $image = file_get_contents($_FILES['imagefile']['tmp_name']);
+
+            //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
             $name = $_FILES['imagefile']['name'];
 
-            //Rescaling image
-        //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
-        
-        //Decodes the image for rescaling
-        $percent = 0.5;
-        $data = $image;
-        $im = imagecreatefromstring($data);
-        $width = imagesx($im);
-        $height = imagesy($im);
-        $newwidth = $width * $percent;
-        $newheight = $height * $percent;
-    
-        $thumb = imagecreatetruecolor($newwidth, $newheight);
-    
-        // Resize
-        imagecopyresized($thumb, $im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-    
-        // Output
-        imagejpeg($thumb);
+            $tmpName  = $_FILES['imagefile']['tmp_name'];  
 
-        $imagerescaled = file_get_contents(addslashes($thumb));
+            list($width,$height)=getimagesize($_FILES['imagefile']['tmp_name']);
+
+            if ($width>$height && $width>$maxwidth) {
+                $newheight=($height/$width)*$maxwidth;
+                $newwidth=$maxwidth;
+                $imageResized = imagecreatetruecolor($newwidth, $newheight);
+                $imageTmp     = imagecreatefromjpeg ($_FILES['imagefile']['tmp_name']);
+                imagecopyresampled($imageResized, $imageTmp, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+                $tmpName=$imageResized;
+
+                // My problem lies somewhere here ^^^^
+            }
+
+            // Read the file 
+            $fp      = fopen($tmpName, 'r');
+            $data = fread($fp, filesize($tmpName));
+            $data = addslashes($data);
+            fclose($fp);
 
 
         if(!$establishCon) {
@@ -64,7 +64,7 @@
                     }
                 }
     
-            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$imagerescaled');";
+            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$data');";
             $initialiseInsert = mysqli_query($establishCon, $insertData);
             if(!$initialiseInsert) {
                 echo "<p>There is an error with data insertion! Please try again</p>";
