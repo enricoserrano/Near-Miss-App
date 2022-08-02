@@ -11,10 +11,11 @@
     <?php
         //require_once('../../conf/connectionInfo.php');
 
-        $image = $_FILES['imagefile']['tmp_name'];
+        //$image = $_FILES['imagefile']['tmp_name'];
         $name = $_FILES['imagefile']['name'];
-        $image = base64_encode(file_get_contents(addslashes($image)));
-
+        //$image = base64_encode(file_get_contents(addslashes($image)));
+        $image = file_get_contents($_FILES['imagefile']['tmp_name']);
+        /*
         //Decodes the image for rescaling
         $percent = 0.5;
         $data = base64_decode($image);
@@ -32,7 +33,7 @@
         // Output
         imagejpeg($thumb);
         $imagerescaled = base64_encode(file_get_contents(addslashes($thumb)));
-
+*/
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
 
         if(!$establishCon) {
@@ -54,7 +55,7 @@
                 }
             }
 
-           $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$imagerescaled');";
+           $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image');";
            $initialiseInsert = mysqli_query($establishCon, $insertData);
            if(!$initialiseInsert) {
                echo "<p>There is an error with data insertion! Please try again</p>";
