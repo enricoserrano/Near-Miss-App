@@ -20,8 +20,8 @@
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
         if(isset($_POST["submit1"])) {
 
-            //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
             $name = $_FILES['imagefile']['name'];
+            //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
 
             $tmpName  = $_FILES['imagefile']['tmp_name'];  
 
@@ -39,11 +39,12 @@
             }
 
             // Read the file 
+            /*
             $fp      = fopen($tmpName, 'r');
             $data = fread($fp, filesize($tmpName));
             $data = addslashes($data);
             fclose($fp);
-
+*/          $data = $tmpname;
 
         if(!$establishCon) {
             echo "<p>Failed to establish connection! Please try again</p>";
