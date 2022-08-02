@@ -60,6 +60,7 @@
             <label for="uploadImage">Select files:</label>
             <!-- Only an image file of smaller than than 2,048KiB file size will be successfully stored in the database as a binary file-->
             <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" multiple>
+            <img id="preview"></img>
             <br><br>
             <h3>Uploaded Image Preview</h3>
             <div id="show-uploaded-image"></div>
@@ -69,5 +70,33 @@
       </form>
       <script type ="text/javascript" src="camera-image-functions.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+      <script>
+         let imgInput = document.getElementById('uploaded-image');
+        imgInput.addEventListener('change', function (e) {
+            if (e.target.files) {
+                let imageFile = e.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = document.createElement("img");
+                    img.onload = function (event) {
+                        // Dynamically create a canvas element
+                        var canvas = document.createElement("canvas");
+
+                        // var canvas = document.getElementById("canvas");
+                        var ctx = canvas.getContext("2d");
+
+                        // Actual resizing
+                        ctx.drawImage(img, 0, 0, 300, 300);
+
+                        // Show resized image in preview element
+                        var dataurl = canvas.toDataURL(imageFile.type);
+                        document.getElementById("preview").src = dataurl;
+                    }
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(imageFile);
+            }
+        });
+      </script>
    </body>
 </html>
