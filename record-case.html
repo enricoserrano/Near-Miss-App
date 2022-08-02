@@ -61,7 +61,7 @@
             <!-- Only an image file of smaller than than 2,048KiB file size will be successfully stored in the database as a binary file-->
             
             <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" multiple>
-            <img src="image1.jpg" id="myImg" name="uploadedImageFile2">
+            <img src="image1.jpg" id="testImageID" name="uploadedImageFile2" onchange="test()">
             <img id="preview"></img>
             <br><br>
             <h3>Uploaded Image Preview</h3>
@@ -73,33 +73,38 @@
       <script type ="text/javascript" src="camera-image-functions.js"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
       <script>
-         let imgInput = document.getElementById('uploaded-image');
-        imgInput.addEventListener('change', function (e) {
-            if (e.target.files) {
-                let imageFile = e.target.files[0];
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    var img = document.createElement("img");
-                    img.onload = function (event) {
-                        // Dynamically create a canvas element
-                        var canvas = document.createElement("canvas");
+      //    let imgInput = document.getElementById('uploaded-image');
+      //   imgInput.addEventListener('change', function (e) {
+      //       if (e.target.files) {
+      //           let imageFile = e.target.files[0];
+      //           var reader = new FileReader();
+      //           reader.onload = function (e) {
+      //               var img = document.createElement("img");
+      //               img.onload = function (event) {
+      //                   // Dynamically create a canvas element
+      //                   var canvas = document.createElement("canvas");
 
-                        // var canvas = document.getElementById("canvas");
-                        var ctx = canvas.getContext("2d");
+      //                   // var canvas = document.getElementById("canvas");
+      //                   var ctx = canvas.getContext("2d");
 
-                        // Actual resizing
-                        ctx.drawImage(img, 0, 0, 300, 300);
+      //                   // Actual resizing
+      //                   ctx.drawImage(img, 0, 0, 300, 300);
 
-                        // Show resized image in preview element
-                        var dataurl = canvas.toDataURL(imageFile.type);
-                        document.getElementById("preview").src = dataurl;
-                    }
-                    img.src = e.target.result;
-                }
-                reader.readAsDataURL(imageFile);
-                document.getElementById("myImg").src = img.src;
-            }
-        });
+      //                   // Show resized image in preview element
+      //                   var dataurl = canvas.toDataURL(imageFile.type);
+      //                   document.getElementById("preview").src = dataurl;
+      //               }
+      //               img.src = e.target.result;
+      //           }
+      //           reader.readAsDataURL(imageFile);
+      //           document.getElementById("testImageID").src = dataurl;
+      //       }
+      //   });
+
+      //   function test()
+      //   {
+      //       document.getElementById("testImageID").innerHTML = "Onchange is working on the image";  
+      //   }
       </script>
    </body>
 </html>
