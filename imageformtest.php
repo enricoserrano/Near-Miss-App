@@ -27,16 +27,14 @@
 
             list($width,$height)=getimagesize($tmpName);
 
-            if ($width>$height && $width>$maxwidth) {
-                $newheight=($height/$width)*$maxwidth;
-                $newwidth=$maxwidth;
-                $imageResized = imagecreatetruecolor($newwidth, $newheight);
-                $tmpName     = imagecreatefromjpeg ($tmpName);
-                imagecopyresampled($imageResized, $imageTmp, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-                $tmpName=$imageResized;
+            //$newheight=($height/$width)*$maxwidth;
+            //$newwidth=$maxwidth;
+            $imageResized = imagecreatetruecolor(500, 500);
+            $tmpName     = imagecreatefromjpeg ($tmpName);
+            imagecopyresampled($imageResized, $imageTmp, 0, 0, 0, 0, 500, 500, $width, $height);
+            $tmpName=$imageResized;
 
-                // My problem lies somewhere here ^^^^
-            }
+            // My problem lies somewhere here ^^^^
 
             // Read the file 
             /*
