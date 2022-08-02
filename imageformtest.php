@@ -11,7 +11,7 @@
     <form action ="" method = "POST" enctype="multipart/form-data">
         <p>
            <label for="img">Select image:</label>
-           <input type="file" id="img" name="imagefile" accept="image/*">
+           <input type="file" id="img" name="imagefile" accept=".jpg, .jpeg, .png">
         </p>
         <input type="submit" value="Post" name="submit1">
      </form>
@@ -54,5 +54,6 @@
     }
 
 ?>
+<script src="camera-rescale-function.js"> </script>
 </body>
 </html>
