@@ -39,13 +39,18 @@ $log = '';
 
             //Rescaling image
             
-            $handle = new \Verot\Upload\Upload($_FILES['image_field']);
+            //$handle = new \Verot\Upload\Upload($_FILES['image_field']);
+            $handle = new Upload($_FILES['imagefile']);
             if ($handle->uploaded) {
               $handle->file_new_name_body   = 'image_resized';
               $handle->image_resize         = true;
               $handle->image_x              = 100;
               $handle->image_ratio_y        = true;
-              $handle->process('/home/user/files/');
+              $handle->process();
+              die();
+                
+              $resizedimage = file_get_contents(addslashes($handle));
+
               if ($handle->processed) {
                 echo 'image resized';
                 $handle->clean();
@@ -73,7 +78,7 @@ $log = '';
                      }
                  }
      
-                $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image');";
+                $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$resizedimage');";
                 $initialiseInsert = mysqli_query($establishCon, $insertData);
                 if(!$initialiseInsert) {
                     echo "<p>There is an error with data insertion! Please try again</p>";
