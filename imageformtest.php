@@ -1,3 +1,18 @@
+<?php
+namespace Verot\Upload;
+
+error_reporting(E_ALL);
+
+// we first include the upload class, as we will need it here to deal with the uploaded file
+include('./src/class.upload.php');
+
+// set variables
+$dir_dest = (isset($_GET['dir']) ? $_GET['dir'] : 'tmp');
+$dir_pics = (isset($_GET['pics']) ? $_GET['pics'] : $dir_dest);
+
+$log = '';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +38,7 @@
             $name = $_FILES['imagefile']['name'];
 
             //Rescaling image
+            
             $handle = new \Verot\Upload\Upload($_FILES['image_field']);
             if ($handle->uploaded) {
               $handle->file_new_name_body   = 'image_resized';
