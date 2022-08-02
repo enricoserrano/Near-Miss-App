@@ -303,6 +303,10 @@ header {
 .record-button-img-in-card{
     border: 2px solid black;
 }
+
+.instruction-card-header-text{
+    padding-top: 20px;
+}
 /* About Page styling end */
 
 /**Styling for Google Maps**/
