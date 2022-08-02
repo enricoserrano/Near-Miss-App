@@ -8,10 +8,11 @@
 </head>
 <body>
     <h1>Upload an Image</h1>
-    <form action ="" method = "POST" enctype="multipart/form-data">
+    <form action ="" method = "POST" enctype="multipart/form-data" name="myForm">
         <p>
            <label for="imginput">Select image:</label>
            <input type="file" id="imginput" name="imagefile" accept=".jpg, .jpeg, .png">
+           <input type="text" id="mydata" name="mydatafile" value="">
         </p>
         <input type="submit" value="Post" name="submit1">
      </form>
@@ -22,7 +23,8 @@
 
         $name = $_FILES['imagefile']['name'];
         $image = file_get_contents($_FILES['imagefile']['tmp_name']);
-
+        $image3 = $_POST['mydatafile'];
+        
         if(!$establishCon) {
             echo "<p>Failed to establish connection! Please try again</p>";
             exit();
@@ -54,6 +56,6 @@
     }
 
 ?>
-<script src="camera-rescale-function.js" defer> </script>
+<script src="camera-rescale-function.js"> </script>
 </body>
 </html>

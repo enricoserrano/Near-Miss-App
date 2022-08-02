@@ -24,7 +24,9 @@ input.addEventListener('change', (event) => {
 
             let new_image = document.createElement("img")
             new_image.src = new_image_url
-            document.getElementById("wrapper").appendChild(image)
+            //document.getElementById("wrapper").appendChild(image)
+            //$("#mydata").val(image);
+            document.forms.myForm.mydatafile.value = new_image_url;
         }
     }
 })
