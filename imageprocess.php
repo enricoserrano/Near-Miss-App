@@ -11,10 +11,10 @@
     <?php
         //require_once('../../conf/connectionInfo.php');
 
-        //$image = $_FILES['imagefile']['tmp_name'];
+        $image = $_FILES['imagefile']['tmp_name'];
         $name = $_FILES['imagefile']['name'];
-        //$image = base64_encode(file_get_contents(addslashes($image)));
-        $image = file_get_contents($_FILES['imagefile']['tmp_name']);
+        $image = base64_encode(file_get_contents(addslashes($image)));
+        //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
         /*
         //Decodes the image for rescaling
         $percent = 0.5;
