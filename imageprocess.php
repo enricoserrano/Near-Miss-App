@@ -15,24 +15,23 @@
         $name = $_FILES['imagefile']['name'];
         $image = base64_encode(file_get_contents(addslashes($image)));
 
-        //$handle = new \Verot\Upload\Upload($_FILES['image_field']);
-
-        $handle = new Upload('base64:'.$image);
-        if ($handle->uploaded) {
-          $handle->file_new_name_body   = 'image_resized';
-          $handle->image_resize         = true;
-          $handle->image_x              = 100;
-          $handle->image_ratio_y        = true;
-          $handle->process();
-          $handles = base64_encode(file_get_contents(addslashes($handle)));
-          
-          if ($handle->processed) {
-            echo 'image resized';
-            $handle->clean();
-          } else {
-            echo 'error : ' . $handle->error;
-          }
-        }
+        //Decodes the image for rescaling
+        $percent = 0.5;
+        $data = base64_decode($image);
+        $im = imagecreatefromstring($data);
+        $width = imagesx($im);
+        $height = imagesy($im);
+        $newwidth = $width * $percent;
+        $newheight = $height * $percent;
+    
+        $thumb = imagecreatetruecolor($newwidth, $newheight);
+    
+        // Resize
+        imagecopyresized($thumb, $im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+    
+        // Output
+        imagejpeg($thumb);
+        $imagerescaled = base64_encode(file_get_contents(addslashes($thumb)));
 
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
 
@@ -55,7 +54,7 @@
                 }
             }
 
-           $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$handles');";
+           $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$imagerescaled');";
            $initialiseInsert = mysqli_query($establishCon, $insertData);
            if(!$initialiseInsert) {
                echo "<p>There is an error with data insertion! Please try again</p>";
