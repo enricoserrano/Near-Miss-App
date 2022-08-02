@@ -20,29 +20,8 @@
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
         if(isset($_POST["submit1"])) {
 
-            $name = $_FILES['imagefile']['name'];
-            //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
-
-            $tmpName  = $_FILES['imagefile']['tmp_name'];  
-
-            list($width,$height)=getimagesize($tmpName);
-
-            //$newheight=($height/$width)*$maxwidth;
-            //$newwidth=$maxwidth;
-            $imageResized = imagecreatetruecolor(500, 500);
-            $tmpName     = imagecreatefromjpeg ($tmpName);
-            imagecopyresampled($imageResized, $imageTmp, 0, 0, 0, 0, 500, 500, $width, $height);
-            $tmpName=$imageResized;
-
-            // My problem lies somewhere here ^^^^
-
-            // Read the file 
-            /*
-            $fp      = fopen($tmpName, 'r');
-            $data = fread($fp, filesize($tmpName));
-            $data = addslashes($data);
-            fclose($fp);
-*/          $data = $tmpname;
+        $name = $_FILES['imagefile']['name'];
+        $image = file_get_contents($_FILES['imagefile']['tmp_name']);
 
         if(!$establishCon) {
             echo "<p>Failed to establish connection! Please try again</p>";
@@ -63,7 +42,7 @@
                     }
                 }
     
-            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$data');";
+            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image');";
             $initialiseInsert = mysqli_query($establishCon, $insertData);
             if(!$initialiseInsert) {
                 echo "<p>There is an error with data insertion! Please try again</p>";
