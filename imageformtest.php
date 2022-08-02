@@ -25,13 +25,13 @@
 
             $tmpName  = $_FILES['imagefile']['tmp_name'];  
 
-            list($width,$height)=getimagesize($_FILES['imagefile']['tmp_name']);
+            list($width,$height)=getimagesize($tmpName);
 
             if ($width>$height && $width>$maxwidth) {
                 $newheight=($height/$width)*$maxwidth;
                 $newwidth=$maxwidth;
                 $imageResized = imagecreatetruecolor($newwidth, $newheight);
-                $imageTmp     = imagecreatefromjpeg ($_FILES['imagefile']['tmp_name']);
+                $tmpName     = imagecreatefromjpeg ($tmpName);
                 imagecopyresampled($imageResized, $imageTmp, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
                 $tmpName=$imageResized;
 
