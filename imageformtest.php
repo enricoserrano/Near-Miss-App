@@ -1,18 +1,3 @@
-<?php
-namespace Verot\Upload;
-
-error_reporting(E_ALL);
-
-// we first include the upload class, as we will need it here to deal with the uploaded file
-include('./src/class.upload.php');
-
-// set variables
-$dir_dest = (isset($_GET['dir']) ? $_GET['dir'] : 'tmp');
-$dir_pics = (isset($_GET['pics']) ? $_GET['pics'] : $dir_dest);
-
-$log = '';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,56 +23,57 @@ $log = '';
             $name = $_FILES['imagefile']['name'];
 
             //Rescaling image
-            
-            //$handle = new \Verot\Upload\Upload($_FILES['image_field']);
-            $handle = new Upload($_FILES['imagefile']['tmp_name']);
-            if ($handle->uploaded) {
-              $handle->file_new_name_body   = 'image_resized';
-              $handle->image_resize         = true;
-              $handle->image_x              = 100;
-              $handle->image_ratio_y        = true;
-              $resizedimage = file_get_contents(addslashes($handle));
-              $handle->process();
-              die();
-                
-            
-              if ($handle->processed) {
-                echo 'image resized';
-                $handle->clean();
-              } else {
-                echo 'error : ' . $handle->error;
-              }
-            }
+        //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
+        
+        //Decodes the image for rescaling
+        $percent = 0.5;
+        $data = $image;
+        $im = imagecreatefromstring($data);
+        $width = imagesx($im);
+        $height = imagesy($im);
+        $newwidth = $width * $percent;
+        $newheight = $height * $percent;
+    
+        $thumb = imagecreatetruecolor($newwidth, $newheight);
+    
+        // Resize
+        imagecopyresized($thumb, $im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+    
+        // Output
+        imagejpeg($thumb);
 
-            if(!$establishCon) {
-                echo "<p>Failed to establish connection! Please try again</p>";
-                exit();
-             } else {
-     
-                 if (!$tableExist) {
-                     $createTableQuery =
-                         "CREATE TABLE nearMissImages (imageID INT AUTO_INCREMENT PRIMARY KEY, imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
-         
-                     $createTableResult = mysqli_query($establishCon, $createTableQuery);
-         
-                     // Error message is shown if the table cannot be created else a success message is shown
-                     if (!$createTableResult) {
-                         echo "<p>An error has occured in the creating the table. Please try again.</p>";
-                     } else {
-                         echo "<p>The 'nearMissImages' table has been created successfully.</p>";
-                     }
-                 }
-     
-                $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$resizedimage');";
-                $initialiseInsert = mysqli_query($establishCon, $insertData);
-                if(!$initialiseInsert) {
-                    echo "<p>There is an error with data insertion! Please try again</p>";
-                } else {
-                   echo "<p>Image added to the database</p>";
+        $imagerescaled = file_get_contents(addslashes($thumb));
+
+
+        if(!$establishCon) {
+            echo "<p>Failed to establish connection! Please try again</p>";
+            exit();
+            } else {
+    
+                if (!$tableExist) {
+                    $createTableQuery =
+                        "CREATE TABLE nearMissImages (imageID INT AUTO_INCREMENT PRIMARY KEY, imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+        
+                    $createTableResult = mysqli_query($establishCon, $createTableQuery);
+        
+                    // Error message is shown if the table cannot be created else a success message is shown
+                    if (!$createTableResult) {
+                        echo "<p>An error has occured in the creating the table. Please try again.</p>";
+                    } else {
+                        echo "<p>The 'nearMissImages' table has been created successfully.</p>";
+                    }
                 }
-             }
-             mysqli_close($establishCon);
-        }
+    
+            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$imagerescaled');";
+            $initialiseInsert = mysqli_query($establishCon, $insertData);
+            if(!$initialiseInsert) {
+                echo "<p>There is an error with data insertion! Please try again</p>";
+            } else {
+                echo "<p>Image added to the database</p>";
+            }
+            }
+            mysqli_close($establishCon);
+    }
 
 ?>
 </body>
