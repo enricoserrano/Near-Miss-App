@@ -9,8 +9,10 @@
 <body>
     <?php
     // Establishes connection to the DB by declaring and initialising the DB login details
-    require_once "../../conf/connectionInfo.php";
-    $dbConn = @mysqli_connect($sql_host, $sql_user, $sql_pass, $sql_db);
+    //require_once "../../conf/connectionInfo.php";
+    //$dbConn = @mysqli_connect($sql_host, $sql_user, $sql_pass, $sql_db);
+    $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
+    
 
     if (!$dbConn) {
         echo "<p>Connection to the Database has failed</p>";
