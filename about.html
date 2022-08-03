@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--link to the font awesome cdnjs library-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      
+      <title>About</title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
+      <link rel="stylesheet" href="./styles/style.css">
+   </head>
+   <body style = "background-color: white;">
+      <header>
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+            <!-- Toggle button -->
+            <button
+               class="navbar-toggler"
+               type="button"
+               data-mdb-toggle="collapse"
+               data-mdb-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent"
+               aria-expanded="false"
+               aria-label="Toggle navigation"
+               >
+            <i class="fas fa-bars"></i>
+            </button>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <!-- Navbar brand -->
+               <a class="navbar-brand mt-2 mt-lg-0" href="#">
+               <img
+                  src="./images/logo.png"
+                  height="45"
+                  width="45"
+                  alt="MDB Logo"
+                  loading="lazy"
+                  />
+               <b>Near-miss Application</b></a>
+               <!-- Left links -->
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="record-case.html">Record Near-miss</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+               </ul>
+               <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Container wrapper -->
+         </nav>
+         <!-- Navbar -->
+      </header>
+      <!-- Background image -->
+      <div id="about-header" class="p-5 text-center bg-image"
+         style="background-image: url('./images/about-background-image.jpg')">
+         <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+               <div class="about-header-text">
+                  <h1>About Near-miss</h1>
+                  <br>
+                  <p class = "about-oneLiner">The Near-miss app allows users to record cases of Near-miss incidents in the workplace.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- <h2 class = "how-to-use">How To Use</h2> -->
+      <div class = "difference-container">
+         <div class="about-row">
+            <div class="difference-column">
+               <img src="./images/about-page-difference-image-nm-acc.png" alt="An Image that displays the clear visible difference between a Near-miss and an Accident" style="width:100%">
+            </div>
+            <div class="difference-column">
+               <div class="about-app-card">
+                  <div class="difference-card-container">
+                     <h2>Near-misses and accidents</h2>
+                     <br>
+                     <h4>What is a Near-miss?</h4>
+                     <p>A near-miss can be defined as narrowly missing an accident or event that had the potential to cause harm or injuries to a person.</p>
+                     <h4>What is an accident?</h4>
+                     <p>An accident can be defined as an incident that was unplanned and occurs unexpectedly that causes injury and harm to a person.</p>
+                     <h4>What's the difference?</h4>
+                     <p>This app only records a near-miss in the workplace if an accident was closely avoided. To record an accident, please use a seperate form.</p>
+                     <a id="learn-nearmiss-button-left-align" href="https://www.worksafe.govt.nz/about-us/news-and-media/near-miss-incident-sends-sharp-reminder/"><strong>Learn about Near-misses</strong> <i class="fas fa-arrow-right"></i></a>
+                     <a id="learn-accidents-button-right-align" href="https://www.worksafe.govt.nz/about-us/news-and-media/near-miss-incident-sends-sharp-reminder/"><strong>Learn about accidents </strong><i class="fas fa-arrow-right"></i></a> 
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="about-row">
+            <div class="about-tutorial-column">
+               <div class="about-app-card">
+                  <img src="./images/go-to-form-about-page-fixed.jpg" style="width:100%">
+                  <div class="about-container">
+                     <h2 class = "instruction-card-header-text">1) Go to the form</h2>
+                     <br>
+                     <!-- <p class="about-card-title">Art Director</p> -->
+                     <p>Navigate to the "Record Near-miss" page where you will find a form to fill out to report a Near-miss.</p>
+                     <!-- <p>mike@example.com</p> -->
+                     <br>
+                     <!-- <img src="images/record-near-miss-button.png" class = "record-button-img-in-card" alt="record button"> -->
+                     <button type="button" class="btn btn-warning">
+                        <i class="fas fa-bell"></i>
+                        <span class="button-text-record">Record Near-miss</span>
+                     </button>
+                     <!-- <p><button class="about-button">Contact</button></p> -->
+                  </div>
+               </div>
+            </div>
+            <div class="about-tutorial-column">
+               <div class="about-app-card">
+                  <img src="./images/fill-out-the-form-about-page-fixed.jpg" style="width:100%">
+                  <div class="about-container">
+                     <h2 class = "instruction-card-header-text">2) Fill in the fields</h2>
+                     <br>
+                     <!-- <p class="about-card-title">Designer</p> -->
+                     <p>Fill out each input field of the form providing necessary information to the Near-miss you have experienced or witnessed.</p>
+                     <!-- <p>john@example.com</p> -->
+                     <!-- <p><button class="about-button">Contact</button></p> -->
+                  </div>
+               </div>
+            </div>
+            <div class="about-tutorial-column">
+               <div class="about-app-card">
+                  <img src="./images/submit-form-view-receipt-about-page-fixed.jpg" alt="" style="width:100%">
+                  <div class="about-container">
+                     <h2 class = "instruction-card-header-text">3) Submit / View receipt</h2>
+                     <p class="about-card-title">Designer</p>
+                     <p>Add text regarding the view receipt process once completed user story.</p>
+                     <!-- <p><button class="about-button">Contact</button></p> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="our-team-section">
+         <h1>Our Team</h1>
+      </div>
+      <div class="about-row">
+         <div class="about-tutorial-column">
+            <div class="about-app-card">
+               <img src="./images/team-photo.JPG" style="width:100%">
+               <div class="about-container">
+                  <h2>Instruction 1</h2>
+                  <p class="about-card-title">CEO & Founder</p>
+                  <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                  <p>jane@example.com</p>
+                  <p><button class="about-button">Contact</button></p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+   </body>
+</html>

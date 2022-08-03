@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Contact Page</title>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="./styles/style.css">
+   </head>
+   <body>
+      <header>
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+               data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+               aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+            </button>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <!-- Navbar brand -->
+               <a class="navbar-brand mt-2 mt-lg-0" href="#">
+               <img src="./images/logo.png" height="45" width="45" alt="MDB Logo" loading="lazy" />
+               <b>Near-miss Application</b></a>
+               <!-- Left links -->
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="record-case.html">Record Near-miss</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+               </ul>
+               <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Container wrapper -->
+         </nav>
+         <!-- Navbar -->
+         <!-- Background image -->
+         <div id="contact-bg" class="p-5 text-center bg-image"
+            style="background-image: url('./images/contact-image-background3.jpg');">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+               <div class="d-flex justify-content-center align-items-center h-100">
+                  <div class="text-white">
+                     <h1 class="mb-3">Contact Us</h1>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Background image -->
+      </header>
+      <div class="contact-google-maps">
+         <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2998.0853195668087!2d174.7743409515125!3d-41.28524754816293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d318a6524ea9be9%3A0xd402b7b7cd353ca6!2sWorksafe%20New%20Zealand!5e0!3m2!1sen!2snz!4v1658365898959!5m2!1sen!2snz"
+            width=auto height=auto style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+      <div id = "address-container">
+         <div id = "find-us">
+            <h3>Find us</h3>
+            <p>If you have an appointment at our national office, or need to send something to us, our details are below.</p>
+            <br>
+         </div>
+         <div id="phys-address">
+            <h5>Physical Address</h5>
+            <p>WorkSafe New Zealand</p>
+            <p>Level 6</p>
+            <p>86 Customhouse Quay</p>
+            <p>Wellington 6011</p>
+            <p>New Zealand</p>
+            <p><strong>Please note:</strong>
+               we do not offer walk-in services.
+            </p>
+         </div>
+         <div id="postal-address">
+            <h5>Postal Address</h5>
+            <p>PO Box 165</p>
+            <p>Wellington 6140</p>
+            <p>New Zealand</p>
+            <p><strong>Phone: </strong>0800 030 040</p>
+            <p><strong>Fax: </strong>(40) 914 6866 (general faxes only)</p>
+         </div>
+      </div>
+   </body>
+</html>

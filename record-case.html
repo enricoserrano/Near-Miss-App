@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Record Case Page</title>
+      <script type = "text/javascript" src = "https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="./styles/style.css">
+   </head>
+   <body>
+      <!-- <video id="webCam" autoplay playsinlne width="800" height="600"></video>
+         <canvas id="canvas"></canvas>
+         <a download onClick="takeAPicture()">SNAP</a> -->
+      <header>
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+               data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+               aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+            </button>
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <!-- Navbar brand -->
+               <a class="navbar-brand mt-2 mt-lg-0" href="#">
+               <img src="./images/logo.png" height="45" width="45" alt="MDB Logo" loading="lazy" />
+               <b>Near-miss Application</b></a>
+               <!-- Left links -->
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">Record Near-miss</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="contact.html">Contact Us</a>
+                  </li>
+               </ul>
+               <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Container wrapper -->
+         </nav>
+         <!-- Navbar -->
+      </header>
+      <form action="saveImage.php" method="POST" enctype="multipart/form-data">
+         <div id = "upload-image">
+            <h2>Upload an Image</h2>
+            <label for="uploadImage">Select files:</label>
+            <!-- Only an image file of smaller than than 2,048KiB file size will be successfully stored in the database as a binary file-->
+            <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" multiple>
+            <br><br>
+            <h3>Uploaded Image Preview</h3>
+            <div id="show-uploaded-image"></div>
+            <br>
+            <input type="submit" name="submit">
+         </div>
+      </form>
+      <script type ="text/javascript" src="camera-image-functions.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+   </body>
+</html>
