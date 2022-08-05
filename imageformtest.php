@@ -21,9 +21,11 @@
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
         if(isset($_POST["submit1"])) {
 
+        $image = $_FILES['imagefile']['tmp_name'];
         $name = $_FILES['imagefile']['name'];
-        $image = file_get_contents($_FILES['imagefile']['tmp_name']);
-        $image3 = $_POST['mydatafile'];
+        $image = (file_get_contents(addslashes($image)));
+        $image3 = $_POST(['mydatafile']);
+        $image4 = addslashes($image3);
         
         if(!$establishCon) {
             echo "<p>Failed to establish connection! Please try again</p>";
@@ -44,7 +46,7 @@
                     }
                 }
     
-            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image');";
+            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image4');";
             $initialiseInsert = mysqli_query($establishCon, $insertData);
             if(!$initialiseInsert) {
                 echo "<p>There is an error with data insertion! Please try again</p>";
