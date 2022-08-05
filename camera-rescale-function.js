@@ -20,7 +20,7 @@ input.addEventListener('change', (event) => {
             const context = canvas.getContext("2d")
             context.drawImage(image, 0,0, canvas.width, canvas.height)
 
-            let new_image_url = context.canvas.toDataURL("image/jpeg", 70)
+            let new_image_url = context.canvas.toDataURL("image/jpeg", 100)
 
             let new_image = document.createElement("img")
             new_image.src = new_image_url
