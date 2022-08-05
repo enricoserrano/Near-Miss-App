@@ -52,14 +52,13 @@
         <!-- Background image -->
 
         <div>
-            <h1 class="mb-3">Record a Near-miss</h1>
+            <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <form id="mainForm"></form>
             <div class="form-group">
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
-                <label for="location" style="color: white;">Location(required): </label>
-                <input type="text" id="location" name="location" class="form-control">
+                <label for="location" style="color: white;">Location(required)</label>
+                <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
                 <span id="errName" style="color: red; display: none"></span>
-
             </div>
 
             <!-- <label>Please upload your photo</label>
@@ -70,45 +69,46 @@
 
 
             <div>
-                <label for="image" style="color: white;">Image(*add logo for it)</label>
-                <br><i class="fa-solid fa-file-image" style="color: White;"></i>
+                <p></p><i class="fa-solid fa-file-image" style="color: white;"></i>
+                <label for="image" style="color: white;">Image</label>
+                <br><i class="fa-solid fa-upload" style="color: White;"></i>
                 <!-- <input type="button" > -->
-                <button type="button" style="border: 1px;">Upload a image</button>
+                <button type="button" style="border: 1px;">Upload a image</button> <!--Will Update button for this and take photo once team on this user story has this working correctly-->
                 <br><br><i class="fa-solid fa-camera" style="color: white;"></i>
                 <!-- <input type="button"> -->
                 <button type="button" style="border: 1px; ">Take a Photo</button>
             </div>
             <div>
-                <i class="fa-solid fa-note-sticky" style="color: white;"></i>
-                <label for="Description" style="color: white;">Description</label>
-                <input type="text" id="image" name="image" class="form-control">
+                <br><i class="fa-solid fa-note-sticky" style="color: white;"></i>
+                <label for="description" style="color: white;">Description</label>
+                <br><input type="text" id="description" name="description" placeholder="Enter Description..."><br>
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
-                <i class="fa-solid fa-clock" style="color: white;"></i>
-                <label for="Time" style="color: white;">Time of Near-miss</label>
-                <input type="text" id="time" name="time" class="form-control">
+                <!--Will need to update this to an actual time and date button instead of a text field but this is fine as a placeholder-->
+                <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
+                <label for="time" style="color: white;">Date and Time of Near-miss</label>
+                <br><input type="text" id="time" name="time" placeholder="Enter Date and Time...">
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
-                <label for="priority" style="color: white;" >Priority(*add logo for it)</label>
-                <input type="checkbox" id="lowPriority" name="lowPriority" value="Low">
+                <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
+                <label for="priority" style="color: white;" >Priority</label>
+                <!-- <input type="checkbox" id="lowPriority" name="lowPriority" value="Low"> -->
                 <!-- <label for="lowPriority" style="color: green;"> Low</label><br> -->
-                <input type="checkbox" id="mediumPriority" name="mediumPriority" value="Medium">
+                <!-- <input type="checkbox" id="mediumPriority" name="mediumPriority" value="Medium"> -->
                 <!-- <label for="mediumPriority" style="color: yellow;"> Medium</label><br> -->
-                <button type="button" style=" background-color: green;">Low</button>
-                <button type="button" style=" background-color: yellow;">Medium</button>
-                <button type="button" style=" background-color: red;">High</button>
+                <br><button type="button" class="low" style=" background-color: green;">Low</button>
+                <button type="button" class="medium" style=" background-color: orange;">Medium</button>
+                <button type="button" class="high" style=" background-color: red;">High</button>
                 <!-- <input type="checkbox" id="highPriority" name="highPriority" value="High"> -->
-                <label for="highPriority" style="color: red;"> High</label><br>
+                <!-- <label for="highPriority" style="color: red;"> High</label><br> -->
             </div>
             
-            <button type="button" onclick="javascript:submit()">submit </button>
-            <button type="button" onclick="javascript:cancelForm()">Cancel </button>
+            <br><button type="button" class ="submit" onclick="javascript:submit()">Submit </button>
+            <button type="button" class ="cancel" onclick="javascript:cancelForm()">Cancel </button>
             </form>
         </div>
-
-
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -120,7 +120,7 @@
     })
 
     function submit(){
-    //This part will neend to validate all the information inserted into the form.
+    //This part will need to validate all the information inserted into the form.
     }
 
     function cancelForm(){
