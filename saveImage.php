@@ -9,8 +9,8 @@
 <body>
     <?php
     // Establishes connection to the DB by declaring and initialising the DB login details
-    require_once "../../conf/connectionInfo.php";
-    $dbConn = @mysqli_connect($sql_host, $sql_user, $sql_pass, $sql_db);
+    //require_once "../../conf/connectionInfo.php";
+    $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
 
     if (!$dbConn) {
         echo "<p>Connection to the Database has failed</p>";
@@ -23,7 +23,7 @@
         // If the table doesnt exist, the table storing the near miss images is created
         if (!$tableExist) {
             $createTableQuery =
-                "CREATE TABLE nearMissImages (imageID INT AUTO_INCREMENT PRIMARY KEY, imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+                "CREATE TABLE nearMissImages2 (imageID INT AUTO_INCREMENT PRIMARY KEY, imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
             $createTableResult = mysqli_query($dbConn, $createTableQuery);
 
@@ -38,9 +38,6 @@
         // Checks if post is clicked
         if (isset($_POST["submit"])) {
             // Checks if the uploaded image is valid
-            if (getimagesize($_FILES["uploadedImageFile"]["tmp_name"]) == false) {
-                echo "<p>Please choose a valid image file!</p>";
-            } else {
                 // If the image uploaded is valid, the following occurs
 
                 // Declare and store image file and file name into variables
@@ -49,7 +46,7 @@
                 $image = base64_encode(file_get_contents(addslashes($image)));
 
                 // Insert the uploaded image and file name onto the database table
-                $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
+                $insertImageIntoDBQuery = "INSERT INTO nearMissImages2 (imageFileName, imageFiles) 
                                         VALUES ('$imageFileName', '$image')";
                 $insertImageIntoDBResult = mysqli_query(
                     $dbConn,
@@ -67,7 +64,7 @@
                         $imageFileName .
                         "</p>";
                 }
-            }
+            
         }
     }
 
