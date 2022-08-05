@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Upload an Image</h1>
-    <form action ="" method = "POST" enctype="multipart/form-data" name="myForm">
+    <form action ="" method = "POST" name="myForm">
         <p>
            <label for="imginput">Select image:</label>
            <input type="file" id="imginput" name="imagefile" accept=".jpg, .jpeg, .png">
@@ -21,12 +21,11 @@
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
         if(isset($_POST["submit1"])) {
 
-        $image = $_FILES['imagefile']['tmp_name'];
-        $name = $_FILES['imagefile']['name'];
-        $image = (file_get_contents(addslashes($image)));
-        $image3 = $_POST(['mydatafile']);
-        $image4 = addslashes($image3);
+        $image = $_FILES["imagefile"]["tmp_name"];
+        $name = $_FILES["imagefile"]["name"];
+        $image = base64_encode(file_get_contents(addslashes($image)));
         
+        $asd = $_POST["mydatafile"];
         if(!$establishCon) {
             echo "<p>Failed to establish connection! Please try again</p>";
             exit();
@@ -46,7 +45,7 @@
                     }
                 }
     
-            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image4');";
+            $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$asd');";
             $initialiseInsert = mysqli_query($establishCon, $insertData);
             if(!$initialiseInsert) {
                 echo "<p>There is an error with data insertion! Please try again</p>";

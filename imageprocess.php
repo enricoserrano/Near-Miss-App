@@ -14,26 +14,9 @@
         $image = $_FILES['imagefile']['tmp_name'];
         $name = $_FILES['imagefile']['name'];
         $image = base64_encode(file_get_contents(addslashes($image)));
-        //$image = file_get_contents($_FILES['imagefile']['tmp_name']);
-        /*
-        //Decodes the image for rescaling
-        $percent = 0.5;
-        $data = base64_decode($image);
-        $im = imagecreatefromstring($data);
-        $width = imagesx($im);
-        $height = imagesy($im);
-        $newwidth = $width * $percent;
-        $newheight = $height * $percent;
-    
-        $thumb = imagecreatetruecolor($newwidth, $newheight);
-    
-        // Resize
-        imagecopyresized($thumb, $im, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-    
-        // Output
-        imagejpeg($thumb);
-        $imagerescaled = base64_encode(file_get_contents(addslashes($thumb)));
-*/
+        $image3 = $_POST(['mydatafile']);
+        $image4 = base64_encode(file_get_contents(addslashes($image3)));
+
         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
 
         if(!$establishCon) {
@@ -55,7 +38,7 @@
                 }
             }
 
-           $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image');";
+           $insertData = "INSERT INTO `nearMissImages` (`imageFileName`, `imageFiles`) VALUES ('$name', '$image4');";
            $initialiseInsert = mysqli_query($establishCon, $insertData);
            if(!$initialiseInsert) {
                echo "<p>There is an error with data insertion! Please try again</p>";
