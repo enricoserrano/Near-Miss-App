@@ -14,8 +14,8 @@ input.addEventListener('change', (event) => {
 
         image.onload = (e) => {
             let canvas = document.createElement("canvas")
-            canvas.width = 500
-            canvas.height = 500
+            canvas.width = 1280
+            canvas.height = 720
 
             const context = canvas.getContext("2d")
             context.drawImage(image, 0,0, canvas.width, canvas.height)
