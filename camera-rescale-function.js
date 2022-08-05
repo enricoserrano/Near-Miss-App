@@ -18,7 +18,7 @@ input.addEventListener('change', (event) => {
             canvas.height = 720
 
             const context = canvas.getContext("2d")
-            context.drawImage(image, 0,0, canvas.width, canvas.height)
+            context.drawImage(image, 0, 0, canvas.width, canvas.height)
 
             let new_image_url = context.canvas.toDataURL("image/jpeg", 100)
 
