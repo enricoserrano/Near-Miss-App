@@ -309,16 +309,20 @@ header {
 }
 /* About Page styling end */
 
-/**Styling for Google Maps**/
+/*Contact Page Styling Start*/
 
 #contact-google-maps{
     height: auto;
     width: auto;
 }
 
-/**Styling for Address Container**/
+#general-enq{
+    display: inline-block;
+    text-align: left;
+    color:white;
+}
 
-#address-container{
+/* #address-container{
     text-align: center;
     padding: 50px;
     color: white;
@@ -326,33 +330,32 @@ header {
 
 #address-container p{
     font-size: 16px;
-}
-
-/**Styling for Physical Address**/
+} */
 
 #phys-address{
     display:inline-block;
     color: white;
     text-align: left;
-    padding-bottom: 50px;
+    padding: 50px;
+    width: 18%;
 }
-/**Styling for Postal Address**/
 
 #postal-address{
     display: inline-block;
     color: white;
     text-align: left;
-    /* padding: 20px;
-    margin: 15px; */
-    position: relative;
     top: -40px;
+    padding: 50px;
+    width: 18%;
 }
-
-/**Styling for Find Us**/
 
 #find-us{
+    /* display: inline-block; */
     text-align: center;
+    color:white;
 }
+
+/*Contact Page Styling End*/
 
 /**Record Case Page Webcam**/
 
