@@ -23,7 +23,7 @@
         // If the table doesnt exist, the table storing the near miss images is created
         if (!$tableExist) {
             $createTableQuery =
-                "CREATE TABLE nearMissImages2 (imageID INT AUTO_INCREMENT PRIMARY KEY, imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+                "CREATE TABLE nearMissImages (imageID INT AUTO_INCREMENT PRIMARY KEY, imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
             $createTableResult = mysqli_query($dbConn, $createTableQuery);
 
@@ -46,7 +46,7 @@
                 $image = base64_encode(file_get_contents(addslashes($image)));
 
                 // Insert the uploaded image and file name onto the database table
-                $insertImageIntoDBQuery = "INSERT INTO nearMissImages2 (imageFileName, imageFiles) 
+                $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
                                         VALUES ('$imageFileName', '$image')";
                 $insertImageIntoDBResult = mysqli_query(
                     $dbConn,
