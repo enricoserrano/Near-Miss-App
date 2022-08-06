@@ -1,5 +1,5 @@
 body {
-    background-color: #45637d;;
+    background-color: #45637d;
     text-align: center;
     height: 100%;
     margin: 0;
@@ -312,6 +312,8 @@ header {
 }
 /* About Page styling end */
 
+
+
 /*Contact Page Styling Start*/
 
 .contact-column {
@@ -321,7 +323,7 @@ header {
     padding: 10px;
     vertical-align: top;
     /* text-align:center; */
-    color:white;
+    /* color:white; */
 }
 
 /* Clear floats after the columns */
@@ -346,14 +348,14 @@ header {
 #covid-related{
     display:inline-block;
     text-align: left;
-    color:white;
+    /* color:white; */
     width:30%;
 }
 
 #general-enq{
     display: inline-block;
     text-align: left;
-    color:white;
+    /* color:white; */
 }
 
 /* #address-container{
@@ -368,7 +370,7 @@ header {
 
 #phys-address{
     display:inline-block;
-    color: white;
+    /* color: white; */
     text-align: left;
     padding: 50px;
     width: 18%;
@@ -377,7 +379,7 @@ header {
 
 #postal-address{
     display: inline-block;
-    color: white;
+    /* color: white; */
     text-align: left;
     top: -40px;
     padding: 50px;
@@ -388,7 +390,7 @@ header {
 #find-us{
     /* display: inline-block; */
     text-align: center;
-    color:white;
+    /* color:white; */
 
     
 }
