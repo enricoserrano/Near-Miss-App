@@ -79,9 +79,9 @@ header {
     transform: translate(-50%, -50%);
 }
 .worksafe-details {
-    width: 100%;
+    color: white;
     position: absolute;
-    bottom: -110%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
