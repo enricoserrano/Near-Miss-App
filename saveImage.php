@@ -39,42 +39,32 @@
 
         // Checks if post is clicked
         if (isset($_POST["submit"])) {
-            // Checks if the uploaded image is valid by checking if the file size is larger than 2,048KiB file size
-            // Only an image file less than around 2.5MB/2,048KiB file size will be successfully uploaded in the DB when using the "longblob" datatype
-            // if (getimagesize($_FILES["uploadedImageFile"]["tmp_name"]) == false) {
-            //     echo "<p>Error: Please choose a valid image file! </p>";
-            //     echo "<p>Error: The file uploaded is larger than 2.5MB or 2,048KiB file size!</p>";
-            //     // --The two lines of code below does not show the accurate image size yet
-            //     // $image = $_POST["uploadedImageFile"];
-            //     // echo "Error: File size is" .getimagesize($image)."";
-            // } else {
-                // If the image uploaded is valid, the following occurs
+            // If the image uploaded is valid, the following occurs
 
-                // Declare and store image file and file name into variables
-                $image = $_FILES["uploadedImageFile"]["tmp_name"];
-                $imageFileName = $_FILES["uploadedImageFile"]["name"];
-                $image = base64_encode(file_get_contents(addslashes($image)));
+            // Declare and store image file and file name into variables
+            $image = $_FILES["uploadedImageFile"]["tmp_name"];
+            $imageFileName = $_FILES["uploadedImageFile"]["name"];
+            $image = base64_encode(file_get_contents(addslashes($image)));
 
-                // Insert the uploaded image and file name onto the database table
-                $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
-                                        VALUES ('$imageFileName', '$image')";
-                $insertImageIntoDBResult = mysqli_query(
-                    $dbConn,
-                    $insertImageIntoDBQuery
-                );
+            // Insert the uploaded image and file name onto the database table
+            $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
+                                    VALUES ('$imageFileName', '$image')";
+            $insertImageIntoDBResult = mysqli_query(
+                $dbConn,
+                $insertImageIntoDBQuery
+            );
 
-                // If something is wrong with the inserting process and error message is shown
-                if (!$insertImageIntoDBResult) {
-                    echo "<p>An error has occured when inserting the image data in the table. Please try again.</p>";
-                } else {
-                    // Successful message is shown if the near-miss has been stored successfully
-                    echo "<p>Congratulations! The near-miss image has been successfully stored in the Database!</p>";
-                    echo "<p>The following was saved into the database</p>";
-                    echo "<p><b>Uploaded images:</b> " .
-                        $imageFileName .
-                        "</p>";
-                }
-            //}
+            // If something is wrong with the inserting process and error message is shown
+            if (!$insertImageIntoDBResult) {
+                echo "<p>An error has occured when inserting the image data in the table. Please try again.</p>";
+            } else {
+                // Successful message is shown if the near-miss has been stored successfully
+                echo "<p>Congratulations! The near-miss image has been successfully stored in the Database!</p>";
+                echo "<p>The following was saved into the database</p>";
+                echo "<p><b>Uploaded images:</b> " .
+                    $imageFileName .
+                    "</p>";
+            }
         }
     }
 
