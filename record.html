@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <title>Record Near-miss</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous""></script>
+
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="index.html">
+                        <img src="./images/logo.png" height="45" width="45" alt="MDB Logo" loading="lazy" />
+                        <b>Near-miss Application</b></a>
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Record Near-miss</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                </div>
+                <!-- Collapsible wrapper -->
+                <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+        <!-- Background image -->
+
+        <div>
+            <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
+            <form id="mainForm"></form>
+            <div class="form-group">
+                <i class="fa-solid fa-location-dot" style="color: white;"></i>
+                <label for="location" style="color: white;">Location(required)</label>
+                <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
+                <span id="errName" style="color: red; display: none"></span>
+            </div>
+
+            <!-- <label>Please upload your photo</label>
+            <input  type='file' name="image" onchange="readURL(this);" />
+            <img id="blah" src="#" alt="your image" /> 
+            This one will make you browse your documents to get the image
+             -->
+
+
+            <div>
+                <p></p><i class="fa-solid fa-file-image" style="color: white;"></i>
+                <label for="image" style="color: white;">Image</label>
+                <br><i class="fa-solid fa-upload" style="color: White;"></i>
+                <!-- <input type="button" > -->
+                <button type="button" style="border: 1px;">Upload a image</button> <!--Will Update button for this and take photo once team on this user story has this working correctly-->
+                <br><br><i class="fa-solid fa-camera" style="color: white;"></i>
+                <!-- <input type="button"> -->
+                <button type="button" style="border: 1px; ">Take a Photo</button>
+            </div>
+            <div>
+                <br><i class="fa-solid fa-note-sticky" style="color: white;"></i>
+                <label for="description" style="color: white;">Description</label>
+                <br><input type="text" id="description" name="description" placeholder="Enter Description..."><br>
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+            <div>
+                <!--Will need to update this to an actual time and date button instead of a text field but this is fine as a placeholder-->
+                <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
+                <label for="time" style="color: white;">Date and Time of Near-miss</label>
+                <br><input type="text" id="time" name="time" placeholder="Enter Date and Time...">
+                <span id="errImage" style="color: red; display: none"></span>
+            </div>
+            <div>
+                <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
+                <label for="priority" style="color: white;" >Priority</label>
+                <!-- <input type="checkbox" id="lowPriority" name="lowPriority" value="Low"> -->
+                <!-- <label for="lowPriority" style="color: green;"> Low</label><br> -->
+                <!-- <input type="checkbox" id="mediumPriority" name="mediumPriority" value="Medium"> -->
+                <!-- <label for="mediumPriority" style="color: yellow;"> Medium</label><br> -->
+                <br><button type="button" class="low" style=" background-color: green;">Low</button>
+                <button type="button" class="medium" style=" background-color: orange;">Medium</button>
+                <button type="button" class="high" style=" background-color: red;">High</button>
+                <!-- <input type="checkbox" id="highPriority" name="highPriority" value="High"> -->
+                <!-- <label for="highPriority" style="color: red;"> High</label><br> -->
+            </div>
+            
+            <br><button type="button" class ="submit" onclick="javascript:submit()">Submit </button>
+            <button type="button" class ="cancel" onclick="javascript:cancelForm()">Cancel </button>
+            </form>
+        </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        resetForm();
+        console.log($(document));
+    })
+
+    function submit(){
+    //This part will need to validate all the information inserted into the form.
+    }
+
+    function cancelForm(){
+
+    }
+
+
+
+</script>
+
+
+
+
+</html>

@@ -437,6 +437,142 @@ header {
     }
 }
 
+/*Styling for elements in the record.html*/
+
+.low {
+    min-height:30px; 
+    min-width: 80px;
+    transition-duration: 0.4s;
+    padding: 5px;
+  }
+  
+.low:hover {
+    color: white;
+    font-weight: bold;
+  }
+
+  .medium {
+    min-height:30px; 
+    min-width: 80px;
+    transition-duration: 0.4s;
+    padding: 5px;
+  }
+  
+.medium:hover {
+    font-weight: bold;
+    color: white;
+  }
+
+  .high {
+    min-height:30px; 
+    min-width: 80px;
+    transition-duration: 0.4s;
+    padding: 5px;
+  }
+  
+.high:hover {
+    color: white;
+    font-weight: bold;
+  }
+
+  .submit {
+    transition-duration: 0.4s;
+  }
+  
+.submit:hover {
+    font-weight: bold;
+  }
+
+  .cancel {
+    transition-duration: 0.4s;
+  }
+  
+.cancel:hover {
+    font-weight: bold;
+  }
+
+  input[name=location]:focus
+{
+    width: 25px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 25%;
+}
+
+input[name=location]
+{
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 15%;
+}
+
+input[name=description]:focus
+{
+    width: 25px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 25%;
+}
+
+input[name=description]
+{
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 15%;
+}
+
+input[name=time]:focus
+{
+    width: 25px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 25%;
+}
+
+input[name=time]
+{
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 15%;
+}
+
+
 
 /* a {
     padding: 10px;
