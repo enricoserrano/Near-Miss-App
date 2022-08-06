@@ -81,7 +81,15 @@ header {
 .worksafe-details {
     color: white;
     position: absolute;
-    top: 75%;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.indextitle-details{
+    color: white;
+    width: 100%;
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
