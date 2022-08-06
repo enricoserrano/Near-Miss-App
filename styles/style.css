@@ -88,6 +88,10 @@ header {
 .navbarlogo-text{
     font-family: Verdana, sans-serif;
 }
+.navbarlogo-text a {
+    color: #000000;
+    text-decoration: none;
+}
 .container-fluid {
     display: flex;
     justify-content: flex-start !important;
