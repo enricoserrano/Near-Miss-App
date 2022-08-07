@@ -1,5 +1,7 @@
 <html>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
     <title>Record Near-miss</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
@@ -51,7 +53,7 @@
         <!-- Navbar -->
         <!-- Background image -->
 
-        <div>
+        <div class = "record-case-container">
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <form id="mainForm"></form>
             <div class="form-group">
@@ -81,7 +83,8 @@
             <div>
                 <br><i class="fa-solid fa-note-sticky" style="color: white;"></i>
                 <label for="description" style="color: white;">Description</label>
-                <br><input type="text" id="description" name="description" placeholder="Enter Description..."><br>
+                <br><textarea id="w3review" name="w3review" rows="4" cols="50">Enter Desciption...</textarea>
+                <!--<input type="text" id="description" name="description" placeholder="Enter Description..."><br>-->
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
