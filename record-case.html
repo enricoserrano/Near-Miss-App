@@ -58,10 +58,11 @@
          <div id = "upload-image">
             <h2>Upload an Image</h2>
             <label for="uploadImage">Select files:</label>
-            <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" multiple required>
+            <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
             <br><br>
+            <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
+
             <div id="show-uploaded-image" style="display:none">
-               <h3>Uploaded Image Preview</h3>
             </div>
             <br>
             <input type="submit" name="submit">

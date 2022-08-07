@@ -27,3 +27,9 @@ imageInput.addEventListener("change", function()
     imageReader.readAsDataURL(this.files[0]);
 });
 
+function showImagePreviewBox()
+{
+    document.getElementById('show-uploaded-image').style.display = "block";
+    document.getElementById('image-preview-title').style.display = "block";
+
+}
