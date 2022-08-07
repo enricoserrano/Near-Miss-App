@@ -493,7 +493,6 @@ header {
 
   input[name=location]:focus
 {
-    width: 25px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -503,7 +502,7 @@ header {
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-    width: 25%;
+    width: 35%;
 }
 
 input[name=location]
@@ -515,12 +514,11 @@ input[name=location]
     background-color: white;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-    width: 15%;
+    width: 30%;
 }
 
 input[name=description]:focus
 {
-    width: 25px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -530,7 +528,7 @@ input[name=description]:focus
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-    width: 25%;
+    width: 35%;
 }
 
 input[name=description]
@@ -542,12 +540,11 @@ input[name=description]
     background-color: white;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-    width: 15%;
+    width: 30%;
 }
 
 input[name=time]:focus
 {
-    width: 25px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -557,7 +554,7 @@ input[name=time]:focus
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-    width: 25%;
+    width: 35%;
 }
 
 input[name=time]
@@ -569,9 +566,41 @@ input[name=time]
     background-color: white;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-    width: 15%;
+    width: 30%;
 }
 
+@media screen and (max-width: 650px) {
+
+    .record-case-container #location
+    {
+        width: 80%;
+    }
+
+    .record-case-container #location:focus
+    {
+        width: 90%;
+    }
+
+    .record-case-container #description
+    {
+        width: 80%;
+    }
+
+    .record-case-container #description:focus
+    {
+        width: 90%;
+    }
+
+    .record-case-container #time
+    {
+        width: 80%;
+    }
+
+    .record-case-container #time:focus
+    {
+        width: 90%;
+    }
+}
 
 
 /* a {
