@@ -180,7 +180,19 @@ header {
     padding: 0 8px;
 }
 
+.our-team-column{
+    padding-top: 2.5%;
+    width:33.3%;
+    text-align: center;
+    margin: 0 auto;
+}
+
 .about-app-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+}
+
+.our-team-card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
 }
@@ -251,7 +263,7 @@ header {
 
 @media screen and (max-width: 650px) {
     .contact-column {
-            width: 100%;
+        width: 100%;
     }
     .about-tutorial-column {
         width: 100%;
@@ -259,6 +271,11 @@ header {
     }
 
     .difference-column {
+        width: 100%;
+        display: block;
+    }
+
+    .our-team-column{
         width: 100%;
         display: block;
     }
@@ -290,9 +307,9 @@ header {
 }
 
 .our-team-section {
-    padding: 50px;
+    padding: 30px;
     text-align: center;
-    background-color: #197e00;
+    background-color: #000000;
     color: white;
 }
 

@@ -27,3 +27,9 @@ imageInput.addEventListener("change", function()
     imageReader.readAsDataURL(this.files[0]);
 });
 
+// This function when called will show the preview box for the image uploaded
+function showImagePreviewBox()
+{
+    document.getElementById('show-uploaded-image').style.display = "block";
+    document.getElementById('image-preview-title').style.display = "block";
+}
