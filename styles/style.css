@@ -96,6 +96,7 @@ header {
 .container-fluid {
     display: flex;
     justify-content: flex-start !important;
+    padding: 0px;
 }
 .navigation-wrapper {
     overflow:auto !important;
@@ -127,9 +128,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
+    width: 90px;
   }
-  
   .sub-menu .menu-title {}
 /* Default height for small devices */
 #intro-example {
