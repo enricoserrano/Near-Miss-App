@@ -11,70 +11,84 @@
       <link rel="stylesheet" href="./styles/style.css">
    </head>
    <body>
-      <header>
-         <!-- Navbar -->
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- Container wrapper -->
-            <div class="container-fluid">
-            <!-- Toggle button -->
-            <button
-               class="navbar-toggler"
-               type="button"
-               data-mdb-toggle="collapse"
-               data-mdb-target="#navbarSupportedContent"
-               aria-controls="navbarSupportedContent"
-               aria-expanded="false"
-               aria-label="Toggle navigation"
-               >
-            <i class="fas fa-bars"></i>
-            </button>
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <!-- Navbar brand -->
-               <a class="navbar-brand mt-2 mt-lg-0" href="#">
-               <img
-                  src="./images/logo.png"
-                  height="45"
-                  width="45"
-                  alt="MDB Logo"
-                  loading="lazy"
-                  />
-               <b>Near-miss Application</b></a>
-               <!-- Left links -->
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                     <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Record Near-miss</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="about.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact Us</a>
-                  </li>
-               </ul>
-               <!-- Left links -->
-            </div>
-            <!-- Collapsible wrapper -->
-            <!-- Container wrapper -->
-         </nav>
-         <!-- Navbar -->
-      </header>
       <!-- Background image -->
-      <div id="intro-example" class="p-5 text-center bg-image"
-         style="background-image: url('./images/about-background-image.jpg')">
-      <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
-         <div class="d-flex justify-content-center align-items-center h-100">
-            <div class="text-white">
-               <h1 class="mb-3">Near-miss receipt</h1>
-               <!-- <h5 class="mb-3">Powered by WorkSafe</h5>
-                  <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A"
-                      role="button" rel="nofollow" target="_blank">Record Near-miss</a> -->
-            </div>
-         </div>
+      <div class="hero_area">
+         <!-- <div class="hero_bg_box">
+            <img src="./images/index-background.png" alt="">
+         </div> -->
+         <header>
+            <!-- Navbar -->
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+               <!-- Container wrapper -->
+               <div class="container-fluid">
+                  <!-- Toggle button -->
+                  <button
+                     class="navbar-toggler"
+                     type="button"
+                     data-mdb-toggle="collapse"
+                     data-mdb-target="#navbarSupportedContent"
+                     aria-controls="navbarSupportedContent"
+                     aria-expanded="false"
+                     aria-label="Toggle navigation"
+                     >
+                  <i class="fas fa-bars"></i>
+                  </button>
+                  <div class="navbar-brand mt-2 mt-lg-0">
+                     <a href="index.html">
+                     <img
+                        src="./images/logo.png"
+                        height="45"
+                        width="45"
+                        alt="MDB Logo"
+                        loading="lazy"
+                        />
+                     </a>
+                     <div class="navbarlogo-text">
+                        <span class="button-text-logo"><b>Near-miss</b></span>
+                     </div>
+                  </div>
+                  <!-- Collapsible wrapper -->
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <!-- Navbar brand -->
+                     <!-- Left links -->
+                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                           <a class="nav-link" href="record-case.html">Record Near-miss</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                     </ul>
+                     <!-- Left links -->
+                  </div>
+                  <!-- Collapsible wrapper -->
+                  <!-- Container wrapper -->
+                  <div class="navbar-brand mt-2 mt-lg-0">
+                  </div>
+                  <div class="navigation-buttons">
+                     <a href="https://www.youtube.com/watch?v=c9B4TPnak1A">
+                     <button type="button" class="btn btn-primary">
+                     <i class="fas fa-user-alt"></i>
+                     <span class="button-text-login">Login</span>
+                     </button>
+                     </a>
+                     <a href="https://www.youtube.com/watch?v=c9B4TPnak1A">
+                     <button type="button" class="btn btn-warning">
+                     <i class="fas fa-bell"></i>
+                     <span class="button-text-record">Record Near-miss</span>
+                     </button>
+                     </a>
+                  </div>
+               </div>
+            </nav>
+            <!-- Navbar -->
+         </header>
+        
       </div>
       <!-- Background image -->
    </body>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
