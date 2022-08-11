@@ -646,3 +646,11 @@ input[name=time]
 canvas {
     display: none;
 } */
+
+.download-button{
+    color: yellow;
+}
+
+a .download{
+    color: green;
+}

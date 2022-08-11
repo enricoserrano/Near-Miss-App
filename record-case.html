@@ -15,36 +15,36 @@
       
       <header>
          <!-- Navbar -->
-         <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li>
-                     <a href="index.html">
+                     <!-- <a href="index.html"> -->
                         <div class="sub-menu">
                            <i class="bi bi-house-door"></i>
                            <p class="menu-title">Home</p>
                          </div>
-                     </a>
+                     <!-- </a> -->
                   </li>
                   <li>
-                     <a href="about.html">
+                     <!-- <a href="about.html"> -->
                         <div class="sub-menu">
                            <i class="bi bi-info-square"></i>
                            <p class="menu-title">About</p>
                          </div>
-                     </a>
+                     <!-- </a> -->
                   </li>
                   <li>
-                     <a href="contact.html">
+                     <!-- <a href="contact.html"> -->
                         <div class="sub-menu">
                            <i class="bi bi-chat-left-text"></i>
                            <p class="menu-title">Contact</p>
                          </div>
-                     </a>
+                     <!-- </a> -->
                   </li>
                   <li>
-                     <a href="https://www.youtube.com/watch?v=c9B4TPnak1A">
+                     <!-- <a href="https://www.youtube.com/watch?v=c9B4TPnak1A"> -->
                         <div class="sub-menu">
                            <i class="bi bi-person-circle"></i>
                            <p class="menu-title">Login</p>
@@ -52,17 +52,17 @@
                      </a>
                      </li>
                   <li>
-                     <a href="record.html">
+                     <!-- <a href="record.html"> -->
                         <div class="sub-menu">
                            <i class="bi bi-pencil-square"></i>
                            <p class="menu-title">Record</p>
                          </div>
-                     </a>
+                     <!-- </a> -->
                   </li>
                 </ol>
               </nav>
             </div>
-          </nav> -->
+          </nav>
          <!-- Navbar -->
       </header>
       <form action="saveImage.php" method="POST" enctype="multipart/form-data">
@@ -77,7 +77,7 @@
             </div>
             <br>
             <video id="webCamera" autoplay playsinlne width="800" height="600"></video>
-            <a download onClick="takePhoto()">SNAP</a>
+            <a class="download-button" onClick="takePhoto()" download>SNAP</a>
             <canvas id="photoCanvas"></canvas>
             
             <input type="submit" name="submit">
