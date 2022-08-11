@@ -1,15 +1,30 @@
 //Code for the web cam app 
-const webCamElement = document.getElementById("webCam");
-const canvasElement = document.getElementById("canvas");
-const webcam = new Webcam(webCamElement, "user", canvasElement);
+// const webCamElement = document.getElementById("webCam");
+// const canvasElement = document.getElementById("canvas");
+// const webcam = new Webcam(webCamElement, "user", canvasElement);
 
-webcam.start();
+// webcam.start();
 
-function takeAPicture(){
-    let picture = webcam.snap();
-    document.querySelector("a").href = picture;
+// function takeAPicture(){
+//     let picture = webcam.snap();
+//     document.querySelector("a").href = picture;
+// }
+
+// Webcam elements
+const webcamElement = document.getElementById("webCamera");
+const photoCanvasElement = document.getElementById("photoCanvas");
+
+// Use webcam constructor from library 
+const userWebcam = new Webcam(webcamElement, "user", photoCanvasElement);
+
+// Start webcam
+userWebcam.start();
+
+function takePhoto()
+{
+    let photo = userWebcam.snap();
+    document.querySelector("a").href = photo;
 }
-
 
 // Code for the uploaded image preview
 const imageInput = document.querySelector("#uploaded-image"); 
