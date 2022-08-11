@@ -56,6 +56,7 @@
         <div class = "record-case-container">
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <div class="form-group">
+            <!--Add form here-->
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
                 <label for="location" style="color: white;">Location(required)</label>
                 <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
@@ -82,7 +83,7 @@
             <div>
                 <i class="fa-solid fa-note-sticky" style="color: white;"></i>
                 <label for="description" style="color: white;">Description</label>
-                <br><textarea id="w3review" name="w3review" rows="4" cols="50">Enter Description...</textarea>
+                <br><textarea id="w3review" name="w3review" rows="4" cols="50" required>Enter Description...</textarea>
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
@@ -95,37 +96,34 @@
             <div>
                 <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
                 <label for="priority" style="color: white;" >Priority</label>
-                <br><button type="button" class="low" style=" background-color: green;">Low</button>
-                <button type="button" class="medium" style=" background-color: orange;">Medium</button>
-                <button type="button" class="high" style=" background-color: red;">High</button>
+                <br><label style="color: white;"><input type="radio" class="low" name="priority" value = "low">Low</label>
+                <label style="color: white;"><input type="radio" class="medium" name="priority" value = "medium">Medium</label>
+                <label style="color: white;"><input type="radio" class="high" name="priority" value = "high">High</label>
             </div>
             
-            <br><button type="button" class ="submit" onclick="javascript:submit()">Submit </button>
-            <button type="button" class ="cancel" onclick="javascript:cancelForm()">Cancel </button>
+            <br><button type="button" class ="submit" onclick="submit()">Submit</button>
+            <input type="reset" value="Reset">
             </form>
         </div>
-
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
+
+    $(document).ready(function () 
+    {
         resetForm();
         console.log($(document));
     })
 
-    function submit(){
-    //This part will need to validate all the information inserted into the form.
+    function submit()
+    {
+    
     }
 
-    function cancelForm(){
-
+    function cancelForm()
+    {
+        
     }
-
-    //Need to add code to confirm date/time variable
 </script>
-
-
-
-
 </html>

@@ -459,37 +459,16 @@ header {
 .low {
     min-height:30px; 
     min-width: 80px;
-    transition-duration: 0.4s;
-    padding: 5px;
   }
   
-.low:hover {
-    color: white;
-    font-weight: bold;
-  }
-
   .medium {
     min-height:30px; 
     min-width: 80px;
-    transition-duration: 0.4s;
-    padding: 5px;
-  }
-  
-.medium:hover {
-    font-weight: bold;
-    color: white;
   }
 
   .high {
     min-height:30px; 
     min-width: 80px;
-    transition-duration: 0.4s;
-    padding: 5px;
-  }
-  
-.high:hover {
-    color: white;
-    font-weight: bold;
   }
 
   .submit {
