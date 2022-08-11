@@ -10,9 +10,7 @@
     <?php
     // Establishes connection to the DB by declaring and initialising the DB login details
     //require_once "../../conf/connectionInfo.php";
-    //$dbConn = @mysqli_connect($sql_host, $sql_user, $sql_pass, $sql_db);
     $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
-    
 
     if (!$dbConn) {
         echo "<p>Connection to the Database has failed</p>";
@@ -39,41 +37,40 @@
 
         // Checks if post is clicked
         if (isset($_POST["submit"])) {
-            // If the image uploaded is valid, the following occurs
+            // Checks if the uploaded image is valid
+                // If the image uploaded is valid, the following occurs
 
-            // Declare and store image file and file name into variables
-            $image = $_FILES["uploadedImageFile"]["tmp_name"];
-            $imageFileName = $_FILES["uploadedImageFile"]["name"];
-            $image = base64_encode(file_get_contents(addslashes($image)));
+                // Declare and store image file and file name into variables
+                $image = $_FILES["uploadedImageFile"]["tmp_name"];
+                $imageFileName = $_FILES["uploadedImageFile"]["name"];
+                $image = base64_encode(file_get_contents(addslashes($image)));
 
-            // Insert the uploaded image and file name onto the database table
-            $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
-                                    VALUES ('$imageFileName', '$image')";
-            $insertImageIntoDBResult = mysqli_query(
-                $dbConn,
-                $insertImageIntoDBQuery
-            );
+                // Insert the uploaded image and file name onto the database table
+                $insertImageIntoDBQuery = "INSERT INTO nearMissImages (imageFileName, imageFiles) 
+                                        VALUES ('$imageFileName', '$image')";
+                $insertImageIntoDBResult = mysqli_query(
+                    $dbConn,
+                    $insertImageIntoDBQuery
+                );
 
-            // If something is wrong with the inserting process and error message is shown
-            if (!$insertImageIntoDBResult) {
-                echo "<p>An error has occured when inserting the image data in the table. Please try again.</p>";
-            } else {
-                // Successful message is shown if the near-miss has been stored successfully
-                echo "<p>Congratulations! The near-miss image has been successfully stored in the Database!</p>";
-                echo "<p>The following was saved into the database</p>";
-                echo "<p><b>Uploaded images:</b> " .
-                    $imageFileName .
-                    "</p>";
-            }
+                // If something is wrong with the inserting process and error message is shown
+                if (!$insertImageIntoDBResult) {
+                    echo "<p>An error has occured when inserting the image data in the table. Please try again.</p>";
+                } else {
+                    // Successful message is shown if the near-miss has been stored successfully
+                    echo "<p>Congratulations! The near-miss image has been successfully stored in the Database!</p>";
+                    echo "<p>The following was saved into the database</p>";
+                    echo "<p><b>Uploaded images:</b> " .
+                        $imageFileName .
+                        "</p>";
+                }
+            
         }
     }
 
     // Closes the connection to the DB
     mysqli_close($dbConn);
     ?>
-
-    <!-- Temporary link back to the upload image page for testing -->
-    <a href="record-case.html">Upload image page</a>
     
 </body>
 </html>
