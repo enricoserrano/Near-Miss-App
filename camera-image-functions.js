@@ -1,14 +1,14 @@
-// Code for the web cam app 
-// const webCamElement = document.getElementById("webCam");
-// const canvasElement = document.getElementById("canvas");
-// const webcam = new Webcam(webCamElement, "user", canvasElement);
+//Code for the web cam app 
+const webCamElement = document.getElementById("webCam");
+const canvasElement = document.getElementById("canvas");
+const webcam = new Webcam(webCamElement, "user", canvasElement);
 
-// webcam.start();
+webcam.start();
 
-// function takeAPicture(){
-//     let picture = webcam.snap();
-//     document.querySelector("a").href = picture;
-// }
+function takeAPicture(){
+    let picture = webcam.snap();
+    document.querySelector("a").href = picture;
+}
 
 
 // Code for the uploaded image preview
