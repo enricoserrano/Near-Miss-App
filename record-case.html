@@ -67,6 +67,7 @@
       </header>
       <form action="saveImage.php" method="POST" enctype="multipart/form-data">
          <div id = "upload-image">
+            <br>
             <h2>Upload an Image</h2>
             <label for="uploadImage">Select files:</label>
             <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
@@ -77,7 +78,7 @@
             </div>
             <br>
             <video id="webCamera" autoplay playsinlne width="800" height="600"></video>
-            <a class="download-button" onClick="takePhoto()" download>SNAP</a>
+            <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
             <canvas id="photoCanvas"></canvas>
             
             <input type="submit" name="submit">
