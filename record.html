@@ -55,57 +55,49 @@
 
         <div class = "record-case-container">
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
-            <form id="mainForm"></form>
             <div class="form-group">
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
                 <label for="location" style="color: white;">Location(required)</label>
                 <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
                 <span id="errName" style="color: red; display: none"></span>
+
+                <form action="saveImage.php" method="POST" enctype="multipart/form-data">
+                    <div id = "upload-image">
+                        <i class="fa-solid fa-file-image" style="color: white;"></i>
+                        <label for="image" style="color: white;">Image</label>
+                        <br><p></p><i class="fa-solid fa-upload" style="color: White;"></i>
+                        <label for="uploadImage">Select files:</label>
+                       <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
+                       <br><br>
+                       <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
+           
+                       <div id="show-uploaded-image" style="display:none">
+                       </div>
+                    </div>
+                 </form>
+                 <script type ="text/javascript" src="camera-image-functions.js"></script>
+                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+                
             </div>
-
-            <!-- <label>Please upload your photo</label>
-            <input  type='file' name="image" onchange="readURL(this);" />
-            <img id="blah" src="#" alt="your image" /> 
-            This one will make you browse your documents to get the image
-             -->
-
-
             <div>
-                <p></p><i class="fa-solid fa-file-image" style="color: white;"></i>
-                <label for="image" style="color: white;">Image</label>
-                <br><i class="fa-solid fa-upload" style="color: White;"></i>
-                <!-- <input type="button" > -->
-                <button type="button" style="border: 1px;">Upload a image</button> <!--Will Update button for this and take photo once team on this user story has this working correctly-->
-                <br><br><i class="fa-solid fa-camera" style="color: white;"></i>
-                <!-- <input type="button"> -->
-                <button type="button" style="border: 1px; ">Take a Photo</button>
-            </div>
-            <div>
-                <br><i class="fa-solid fa-note-sticky" style="color: white;"></i>
+                <i class="fa-solid fa-note-sticky" style="color: white;"></i>
                 <label for="description" style="color: white;">Description</label>
-                <br><textarea id="w3review" name="w3review" rows="4" cols="50">Enter Desciption...</textarea>
-                <!--<input type="text" id="description" name="description" placeholder="Enter Description..."><br>-->
+                <br><textarea id="w3review" name="w3review" rows="4" cols="50">Enter Description...</textarea>
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
-                <!--Will need to update this to an actual time and date button instead of a text field but this is fine as a placeholder-->
                 <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
-                <label for="time" style="color: white;">Date and Time of Near-miss</label>
-                <br><input type="text" id="time" name="time" placeholder="Enter Date and Time...">
+                <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
+                <label for="datetime"></label>
+                <input type="datetime-local" id="datetime" name="datetime">
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
                 <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
                 <label for="priority" style="color: white;" >Priority</label>
-                <!-- <input type="checkbox" id="lowPriority" name="lowPriority" value="Low"> -->
-                <!-- <label for="lowPriority" style="color: green;"> Low</label><br> -->
-                <!-- <input type="checkbox" id="mediumPriority" name="mediumPriority" value="Medium"> -->
-                <!-- <label for="mediumPriority" style="color: yellow;"> Medium</label><br> -->
                 <br><button type="button" class="low" style=" background-color: green;">Low</button>
                 <button type="button" class="medium" style=" background-color: orange;">Medium</button>
                 <button type="button" class="high" style=" background-color: red;">High</button>
-                <!-- <input type="checkbox" id="highPriority" name="highPriority" value="High"> -->
-                <!-- <label for="highPriority" style="color: red;"> High</label><br> -->
             </div>
             
             <br><button type="button" class ="submit" onclick="javascript:submit()">Submit </button>
@@ -130,8 +122,7 @@
 
     }
 
-
-
+    //Need to add code to confirm date/time variable
 </script>
 
 
