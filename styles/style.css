@@ -654,9 +654,15 @@ canvas {
     background-color: #000;
     text-align: center;
     cursor: pointer;
-    width: 10%;
 }
 
 a .download{
     color: green;
+}
+
+/* Will remove the functionality to take a photo using the laptop webcam on mobile devices */
+@media screen and (max-width: 650px) {
+    .take-webcam-photos{
+        display: none;
+    }
 }
