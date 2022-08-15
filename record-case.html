@@ -86,21 +86,18 @@
             <br>
 
             <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
-            <div id="take-photo-container">
+            <div id="take-photo-container" style="display:none">
                 
-                  <h3>Preview</h3>
-                  <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
-                  <h3>Image Taken & Downloaded</h3>
-                  <canvas id="photoCanvas"></canvas>
+               <h3>Preview</h3>
+               <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
+               <h3>Image Taken & Downloaded</h3>
+               <canvas id="photoCanvas"></canvas>
                 
-                <br>
-                <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
-
-
+               <br>
+               <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
             </div>
-
             
-            
+            <br>
             <input type="submit" name="submit">
          </div>
       </form>

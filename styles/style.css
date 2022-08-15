@@ -646,7 +646,15 @@ canvas {
 } */
 
 .download-button{
-    color: yellow;
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 10%;
 }
 
 a .download{
