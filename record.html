@@ -9,9 +9,34 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/style.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous""></script>
+    <script type="text/javascript" src="ajaxRecordForm.js"></script>
+    <script type="text/javascript" src="xhr.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
 
+        $(document).ready(function () 
+        {
+            resetForm();
+            console.log($(document));
+        })
+
+        function submit()
+        {
+        
+        }
+
+        function cancelForm()
+        {
+            
+        }
+
+        function verify()
+        {
+
+        }
+
+    </script>
 </head>
-
 <body>
     <header>
         <!-- Navbar -->
@@ -56,7 +81,8 @@
         <div class = "record-case-container">
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <div class="form-group">
-            <!--Add form here-->
+            <form action = "recordInfo.php" method = "POST">
+            <!-- Waiting on file and location stuff to be finished
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
                 <label for="location" style="color: white;">Location(required)</label>
                 <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
@@ -78,52 +104,37 @@
                  </form>
                  <script type ="text/javascript" src="camera-image-functions.js"></script>
                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
-                
+            -->
             </div>
             <div>
                 <i class="fa-solid fa-note-sticky" style="color: white;"></i>
                 <label for="description" style="color: white;">Description</label>
-                <br><textarea id="w3review" name="w3review" rows="4" cols="50" required>Enter Description...</textarea>
+                <br><textarea id="description" name="description" rows="4" cols="50" required>Enter Description...</textarea>
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
                 <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
                 <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
-                <label for="datetime"></label>
-                <input type="datetime-local" id="datetime" name="datetime">
+                <label for="dateTime"></label>
+                <input type="datetime-local" id="dateTime" name="dateTime">
                 <span id="errImage" style="color: red; display: none"></span>
             </div>
             <div>
                 <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
-                <label for="priority" style="color: white;" >Priority</label>
+                <label for="priorityName" style="color: white;" >Priority</label>
                 <br><label style="color: white;"><input type="radio" class="low" name="priority" value = "low">Low</label>
                 <label style="color: white;"><input type="radio" class="medium" name="priority" value = "medium">Medium</label>
                 <label style="color: white;"><input type="radio" class="high" name="priority" value = "high">High</label>
             </div>
             
-            <br><button type="button" class ="submit" onclick="submit()">Submit</button>
+            <br>
+            <input type="submit" value="Submit" name = "submit">
             <input type="reset" value="Reset">
+            <!--onClick = "getData('recordInfo.php','bookingInformation', description.value, dateTime.value, priority.value)"-->
             </form>
         </div>
+        <div id ="bookingInformation">
+        </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-
-    $(document).ready(function () 
-    {
-        resetForm();
-        console.log($(document));
-    })
-
-    function submit()
-    {
-    
-    }
-
-    function cancelForm()
-    {
-        
-    }
-</script>
 </html>
+

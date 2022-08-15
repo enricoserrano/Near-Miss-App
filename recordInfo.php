@@ -11,7 +11,7 @@
         
         $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
 
-        if(!$conn)
+        if(!$dbConn)
         {
             echo "<p>Connection with the database has failed</p>";
         }
@@ -22,12 +22,8 @@
             if(!$formDataExist) //Checks if there is data in the database table now stored in this variable
             { 
                 echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
-            
-                //Creates columns for database table
                 
-                /*$createFormDataTable = "CREATE TABLE nearMissFormData (bookingReference VARCHAR(20) PRIMARY KEY, cname VARCHAR(50), phone VARCHAR(12),
-                unumber VARCHAR(25), snumber int(4), stname VARCHAR(50), sbname VARCHAR(50), dsbname VARCHAR(50),
-                currentDateTime DATETIME, bookingStatus VARCHAR(15) DEFAULT 'Unassigned');"; */
+                $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10));";
             
                 //Stores connection and collumn creation query variables as paramters in a result variable
                 $tableResult = mysqli_query($dbConn, $createFormDataTable);
@@ -41,21 +37,22 @@
                     echo "<p>Successful query operation</p>";
                 }
             }
-            
-            //Change this to fit near-miss context
 
-            /*
             //Block of code using Count and Padding to add BRN to bookingReference variable
-            $bookingIndexSearch = "SELECT COUNT(*) FROM cabsOnline";
-            $initialiseIndexCount = mysqli_query($conn, $bookingIndexSearch);
+            //$nearMissIDIndexSearch = "SELECT COUNT(*) FROM nearMissFormData";
+            /*$initialiseIndexCount = mysqli_query($conn, $nearMissIDIndexSearch);
             $indexRow = mysqli_fetch_assoc($initialiseIndexCount);
             $countRowIndex = $indexRow["COUNT(*)"] + 1;
-            $bookingIndexSearch = "BRN".str_pad($countRowIndex,5,"0",STR_PAD_LEFT);
+            $nearMissIDIndexSearch = "NME".str_pad($countRowIndex,5,"0",STR_PAD_LEFT);*/
+
+            $description = $_POST["description"];
+            $dateTime = $_POST["dateTime"];
+            $priority = $_POST["priority"];
+
 
             //Adds information into table collumns and stores it in a variable
-            $query = "INSERT INTO cabsOnline (bookingReference, cname, phone, unumber, snumber, stname, sbname, dsbname, currentDateTime) 
-            VALUES ('$bookingIndexSearch', '$cname', '$phone', '$unumber', '$snumber', '$stname', '$suburb', '$dsbname', '$currentDate + $currentTime');";
-            $result = mysqli_query($conn, $query);
+            $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$description', '$dateTime', '$priority');";
+            $result = mysqli_query($dbConn, $query);
 
             if(!$result) //Checks if database table information was added
             {
@@ -65,17 +62,16 @@
             {
                 echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
 
-                $checkBookingReference = "SELECT `bookingReference` FROM `cabsOnline` ORDER BY `bookingReference` DESC LIMIT 1";
-                $getBookingReference = mysqli_query($conn, $checkBookingReference);
-                $row = mysqli_fetch_assoc($getBookingReference);
-                $displayBookingReferenceRow = $row["bookingReference"];
+                $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+                $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
+                $row = mysqli_fetch_assoc($getNearMissID);
+                $displayNearMissIDRow = $row["nearMissID"];
 
-                echo "Booking Reference Number: ".$displayBookingReferenceRow;
-                echo "<p>Pickup Time: $currentTime</p>";
-                echo "Pickup Date: ".date("d/m/Y",strtotime($currentDate));
-            }*/
+                //Will update this more when reciept code is done
+                echo "Near Miss Entry ID: ".$displayNearMissIDRow;
+            }
         }
-        mysqli_close($conn);
+        mysqli_close($dbConn);
     ?>
 </body>
 </html>
