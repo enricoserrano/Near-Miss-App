@@ -84,9 +84,20 @@
             <div id="show-uploaded-image" style="display:none">
             </div>
             <br>
-            <video id="webCamera" autoplay playsinlne width="800" height="600"></video>
-            <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
-            <canvas id="photoCanvas"></canvas>
+
+            <p><button onclick="showTakePhotoOption()">Toggle Take a Photo</button></p>
+            <div id="take-photo-container">
+                
+                  <video id="webCamera" autoplay playsinlne width="800" height="600"></video>
+                  <canvas id="photoCanvas"></canvas>
+                
+                <br>
+                <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
+
+
+            </div>
+
+            
             
             <input type="submit" name="submit">
          </div>

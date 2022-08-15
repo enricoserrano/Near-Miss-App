@@ -48,3 +48,19 @@ function showImagePreviewBox()
     document.getElementById('show-uploaded-image').style.display = "block";
     document.getElementById('image-preview-title').style.display = "block";
 }
+
+// This function when called will either hide or show the webcam container to take a photo
+function showTakePhotoOption()
+{
+    var x = document.getElementById("take-photo-container");
+    
+    if (x.style.display === "none")
+    {
+        x.style.display = "block";
+    }
+    else
+    {
+        x.style.display = "none";
+    }
+}
+
