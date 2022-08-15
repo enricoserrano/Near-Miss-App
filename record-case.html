@@ -12,50 +12,69 @@
       <link rel="stylesheet" href="./styles/style.css">
    </head>
    <body>
-      <video id="webCamera" autoplay playsinlne width="800" height="600"></video>
-      <a download onClick="takePhoto()">SNAP</a>
-      <canvas id="photoCanvas"></canvas>
-      <header>
+      
+      <!-- <header> -->
          <!-- Navbar -->
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <!-- Container wrapper -->
+         <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-               data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-               aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-            </button>
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <!-- Navbar brand -->
-               <a class="navbar-brand mt-2 mt-lg-0" href="#">
-               <img src="./images/logo.png" height="45" width="45" alt="MDB Logo" loading="lazy" />
-               <b>Near-miss Application</b></a>
-               <!-- Left links -->
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                     <a class="nav-link" href="index.html">Home</a>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li>
+                     <a href="index.html">
+                        <div class="sub-menu">
+                           <i class="bi bi-house-door"></i>
+                           <p class="menu-title">Home</p>
+                         </div>
+                     </a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Record Near-miss</a>
+                  <li>
+                     <a href="about.html">
+                        <div class="sub-menu">
+                           <i class="bi bi-info-square"></i>
+                           <p class="menu-title">About</p>
+                         </div>
+                     </a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="about.html">About</a>
+                  <li>
+                     <a href="contact.html">
+                        <div class="sub-menu">
+                           <i class="bi bi-chat-left-text"></i>
+                           <p class="menu-title">Contact</p>
+                         </div>
+                     </a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact Us</a>
+                  <li>
+                     <a href="https://www.youtube.com/watch?v=c9B4TPnak1A">
+                        <div class="sub-menu">
+                           <i class="bi bi-person-circle"></i>
+                           <p class="menu-title">Login</p>
+                         </div>
+                     </a>
+                     </li>
+                  <li>
+                     <a href="record.html">
+                        <div class="sub-menu">
+                           <i class="bi bi-pencil-square"></i>
+                           <p class="menu-title">Record</p>
+                         </div>
+                     </a>
                   </li>
-               </ul>
-               <!-- Left links -->
+                </ol>
+              </nav>
             </div>
-            <!-- Collapsible wrapper -->
-            <!-- Container wrapper -->
-         </nav>
+          </nav> -->
          <!-- Navbar -->
-      </header>
+      <!-- </header> -->
+      <ul>
+         <button onclick="location.href='index.html';">Home</button>
+         <!-- <li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_basic_html">Home</a></li> -->
+         <!-- <li><a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_basic_html">News</a></li>
+         <li><a href="#contact">Contact</a></li>
+         <li><a href="#about">About</a></li> -->
+       </ul>
       <form action="saveImage.php" method="POST" enctype="multipart/form-data">
          <div id = "upload-image">
+            <br>
             <h2>Upload an Image</h2>
             <label for="uploadImage">Select files:</label>
             <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
@@ -65,7 +84,22 @@
             <div id="show-uploaded-image" style="display:none">
             </div>
             <br>
+
+            <div class="take-webcam-photos">
+               <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
+               <div id="take-photo-container" style="display:none">
+                   
+                  <h3>Preview</h3>
+                  <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
+                  <h3>Image Taken & Downloaded</h3>
+                  <canvas id="photoCanvas"></canvas>
+                   
+                  <br>
+                  <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
+               </div>
+            </div>
             
+            <br>
             <input type="submit" name="submit">
          </div>
       </form>

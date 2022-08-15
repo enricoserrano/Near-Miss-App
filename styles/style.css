@@ -396,7 +396,6 @@ header {
     padding: 50px;
     color: white;
 }
-
 #address-container p{
     font-size: 16px;
 } */
@@ -642,7 +641,28 @@ input[name=time]
     color: white;
     text-decoration: none;
 }
-
 canvas {
     display: none;
 } */
+
+.download-button{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+}
+
+a .download{
+    color: green;
+}
+
+/* Will remove the functionality to take a photo using the laptop webcam on mobile devices */
+@media screen and (max-width: 650px) {
+    .take-webcam-photos{
+        display: none;
+    }
+}
