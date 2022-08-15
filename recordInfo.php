@@ -45,13 +45,12 @@
             $countRowIndex = $indexRow["COUNT(*)"] + 1;
             $nearMissIDIndexSearch = "NME".str_pad($countRowIndex,5,"0",STR_PAD_LEFT);*/
 
-            $description = $_POST["description"];
-            $dateTime = $_POST["dateTime"];
-            $priority = $_POST["priority"];
-
+            $nmDesc = $_POST["description"];
+            $nmDateTime = $_POST["dateTime"];
+            $nmPriorityLevel = $_POST["priority"];
 
             //Adds information into table collumns and stores it in a variable
-            $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$description', '$dateTime', '$priority');";
+            $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel');";
             $result = mysqli_query($dbConn, $query);
 
             if(!$result) //Checks if database table information was added

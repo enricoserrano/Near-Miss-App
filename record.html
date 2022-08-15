@@ -9,9 +9,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/style.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous""></script>
-    <script type="text/javascript" src="ajaxRecordForm.js"></script>
     <script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="ajaxRecordForm.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
 
         $(document).ready(function () 
@@ -81,7 +82,7 @@
         <div class = "record-case-container">
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <div class="form-group">
-            <form action = "recordInfo.php" method = "POST">
+            <form>
             <!-- Waiting on file and location stuff to be finished
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
                 <label for="location" style="color: white;">Location(required)</label>
@@ -128,12 +129,11 @@
             </div>
             
             <br>
-            <input type="submit" value="Submit" name = "submit">
+            <input type="button" id = "submit" value="Submit" name = "submit" onClick = "getData('recordInfo.php','nearMissInformation', description.value, dateTime.value, priority.value)">
             <input type="reset" value="Reset">
-            <!--onClick = "getData('recordInfo.php','bookingInformation', description.value, dateTime.value, priority.value)"-->
             </form>
         </div>
-        <div id ="bookingInformation">
+        <div id ="nearMissInformation">
         </div>
 </body>
 </html>
