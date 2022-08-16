@@ -70,7 +70,11 @@
     <!-- Navbar -->
 
     <div class="receipt-text">
-        <h1>Near-miss Receipt</h1><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 >Near-miss Receipt</h1><br>
           
         <?php
             
