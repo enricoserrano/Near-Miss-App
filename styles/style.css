@@ -71,26 +71,32 @@ header {
 .sub_page .hero_area {
     min-height: auto;
 }
-.text-white {
+.worksafe-details {
+    color: white;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.indextitle-details{
+    color: white;
     width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.worksafe-details {
-    width: 100%;
-    position: absolute;
-    bottom: -110%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 .navbarlogo-text{
     font-family: Verdana, sans-serif;
 }
+.navbarlogo-text a {
+    color: #000000;
+    text-decoration: none;
+}
 .container-fluid {
     display: flex;
-    justify-content: flex-start !important;
+    padding: 0px;
+    flex-direction: column;
 }
 .navigation-wrapper {
     overflow:auto !important;
@@ -118,6 +124,16 @@ header {
     border-bottom: 1px solid #3c3c3c7c;
     border-top: none;
 }
+.sub-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px;
+    padding-top: 5px;
+    color: black;
+    text-align: center;
+  }
+  .sub-menu .menu-title {}
 /* Default height for small devices */
 #intro-example {
     height: 400px;
@@ -299,6 +315,14 @@ header {
         padding-top: 5%;
     }
 
+    #record-icon-center {
+        text-align: center;
+        padding-left: 50%;
+        /* margin: 0 auto; */
+        /* width: 60%; */
+        /* border-style: solid; */
+    }
+
     
 }
 
@@ -326,6 +350,13 @@ header {
 
 .instruction-card-header-text{
     padding-top: 20px;
+}
+
+#record-icon-center{
+    text-align:center;
+    padding-left: 40%;
+    /* margin: 0 auto; */
+    /* width: 60%; */
 }
 /* About Page styling end */
 
@@ -380,7 +411,6 @@ header {
     padding: 50px;
     color: white;
 }
-
 #address-container p{
     font-size: 16px;
 } */
@@ -598,14 +628,44 @@ input[name=time]
     }
 }
 
-#upload-image{
-    text-align:center;
-    font-size: 16px;
+
+/* a {
+    padding: 10px;
+    background-color: orange;
     color: white;
-    padding-top: 50px;
+    text-decoration: none;
+}
+canvas {
+    display: none;
+} */
+
+.download-button{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
 }
 
-#upload-image h3{
-    font-size: 16px;
-    color: rgb(255, 210, 11);
+a .download{
+    color: green;
+}
+
+/* Will remove the functionality to take a photo using the laptop webcam on mobile devices */
+@media screen and (max-width: 650px) {
+    .take-webcam-photos{
+        display: none;
+    }
+    #choose-files {
+        padding-left: 5px;
+    }
+}
+
+@media (min-width: 992px) {
+    #choose-files {
+        padding-left: 100px;
+    }
 }
