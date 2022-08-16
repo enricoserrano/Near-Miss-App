@@ -690,3 +690,14 @@ a .download{
 
 .receiptRecordBtn{background-color:rgb(47, 165, 47);}
 .receiptRecordBtn:hover{background-color:rgb(53, 218, 53);}
+
+.receipt-text{
+    padding-top: 2%;
+    color:white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.receipt-text h1{
+    padding-bottom: 2%;
+}
