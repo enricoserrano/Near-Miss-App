@@ -1,139 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Record Form Information PHP</title>
-</head>
-<body>
-    <?php
-        
-        $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
-
-        if(!$dbConn)
-        {
-            echo "<p>Connection with the database has failed</p>";
-        }
-        else
-        {
-            $formDataExist = @mysqli_query($dbConn, "SELECT * FROM nearMissFormData;"); //Data from database table saved into variable along with connection to database
-            
-            if(!$formDataExist) //Checks if there is data in the database table now stored in this variable
-            { 
-                echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
-                
-                $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
-                imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
-            
-                //Stores connection and collumn creation query variables as paramters in a result variable
-                $tableResult = mysqli_query($dbConn, $createFormDataTable);
-
-                if(!$tableResult) //Checks if the columns and database table is created and succesful
-                {
-                    echo "<p>There was an issue creating the columns in the database table. Please try again</p>";
-                }
-                else
-                {
-                    echo "<p>Successful query operation</p>";
-                }
-            }
-            $nmSiteLocation = $_POST["siteLocation"];
-            $nmInSiteLocation = $_POST["inSiteLocation"];
-            $nmDesc = $_POST["description"];
-            $nmDateTime = $_POST["dateTime"];
-            $nmPriorityLevel = $_POST["priority"];
-
-
-
-
-
-            // Checks if post is clicked
-            if (isset($_POST["submit"])) {
-            // Checks if the uploaded image is valid
-                // If the image uploaded is valid, the following occurs
-
-                // Declare and store image file and file name into variables
-                $image = $_FILES["uploadedImageFile"]["tmp_name"];
-                $imageFileName = $_FILES["uploadedImageFile"]["name"];
-                $image = base64_encode(file_get_contents(addslashes($image)));
-
-                //Adds information into table collumns and stores it in a variable
-                $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation','$nmInSiteLocation','$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
-                $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
-
-                // If something is wrong with the inserting process and error message is shown
-                if (!$insertFormDataResult) {
-                    echo "<p>There is an issue with adding information to the database. Try again.</p>";
-                } else {
-                    echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
-                    $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
-                    $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
-                    
-                    
-                    while($row = mysqli_fetch_assoc($getNearMissID))
-                    {
-                        echo "<p>Near-miss Entry ID: ".$row["nearMissID"]."</p>";
-                        echo "<p>Near-miss Description: ".$row["nmDesc"]."</p>";
-                        echo "<p>Recorded Date and Time: ".$row["nmDateTime"]."</p>";
-                        echo "<p>Priority level: ".$row["nmPriority"]."</p>";
-                        echo "<p>Filename of image uploaded: ".$row["imageFileName"]."</p>";
-
-                        echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
-                        echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
-                    }
-                    // $displayNearMissIDRow = $row["nearMissID"];
-                    // $displayNearMissDescription = $row["nmDesc"];
-                    // $displayNearMissDateTime = $row["nmDateTime"];
-
-                    // $displayNearMissIDRow = $row["nearMissID"];
-
-                    // $displayImgUploadedFilename = $row["imageFileName"];
-                   
-                    
-
-                    //Will update this more when reciept code is done
-                    // echo "<p>Near Miss Entry ID: $displayNearMissIDRow</p>";
-                    // echo $displayNearMissDescription;
-                    // echo "<p>Filename of image uploaded: $displayImgUploadedFilename</p>";
-
-                }
-                
-            }
-
-            //Block of code using Count and Padding to add BRN to bookingReference variable
-            //$nearMissIDIndexSearch = "SELECT COUNT(*) FROM nearMissFormData";
-            /*$initialiseIndexCount = mysqli_query($conn, $nearMissIDIndexSearch);
-            $indexRow = mysqli_fetch_assoc($initialiseIndexCount);
-            $countRowIndex = $indexRow["COUNT(*)"] + 1;
-            $nearMissIDIndexSearch = "NME".str_pad($countRowIndex,5,"0",STR_PAD_LEFT);*/
-
-            // $nmDesc = $_POST["description"];
-            // $nmDateTime = $_POST["dateTime"];
-            // $nmPriorityLevel = $_POST["priority"];
-
-            // //Adds information into table collumns and stores it in a variable
-            // $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel');";
-            // $result = mysqli_query($dbConn, $query);
-
-            // if(!$result) //Checks if database table information was added
-            // {
-            //     echo "<p>There is an issue with adding information to the database. Try again.</p>";
-            // }
-            // else
-            // {
-            //     echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
-
-            //     $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
-            //     $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
-            //     $row = mysqli_fetch_assoc($getNearMissID);
-            //     $displayNearMissIDRow = $row["nearMissID"];
-
-            //     //Will update this more when reciept code is done
-            //     echo "Near Miss Entry ID: ".$displayNearMissIDRow;
-            // }
-        }
-        mysqli_close($dbConn);
-    ?>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+      <link rel="stylesheet" href="./styles/style.css">
+      <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+      <title>The Near-miss form receipt</title>
+      <link rel = "icon" type = "image/png" href = "./images/logo.png">
+   </head>
+   <body>
+      <!-- Navbar -->
+      <header>
+         <!-- Navbar -->
+         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+               <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                     <li>
+                        <a href="index.html">
+                           <div class="sub-menu">
+                              <i class="bi bi-house-door"></i>
+                              <p class="menu-title">Home</p>
+                           </div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#about-section">
+                           <div class="sub-menu">
+                              <i class="bi bi-info-square"></i>
+                              <p class="menu-title">About</p>
+                           </div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#contact-section">
+                           <div class="sub-menu">
+                              <i class="bi bi-chat-left-text"></i>
+                              <p class="menu-title">Contact</p>
+                           </div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#">
+                           <div class="sub-menu">
+                              <i class="bi bi-person-circle"></i>
+                              <p class="menu-title">Login</p>
+                           </div>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="record.html">
+                           <div class="sub-menu">
+                              <i class="bi bi-pencil-square"></i>
+                              <p class="menu-title">Record</p>
+                           </div>
+                        </a>
+                     </li>
+                  </ol>
+               </nav>
+            </div>
+         </nav>
+         <!-- Navbar -->
+      </header>
+      <!-- Navbar -->
+      <div class="receipt-text">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1 >Near-miss Receipt</h1>
+      <br>
+      <?php
+         $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
+         
+         if(!$dbConn)
+         {
+             echo "<p>Connection with the database has failed</p>";
+         }
+         else
+         {
+             $formDataExist = @mysqli_query($dbConn, "SELECT * FROM nearMissFormData;"); //Data from database table saved into variable along with connection to database
+             
+             if(!$formDataExist) //Checks if there is data in the database table now stored in this variable
+             { 
+                 echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
+                 
+                 $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
+                 imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+             
+                 //Stores connection and collumn creation query variables as paramters in a result variable
+                 $tableResult = mysqli_query($dbConn, $createFormDataTable);
+         
+                 if(!$tableResult) //Checks if the columns and database table is created and succesful
+                 {
+                     echo "<p>There was an issue creating the columns in the database table. Please try again</p>";
+                 }
+                 else
+                 {
+                     echo "<p>Successful query operation</p>";
+                 }
+             }
+         
+             $nmSiteLocation = $_POST["nmSiteLocation"];
+             $nmInSiteLocation = $_POST["nmInSiteLocation"];
+             $nmDesc = $_POST["description"];
+             $nmDateTime = $_POST["dateTime"];
+             $nmPriorityLevel = $_POST["priority"];
+         
+             // Checks if post is clicked
+             if (isset($_POST["submit"])) {
+             // Checks if the uploaded image is valid
+                 // If the image uploaded is valid, the following occurs
+         
+                 // Declare and store image file and file name into variables
+                 $image = $_FILES["uploadedImageFile"]["tmp_name"];
+                 $imageFileName = $_FILES["uploadedImageFile"]["name"];
+                 $image = base64_encode(file_get_contents(addslashes($image)));
+         
+                 //Adds information into table collumns and stores it in a variable
+                 $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation', '$nmInSiteLocation', '$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                 $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
+         
+                 // If something is wrong with the inserting process and error message is shown
+                 if (!$insertFormDataResult) {
+                     echo "<p>There is an issue with adding information to the database. Try again.</p>";
+                 } else {
+                     echo "<p><strong>Congratulations!</strong> The record has been successfully stored! Here is your receipt.</p>";
+                     $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+                     $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
+                     
+                     while($row = mysqli_fetch_assoc($getNearMissID))
+                     {
+                         echo "<p><strong>Near-miss Entry ID: </strong>".$row["nearMissID"]."</p>";
+                         echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
+                         echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
+                         echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
+                         echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
+                         echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
+                         echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
+                     }  
+                 }
+             }
+         }
+         mysqli_close($dbConn); 
+         ?>
+      <div>
+      <br>
+      <button class = "receipt-button receiptHomeBtn" onclick="location.href='index.html';">Return Home</button>
+      <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Near-miss</button>
+   </body>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
