@@ -83,43 +83,43 @@
         <div class = "record-case-container">
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <div class="form-group">
-            <form>
+            <form enctype="multipart/form-data">
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
                 <label for="location" style="color: white;">Location(required)</label>
                 <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
                 <span id="errName" style="color: red; display: none"></span>
 
-                <form action="saveImage.php" method="POST" enctype="multipart/form-data">
-                    <div id="upload-image">
-                        <br>
-                        <label for="uploadImage">Select files:</label>
-                        <div id="choose-files">
-                            <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
-                                onchange=showImagePreviewBox() multiple required>
-                        </div>
-                        <br><br>
-                        <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
-                    
-                        <div id="show-uploaded-image" style="display:none">
-                        </div>
-                        <br>
-                    
-                        <div class="take-webcam-photos">
-                            <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
-                            <div id="take-photo-container" style="display:none">
-                    
-                                <h3>Preview</h3>
-                                <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
-                                <h3>Image Taken & Downloaded</h3>
-                                <canvas id="photoCanvas"></canvas>
-                    
-                                <br>
-                                <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
-                            </div>
-                        </div>
-                        <br>
+                
+                <div id="upload-image">
+                    <br>
+                    <label for="uploadImage">Select files:</label>
+                    <div id="choose-files">
+                        <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
+                            onchange=showImagePreviewBox() multiple required>
                     </div>
-                 </form>
+                    <br><br>
+                    <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
+                
+                    <div id="show-uploaded-image" style="display:none">
+                    </div>
+                    <br>
+                
+                    <div class="take-webcam-photos">
+                        <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
+                        <div id="take-photo-container" style="display:none">
+                
+                            <h3>Preview</h3>
+                            <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
+                            <h3>Image Taken & Downloaded</h3>
+                            <canvas id="photoCanvas"></canvas>
+                
+                            <br>
+                            <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                 
                  <script type ="text/javascript" src="camera-image-functions.js"></script>
                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
            
