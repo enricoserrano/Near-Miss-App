@@ -62,13 +62,35 @@
                     echo "<p>There is an issue with adding information to the database. Try again.</p>";
                 } else {
                     echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
-                    $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+                    $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
                     $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
-                    $row = mysqli_fetch_assoc($getNearMissID);
-                    $displayNearMissIDRow = $row["nearMissID"];
+                    
+                    
+                    while($row = mysqli_fetch_assoc($getNearMissID))
+                    {
+                        echo "<p>Near-miss Entry ID: ".$row["nearMissID"]."</p>";
+                        echo "<p>Near-miss Description: ".$row["nmDesc"]."</p>";
+                        echo "<p>Recorded Date and Time: ".$row["nmDateTime"]."</p>";
+                        echo "<p>Priority level: ".$row["nmPriority"]."</p>";
+                        echo "<p>Filename of image uploaded: ".$row["imageFileName"]."</p>";
+
+
+                    }
+                    // $displayNearMissIDRow = $row["nearMissID"];
+                    // $displayNearMissDescription = $row["nmDesc"];
+                    // $displayNearMissDateTime = $row["nmDateTime"];
+
+                    // $displayNearMissIDRow = $row["nearMissID"];
+
+                    // $displayImgUploadedFilename = $row["imageFileName"];
+                   
+                    
 
                     //Will update this more when reciept code is done
-                    echo "Near Miss Entry ID: ".$displayNearMissIDRow;
+                    // echo "<p>Near Miss Entry ID: $displayNearMissIDRow</p>";
+                    // echo $displayNearMissDescription;
+                    // echo "<p>Filename of image uploaded: $displayImgUploadedFilename</p>";
+
                 }
                 
             }
