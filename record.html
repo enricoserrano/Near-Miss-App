@@ -117,7 +117,7 @@
                     <label for="description" style="color: white;">Description</label>
                     <br><textarea id="description" name="description" rows="4" cols="50"
                         required>Enter Description...</textarea>
-                    <!-- <span id="errImage" style="color: red; display: none"></span> -->
+                    <span id="errDescription" style="color: red; display: none"></span>
                 </div>
                 <div>
                     <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
@@ -128,8 +128,8 @@
                 </div>
                 <div>
                     <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
-                    <label for="priorityName" style="color: white;">Priority</label>
-                    <br><label style="color: white;"><input type="radio" class="low" name="priority"
+                    <label for="priorityName" style="color: white;">Potential Severity</label>
+                    <br><label style="color: white;"><input type="radio" checked class="low" name="priority"
                             value="low">Low</label>
                     <label style="color: white;"><input type="radio" class="medium" name="priority"
                             value="medium">Medium</label>
@@ -163,7 +163,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        resetForm();
+        // resetForm();
         console.log($(document));
     })
 
@@ -172,50 +172,60 @@
     function validate() {
         isValid = true;
         validateSiteLocation();
-        //validateInSiteLocation();
-        // validateImage();
-        //validateDescription();
+        validateDescription();
         return isValid;
     }
 
     function validateSiteLocation() {
-        var siteLocation = document.getElementById("siteLocation");
-        var errSitelocation = document.getElementById("errSitelocation");
-        // errSitelocation.style.display = "none";
-        document.getElementById("errSiteLocation").style.display = "none";
-
+        var SiteLocation = document.getElementById("siteLocation");
+        var errSitelocation = document.getElementById("errSiteLocation");
+        errSitelocation.style.display = 'none';
 
         const regEx = /^[0-9a-zA-Z!?., ][^&;$%@\'\"+\\]+$/;
-        if (!siteLocation.value) {
+        if (!SiteLocation.value) {
             errSitelocation.innerHTML = "Site location is required!";
             isValid = false;
             errSitelocation.style.display = 'inline'
             return;
         }
-        if (!siteLocation.value.match(regEx)) {
+        if (!SiteLocation.value.match(regEx)) {
             errSitelocation.innerHTML = "Invalid character!";
             isValid = false;
             errSitelocation.style.display = 'inline'
         }
 
-        if (siteLocation.value.startsWith(" ")) {
+        if (SiteLocation.value.startsWith(" ")) {
             errSitelocation.innerHTML = "Space is only valid after a character!";
             isValid = false;
             errSitelocation.style.display = 'inline'
         }
     }
 
-    function validateInSiteLocation() {
-
-    }
-
-    function validateImage() {
-
-    }
-
     function validateDescription() {
+        var Description = document.getElementById("description");
+        var errDescription = document.getElementById("errDescription");
+        errDescription.style.display = 'none';
 
+        const regEx = /^[0-9a-zA-Z!?., ][^&;$%@\'\"+\\]+$/;
+        if (!Description.value) {
+            errDescription.innerHTML = "Description is required!";
+            isValid = false;
+            errDescription.style.display = 'inline'
+            return;
+        }
+        if (!Description.value.match(regEx)) {
+            errDescription.innerHTML = "Invalid character!";
+            isValid = false;
+            errDescription.style.display = 'inline'
+        }
+
+        if (Description.value.startsWith(" ")) {
+            errDescription.innerHTML = "Space is only valid after a character!";
+            isValid = false;
+            errDescription.style.display = 'inline'
+        }
     }
+
 
     function resetForm() {
         var form = document.getElementById('mainForm');
