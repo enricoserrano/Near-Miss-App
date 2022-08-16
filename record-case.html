@@ -77,7 +77,9 @@
             <br>
             <h2>Upload an Image</h2>
             <label for="uploadImage">Select files:</label>
-            <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
+            <div id = "choose-files">
+               <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
+            </div>
             <br><br>
             <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
 

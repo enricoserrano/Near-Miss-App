@@ -644,4 +644,13 @@ a .download{
     .take-webcam-photos{
         display: none;
     }
+    #choose-files {
+        padding-left: 5px;
+    }
+}
+
+@media (min-width: 992px) {
+    #choose-files {
+        padding-left: 100px;
+    }
 }
