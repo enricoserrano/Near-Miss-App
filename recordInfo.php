@@ -59,7 +59,7 @@
                 $image = base64_encode(file_get_contents(addslashes($image)));
 
                 //Adds information into table collumns and stores it in a variable
-                $insertFormDataQuery = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation','$nmInSiteLocation','$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
                 $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
 
                 // If something is wrong with the inserting process and error message is shown
