@@ -57,14 +57,20 @@
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <div class="form-group">
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
-                <label for="location" style="color: white;">Location(required)</label>
+                <label for="location" style="color: white;">Site Location</label>
                 <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
                 <span id="errName" style="color: red; display: none"></span>
 
+                <div>
+                <label for="location" style="color: white;">In-Site location</label>
+                <br><input type="text" id="location" name="location" placeholder="Enter in-site description..."><br>
+
+                </div>
+
                 <form action="saveImage.php" method="POST" enctype="multipart/form-data">
                     <div id = "upload-image">
-                        <i class="fa-solid fa-file-image" style="color: white;"></i>
-                        <label for="image" style="color: white;">Image</label>
+                        <!-- <i class="fa-solid fa-file-image" style="color: white;"></i> -->
+                        <!-- <label for="image" style="color: white;">Image</label> -->
                         <br><p></p><i class="fa-solid fa-upload" style="color: White;"></i>
                         <label for="uploadImage">Select files:</label>
                        <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
@@ -94,7 +100,7 @@
             </div>
             <div>
                 <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
-                <label for="priority" style="color: white;" >Priority</label>
+                <label for="priority" style="color: white;" >Urgency</label>
                 <br><button type="button" class="low" style=" background-color: green;">Low</button>
                 <button type="button" class="medium" style=" background-color: orange;">Medium</button>
                 <button type="button" class="high" style=" background-color: red;">High</button>
@@ -113,6 +119,17 @@
         resetForm();
         console.log($(document));
     })
+    var isValid = true;
+
+    function validate(){
+        isValid = true;
+        validateSiteLocation();
+        validateInSiteLocation();
+        // validateImage();
+        validateDescription();
+        return isValid;
+    }
+    
 
     function submit(){
     //This part will need to validate all the information inserted into the form.
