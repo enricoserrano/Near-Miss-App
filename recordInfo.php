@@ -44,7 +44,7 @@
             $nmPriorityLevel = $_POST["priority"];
 
             // Checks if post is clicked
-            //if (isset($_POST["submit"])) {
+            if (isset($_POST["submit"])) {
             // Checks if the uploaded image is valid
                 // If the image uploaded is valid, the following occurs
 
@@ -71,7 +71,7 @@
                     echo "Near Miss Entry ID: ".$displayNearMissIDRow;
                 }
                 
-           //}
+            }
 
             //Block of code using Count and Padding to add BRN to bookingReference variable
             //$nearMissIDIndexSearch = "SELECT COUNT(*) FROM nearMissFormData";
