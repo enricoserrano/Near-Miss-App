@@ -87,12 +87,12 @@
                 { 
                     echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
                     
-                    $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
+                    $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
                     imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
                 
                     //Stores connection and collumn creation query variables as paramters in a result variable
                     $tableResult = mysqli_query($dbConn, $createFormDataTable);
-
+    
                     if(!$tableResult) //Checks if the columns and database table is created and succesful
                     {
                         echo "<p>There was an issue creating the columns in the database table. Please try again</p>";
@@ -102,41 +102,45 @@
                         echo "<p>Successful query operation</p>";
                     }
                 }
-
+                $nmSiteLocation = $_POST["siteLocation"];
+                $nmInSiteLocation = $_POST["inSiteLocation"];
                 $nmDesc = $_POST["description"];
                 $nmDateTime = $_POST["dateTime"];
                 $nmPriorityLevel = $_POST["priority"];
 
                 // Checks if post is clicked
                 if (isset($_POST["submit"])) {
-                // Checks if the uploaded image is valid
-                    // If the image uploaded is valid, the following occurs
-
-                    // Declare and store image file and file name into variables
-                    $image = $_FILES["uploadedImageFile"]["tmp_name"];
-                    $imageFileName = $_FILES["uploadedImageFile"]["name"];
-                    $image = base64_encode(file_get_contents(addslashes($image)));
-
-                    //Adds information into table collumns and stores it in a variable
-                    $insertFormDataQuery = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
-                    $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
-
-                    // If something is wrong with the inserting process and error message is shown
-                    if (!$insertFormDataResult) {
-                        echo "<p>There is an issue with adding information to the database. Try again.</p>";
-                    } else {
-                        echo "<p><strong>Congratulations!</strong> The record has been successfully stored! Here is your receipt.</p>";
-                        $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
-                        $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
-                        
-                        while($row = mysqli_fetch_assoc($getNearMissID))
-                        {
-                            echo "<p><strong>Near-miss Entry ID: </strong>".$row["nearMissID"]."</p>";
-                            echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
-                            echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
-                            echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
-                            echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
-                        }  
+                    // Checks if the uploaded image is valid
+                        // If the image uploaded is valid, the following occurs
+        
+                        // Declare and store image file and file name into variables
+                        $image = $_FILES["uploadedImageFile"]["tmp_name"];
+                        $imageFileName = $_FILES["uploadedImageFile"]["name"];
+                        $image = base64_encode(file_get_contents(addslashes($image)));
+        
+                        //Adds information into table collumns and stores it in a variable
+                        $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation','$nmInSiteLocation','$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                        $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
+        
+                        // If something is wrong with the inserting process and error message is shown
+                        if (!$insertFormDataResult) {
+                            echo "<p>There is an issue with adding information to the database. Try again.</p>";
+                        } else {
+                            echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
+                            $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+                            $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
+                            
+                            
+                            while($row = mysqli_fetch_assoc($getNearMissID))
+                            {
+                                echo "<p>Near-miss Entry ID: ".$row["nearMissID"]."</p>";
+                                echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
+                                echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
+                                echo "<p>Near-miss Description: ".$row["nmDesc"]."</p>";
+                                echo "<p>Recorded Date and Time: ".$row["nmDateTime"]."</p>";
+                                echo "<p>Priority level: ".$row["nmPriority"]."</p>";
+                                echo "<p>Filename of image uploaded: ".$row["imageFileName"]."</p>";
+                            }
                     }
                 }
             }
