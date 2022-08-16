@@ -23,7 +23,7 @@
             { 
                 echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
                 
-                $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
+                $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
                 imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
             
                 //Stores connection and collumn creation query variables as paramters in a result variable
@@ -38,10 +38,15 @@
                     echo "<p>Successful query operation</p>";
                 }
             }
-
+            $nmSiteLocation = $_POST["siteLocation"];
+            $nmInSiteLocation = $_POST["inSiteLocation"];
             $nmDesc = $_POST["description"];
             $nmDateTime = $_POST["dateTime"];
             $nmPriorityLevel = $_POST["priority"];
+
+
+
+
 
             // Checks if post is clicked
             if (isset($_POST["submit"])) {
@@ -74,7 +79,8 @@
                         echo "<p>Priority level: ".$row["nmPriority"]."</p>";
                         echo "<p>Filename of image uploaded: ".$row["imageFileName"]."</p>";
 
-
+                        echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
+                        echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
                     }
                     // $displayNearMissIDRow = $row["nearMissID"];
                     // $displayNearMissDescription = $row["nmDesc"];
