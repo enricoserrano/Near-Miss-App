@@ -315,6 +315,14 @@ header {
         padding-top: 5%;
     }
 
+    #record-icon-center {
+        text-align: center;
+        padding-left: 50%;
+        /* margin: 0 auto; */
+        /* width: 60%; */
+        /* border-style: solid; */
+    }
+
     
 }
 
@@ -342,6 +350,13 @@ header {
 
 .instruction-card-header-text{
     padding-top: 20px;
+}
+
+#record-icon-center{
+    text-align:center;
+    padding-left: 40%;
+    /* margin: 0 auto; */
+    /* width: 60%; */
 }
 /* About Page styling end */
 
