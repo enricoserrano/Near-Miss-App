@@ -9,6 +9,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./styles/style.css">
+    <style>
+        p {
+            color:white;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous""></script>
     <title>The Near-miss form receipt</title>
 </head>
