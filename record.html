@@ -83,7 +83,7 @@
         <div class = "record-case-container">
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <div class="form-group">
-            <form action="recordInfo.php" method="POST" enctype="multipart/form-data">
+            <form enctype="multipart/form-data">
                 <i class="fa-solid fa-location-dot" style="color: white;"></i>
                 <label for="location" style="color: white;">Location(required)</label>
                 <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
@@ -146,8 +146,8 @@
             </div>
             
             <br>
-            <!-- <input type="button" id = "submit" value="Submit" name = "submit" onClick = "getData('recordInfo.php','nearMissInformation', description.value, dateTime.value, priority.value)"> -->
-            <input type="submit" id = "submit" value="Submit" name = "submit">
+            <input type="button" id = "submit" value="Submit" name = "submit" onClick = "getData('recordInfo.php','nearMissInformation', description.value, dateTime.value, priority.value, uploadedImageFile.value)">
+            <!-- <input type="submit" id = "submit" value="Submit" name = "submit"> -->
             <input type="reset" value="Reset">
             </form>
         </div>
