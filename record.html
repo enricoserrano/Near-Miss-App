@@ -1,176 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
     <title>Record Near-miss</title>
-    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="xhr.js"></script>
-    <script type="text/javascript" src="ajaxRecordForm.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./styles/style.css">
-
-    <script type="text/javascript">
-
-        $(document).ready(function () 
-        {
-            resetForm();
-            console.log($(document));
-        })
-
-        function submit()
-        {
-        
-        }
-
-        function cancelForm()
-        {
-            
-        }
-
-        function verify()
-        {
-
-        }
-
-    </script>
 </head>
+
 <body>
     <header>
         <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-           <div class="container-fluid">
-             <nav aria-label="breadcrumb">
-               <ol class="breadcrumb">
-                 <li>
-                    <a href="index.html">
-                       <div class="sub-menu">
-                          <i class="bi bi-house-door"></i>
-                          <p class="menu-title">Home</p>
-                        </div>
-                    </a>
-                 </li>
-                 <li>
-                    <a href="index.html#about-section">
-                       <div class="sub-menu">
-                          <i class="bi bi-info-square"></i>
-                          <p class="menu-title">About</p>
-                        </div>
-                    </a>
-                 </li>
-                 <li>
-                    <a href="index.html#contact-section">
-                       <div class="sub-menu">
-                          <i class="bi bi-chat-left-text"></i>
-                          <p class="menu-title">Contact</p>
-                        </div>
-                    </a>
-                 </li>
-                 <li>
-                    <a href="#">
-                       <div class="sub-menu">
-                          <i class="bi bi-person-circle"></i>
-                          <p class="menu-title">Login</p>
-                        </div>
-                    </a>
-                    </li>
-                 <li>
-                    <a href="record.html">
-                       <div class="sub-menu">
-                          <i class="bi bi-pencil-square"></i>
-                          <p class="menu-title">Record</p>
-                        </div>
-                    </a>
-                 </li>
-               </ol>
-             </nav>
-           </div>
-         </nav>
-        <!-- Navbar -->
-     </header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar brand -->
+                    <a class="navbar-brand mt-2 mt-lg-0" href="index.html">
+                        <img src="./images/logo.png" height="45" width="45" alt="MDB Logo" loading="lazy" />
+                        <b>Near-miss Application</b></a>
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Record Near-miss</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                </div>
+                <!-- Collapsible wrapper -->
+                <!-- Container wrapper -->
+        </nav>
         <!-- Navbar -->
         <!-- Background image -->
 
-        <div class = "record-case-container">
-            <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
-            <div class="form-group">
-            <form action="recordInfo.php" method="POST" enctype="multipart/form-data">
-                <i class="fa-solid fa-location-dot" style="color: white;"></i>
-                <label for="location" style="color: white;">Location(required)</label>
-                <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
-                <span id="errName" style="color: red; display: none"></span>
-
-                
-                <div id="upload-image">
-                    <br>
-                    <label for="uploadImage">Select files:</label>
-                    <div id="choose-files">
-                        <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
-                            onchange=showImagePreviewBox() multiple required>
-                    </div>
-                    <br><br>
-                    <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
-                
-                    <div id="show-uploaded-image" style="display:none">
-                    </div>
-                    <br>
-                
-                    <div class="take-webcam-photos">
-                        <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
-                        <div id="take-photo-container" style="display:none">
-                
-                            <h3>Preview</h3>
-                            <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
-                            <h3>Image Taken & Downloaded</h3>
-                            <canvas id="photoCanvas"></canvas>
-                
-                            <br>
-                            <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-                 
-                 <script type ="text/javascript" src="camera-image-functions.js"></script>
-                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
-           
-            </div>
-            <div>
-                <i class="fa-solid fa-note-sticky" style="color: white;"></i>
-                <label for="description" style="color: white;">Description</label>
-                <br><textarea id="description" name="description" rows="4" cols="50" required>Enter Description...</textarea>
-                <span id="errImage" style="color: red; display: none"></span>
-            </div>
-            <div>
-                <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
-                <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
-                <label for="dateTime"></label>
-                <input type="datetime-local" id="dateTime" name="dateTime">
-                <span id="errImage" style="color: red; display: none"></span>
-            </div>
-            <div>
-                <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
-                <label for="priorityName" style="color: white;" >Priority</label>
-                <br><label style="color: white;"><input type="radio" class="low" name="priority" value = "low">Low</label>
-                <label style="color: white;"><input type="radio" class="medium" name="priority" value = "medium">Medium</label>
-                <label style="color: white;"><input type="radio" class="high" name="priority" value = "high">High</label>
-            </div>
-            
+        <div class="record-case-container">
             <br>
-            <!-- <input type="button" id = "submit" value="Submit" name = "submit" onClick = "getData('recordInfo.php','nearMissInformation', description.value, dateTime.value, priority.value)"> -->
-            <input type="submit" id = "submit" value="Submit" name = "submit">
-            <input type="reset" value="Reset">
+            <h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
+            <form id="mainForm">
+
+                <div class="form-group">
+                    <form action="recordInfo.php" method="POST" enctype="multipart/form-data">
+                        <div>
+                            <i class="fa-solid fa-location-dot" style="color: white;"></i>
+                            <label for="siteLocation" style="color: white;">Site Location</label>
+                            <br><input type="text" id="siteLocation" name="siteLocation" class="form-control"
+                                placeholder="Enter Site Location..."><br>
+                            <span id="errSiteLocation" style="color: red; display: none"></span>
+                        </div>
+                        <div>
+                            <label for="location" style="color: white;">In-Site location</label>
+                            <br><input type="text" id="inSiteLocation" name="inSiteLocation"
+                                placeholder="Enter in-site description..."><br>
+                        </div>
+
+                        <div id="upload-image">
+                            <br>
+                            <label for="uploadImage">Select files:</label>
+                            <div id="choose-files">
+                                <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg"
+                                    name="uploadedImageFile" onchange=showImagePreviewBox() multiple required>
+                            </div>
+                            <br><br>
+                            <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
+
+                            <div id="show-uploaded-image" style="display:none">
+                            </div>
+                            <br>
+                            <div class="take-webcam-photos">
+                                <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
+                                <div id="take-photo-container" style="display:none">
+
+                                    <h3>Preview</h3>
+                                    <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
+                                    <h3>Image Taken & Downloaded</h3>
+                                    <canvas id="photoCanvas"></canvas>
+
+                                    <br>
+                                    <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-note-sticky" style="color: white;"></i>
+                    <label for="description" style="color: white;">Description</label>
+                    <br><textarea id="description" name="description" rows="4" cols="50"
+                        required>Enter Description...</textarea>
+                    <span id="errDescription" style="color: red; display: none"></span>
+                </div>
+                <div>
+                    <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
+                    <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
+                    <label for="dateTime"></label>
+                    <input type="datetime-local" id="dateTime" name="dateTime">
+                    <!-- <span id="errImage" style="color: red; display: none"></span> -->
+                </div>
+                <div>
+                    <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
+                    <label for="priorityName" style="color: white;">Potential Severity</label>
+                    <br><label style="color: white;"><input type="radio" checked class="low" name="priority"
+                            value="Low">Low</label>
+                    <label style="color: white;"><input type="radio" class="medium" name="priority"
+                            value="Medium">Medium</label>
+                    <label style="color: white;"><input type="radio" class="high" name="priority"
+                            value="High">High</label>
+                </div>
+
+                <br>
+                <!-- <input type="button" id = "submit" value="Submit" name = "submit" onClick = "getData('recordInfo.php','nearMissInformation', description.value, dateTime.value, priority.value)"> -->
+                <input type="submit" id="submit" value="Submit" name="submit">
+                <input name="submit" type="button"
+                    onClick="javascript:validate() && getData('recordInfo.php', 'targetDiv', uploadedImageFile, description.value, dateTime.value, priority.value, siteLocation.value, inSiteLocation.value)"
+                    value="Submit Near-miss">
+                <div id="targetDiv">
+                    <p>
+
+                    </p>
+                </div>
+
+                <!-- <input type="button" onclick="javascript:"> -->
+                <input type="reset" value="Reset">
             </form>
         </div>
-        <div id ="nearMissInformation">
+        <div id="nearMissInformation">
         </div>
+        </form>
 </body>
+<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous""></script>
+<script type=" text/javascript" src="xhr.js"></script>
+<script type="text/javascript" src="ajaxRecordForm.js"></script>
+<script type="text/javascript" src="camera-image-functions.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
-</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        // resetForm();
+        console.log($(document));
+    })
+
+    var isValid = true;
+
+    function validate() {
+        isValid = true;
+        validateSiteLocation();
+        validateDescription();
+        return isValid;
+    }
+
+    function validateSiteLocation() {
+        var SiteLocation = document.getElementById("siteLocation");
+        var errSitelocation = document.getElementById("errSiteLocation");
+        errSitelocation.style.display = 'none';
+
+        const regEx = /^[0-9a-zA-Z!?., ][^&;$%@\'\"+\\]+$/;
+        if (!SiteLocation.value) {
+            errSitelocation.innerHTML = "Site location is required!";
+            isValid = false;
+            errSitelocation.style.display = 'inline'
+            return;
+        }
+        if (!SiteLocation.value.match(regEx)) {
+            errSitelocation.innerHTML = "Invalid character!";
+            isValid = false;
+            errSitelocation.style.display = 'inline'
+        }
+
+        if (SiteLocation.value.startsWith(" ")) {
+            errSitelocation.innerHTML = "Space is only valid after a character!";
+            isValid = false;
+            errSitelocation.style.display = 'inline'
+        }
+    }
+
+    function validateDescription() {
+        var Description = document.getElementById("description");
+        var errDescription = document.getElementById("errDescription");
+        errDescription.style.display = 'none';
+
+        const regEx = /^[0-9a-zA-Z!?., ][^&;$%@\'\"+\\]+$/;
+        if (!Description.value) {
+            errDescription.innerHTML = "Description is required!";
+            isValid = false;
+            errDescription.style.display = 'inline'
+            return;
+        }
+        if (!Description.value.match(regEx)) {
+            errDescription.innerHTML = "Invalid character!";
+            isValid = false;
+            errDescription.style.display = 'inline'
+        }
+
+        if (Description.value.startsWith(" ")) {
+            errDescription.innerHTML = "Space is only valid after a character!";
+            isValid = false;
+            errDescription.style.display = 'inline'
+        }
+    }
+
+
+    function resetForm() {
+        var form = document.getElementById('mainForm');
+        form.reset();
+
+        var obj = document.getElementById("targetDiv");
+        obj.innerHTML = "";
+        errSiteLocation.style.display = 'none';
+    }
+</script>
+
+</html>
