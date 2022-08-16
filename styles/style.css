@@ -315,6 +315,14 @@ header {
         padding-top: 5%;
     }
 
+    #record-icon-center {
+        text-align: center;
+        padding-left: 50%;
+        /* margin: 0 auto; */
+        /* width: 60%; */
+        /* border-style: solid; */
+    }
+
     
 }
 
@@ -342,6 +350,13 @@ header {
 
 .instruction-card-header-text{
     padding-top: 20px;
+}
+
+#record-icon-center{
+    text-align:center;
+    padding-left: 40%;
+    /* margin: 0 auto; */
+    /* width: 60%; */
 }
 /* About Page styling end */
 
@@ -396,7 +411,6 @@ header {
     padding: 50px;
     color: white;
 }
-
 #address-container p{
     font-size: 16px;
 } */
@@ -475,37 +489,16 @@ header {
 .low {
     min-height:30px; 
     min-width: 80px;
-    transition-duration: 0.4s;
-    padding: 5px;
   }
   
-.low:hover {
-    color: white;
-    font-weight: bold;
-  }
-
   .medium {
     min-height:30px; 
     min-width: 80px;
-    transition-duration: 0.4s;
-    padding: 5px;
-  }
-  
-.medium:hover {
-    font-weight: bold;
-    color: white;
   }
 
   .high {
     min-height:30px; 
     min-width: 80px;
-    transition-duration: 0.4s;
-    padding: 5px;
-  }
-  
-.high:hover {
-    color: white;
-    font-weight: bold;
   }
 
   .submit {
@@ -635,14 +628,44 @@ input[name=time]
     }
 }
 
-#upload-image{
-    text-align:center;
-    font-size: 16px;
+
+/* a {
+    padding: 10px;
+    background-color: orange;
     color: white;
-    padding-top: 50px;
+    text-decoration: none;
+}
+canvas {
+    display: none;
+} */
+
+.download-button{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
 }
 
-#upload-image h3{
-    font-size: 16px;
-    color: rgb(255, 210, 11);
+a .download{
+    color: green;
+}
+
+/* Will remove the functionality to take a photo using the laptop webcam on mobile devices */
+@media screen and (max-width: 650px) {
+    .take-webcam-photos{
+        display: none;
+    }
+    #choose-files {
+        padding-left: 5px;
+    }
+}
+
+@media (min-width: 992px) {
+    #choose-files {
+        padding-left: 100px;
+    }
 }
