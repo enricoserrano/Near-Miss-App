@@ -23,7 +23,8 @@
             { 
                 echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
                 
-                $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10));";
+                $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
+                imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
             
                 //Stores connection and collumn creation query variables as paramters in a result variable
                 $tableResult = mysqli_query($dbConn, $createFormDataTable);
@@ -37,6 +38,68 @@
                     echo "<p>Successful query operation</p>";
                 }
             }
+            $nmSiteLocation = $_POST["siteLocation"];
+            $nmInSiteLocation = $_POST["inSiteLocation"];
+            $nmDesc = $_POST["description"];
+            $nmDateTime = $_POST["dateTime"];
+            $nmPriorityLevel = $_POST["priority"];
+
+
+
+
+
+            // Checks if post is clicked
+            if (isset($_POST["submit"])) {
+            // Checks if the uploaded image is valid
+                // If the image uploaded is valid, the following occurs
+
+                // Declare and store image file and file name into variables
+                $image = $_FILES["uploadedImageFile"]["tmp_name"];
+                $imageFileName = $_FILES["uploadedImageFile"]["name"];
+                $image = base64_encode(file_get_contents(addslashes($image)));
+
+                //Adds information into table collumns and stores it in a variable
+                $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation','$nmInSiteLocation','$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
+
+                // If something is wrong with the inserting process and error message is shown
+                if (!$insertFormDataResult) {
+                    echo "<p>There is an issue with adding information to the database. Try again.</p>";
+                } else {
+                    echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
+                    $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+                    $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
+                    
+                    
+                    while($row = mysqli_fetch_assoc($getNearMissID))
+                    {
+                        echo "<p>Near-miss Entry ID: ".$row["nearMissID"]."</p>";
+                        echo "<p>Near-miss Description: ".$row["nmDesc"]."</p>";
+                        echo "<p>Recorded Date and Time: ".$row["nmDateTime"]."</p>";
+                        echo "<p>Priority level: ".$row["nmPriority"]."</p>";
+                        echo "<p>Filename of image uploaded: ".$row["imageFileName"]."</p>";
+
+                        echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
+                        echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
+                    }
+                    // $displayNearMissIDRow = $row["nearMissID"];
+                    // $displayNearMissDescription = $row["nmDesc"];
+                    // $displayNearMissDateTime = $row["nmDateTime"];
+
+                    // $displayNearMissIDRow = $row["nearMissID"];
+
+                    // $displayImgUploadedFilename = $row["imageFileName"];
+                   
+                    
+
+                    //Will update this more when reciept code is done
+                    // echo "<p>Near Miss Entry ID: $displayNearMissIDRow</p>";
+                    // echo $displayNearMissDescription;
+                    // echo "<p>Filename of image uploaded: $displayImgUploadedFilename</p>";
+
+                }
+                
+            }
 
             //Block of code using Count and Padding to add BRN to bookingReference variable
             //$nearMissIDIndexSearch = "SELECT COUNT(*) FROM nearMissFormData";
@@ -45,30 +108,30 @@
             $countRowIndex = $indexRow["COUNT(*)"] + 1;
             $nearMissIDIndexSearch = "NME".str_pad($countRowIndex,5,"0",STR_PAD_LEFT);*/
 
-            $nmDesc = $_POST["description"];
-            $nmDateTime = $_POST["dateTime"];
-            $nmPriorityLevel = $_POST["priority"];
+            // $nmDesc = $_POST["description"];
+            // $nmDateTime = $_POST["dateTime"];
+            // $nmPriorityLevel = $_POST["priority"];
 
-            //Adds information into table collumns and stores it in a variable
-            $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel');";
-            $result = mysqli_query($dbConn, $query);
+            // //Adds information into table collumns and stores it in a variable
+            // $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel');";
+            // $result = mysqli_query($dbConn, $query);
 
-            if(!$result) //Checks if database table information was added
-            {
-                echo "<p>There is an issue with adding information to the database. Try again.</p>";
-            }
-            else
-            {
-                echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
+            // if(!$result) //Checks if database table information was added
+            // {
+            //     echo "<p>There is an issue with adding information to the database. Try again.</p>";
+            // }
+            // else
+            // {
+            //     echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
 
-                $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
-                $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
-                $row = mysqli_fetch_assoc($getNearMissID);
-                $displayNearMissIDRow = $row["nearMissID"];
+            //     $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+            //     $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
+            //     $row = mysqli_fetch_assoc($getNearMissID);
+            //     $displayNearMissIDRow = $row["nearMissID"];
 
-                //Will update this more when reciept code is done
-                echo "Near Miss Entry ID: ".$displayNearMissIDRow;
-            }
+            //     //Will update this more when reciept code is done
+            //     echo "Near Miss Entry ID: ".$displayNearMissIDRow;
+            // }
         }
         mysqli_close($dbConn);
     ?>
