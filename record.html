@@ -66,7 +66,7 @@
                         <div>
                             <i class="fa-solid fa-location-dot" style="color: white;"></i>
                             <label for="siteLocation" style="color: white;">Site Location</label>
-                            <br><input type="text" id="siteLocation" name="siteLocation"
+                            <br><input type="text" id="siteLocation" name="siteLocation" class="form-control"
                                 placeholder="Enter Site Location..."><br>
                             <span id="errSiteLocation" style="color: red; display: none"></span>
                         </div>
@@ -76,7 +76,7 @@
                             <br><input type="text" id="inSiteLocation" name="inSiteLocation"
                                 placeholder="Enter in-site description..."><br>
                         </div>
-                        
+
                         <div id="upload-image">
                             <br>
                             <label for="uploadImage">Select files:</label>
@@ -163,11 +163,9 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        // resetForm();
+        resetForm();
         console.log($(document));
     })
-
-
 
     var isValid = true;
 
@@ -183,7 +181,9 @@
     function validateSiteLocation() {
         var siteLocation = document.getElementById("siteLocation");
         var errSitelocation = document.getElementById("errSitelocation");
-        errSitelocation.style.display = 'none';
+        // errSitelocation.style.display = "none";
+        document.getElementById("errSiteLocation").style.display = "none";
+
 
         const regEx = /^[0-9a-zA-Z!?., ][^&;$%@\'\"+\\]+$/;
         if (!siteLocation.value) {
