@@ -84,12 +84,20 @@
             <br><h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
             <div class="form-group">
             <form action="recordInfo.php" method="POST" enctype="multipart/form-data">
-                <i class="fa-solid fa-location-dot" style="color: white;"></i>
-                <label for="location" style="color: white;">Location(required)</label>
-                <br><input type="text" id="location" name="location" placeholder="Enter Location..."><br>
-                <span id="errName" style="color: red; display: none"></span>
 
-                
+                <div>
+                    <i class="fa-solid fa-location-dot" style="color: white;"></i>
+                    <label for="siteLocation" style="color: white;">Site Location</label>
+                    <br><input type="text" id="nmSiteLocation" name="nmSiteLocation" class="form-control"
+                        placeholder="Enter Site Location..."><br>
+                    <span id="errSiteLocation" style="color: red; display: none"></span>
+                </div>
+                <div>
+                    <label for="location" style="color: white;">In-Site location</label>
+                    <br><input type="text" id="nmInSiteLocation" name="nmInSiteLocation"
+                        placeholder="Enter in-site description..."><br>
+                </div>
+
                 <div id="upload-image">
                     <br>
                     <label for="uploadImage">Select files:</label>
@@ -140,9 +148,9 @@
             <div>
                 <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
                 <label for="priorityName" style="color: white;" >Priority</label>
-                <br><label style="color: white;"><input type="radio" class="low" name="priority" value = "low">Low</label>
-                <label style="color: white;"><input type="radio" class="medium" name="priority" value = "medium">Medium</label>
-                <label style="color: white;"><input type="radio" class="high" name="priority" value = "high">High</label>
+                <br><label style="color: white;"><input type="radio" class="low" name="priority" value = "Low">Low</label>
+                <label style="color: white;"><input type="radio" class="medium" name="priority" value = "Medium">Medium</label>
+                <label style="color: white;"><input type="radio" class="high" name="priority" value = "High">High</label>
             </div>
             
             <br>

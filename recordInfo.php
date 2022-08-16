@@ -69,7 +69,7 @@
                 { 
                     echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
                     
-                    $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
+                    $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
                     imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
                 
                     //Stores connection and collumn creation query variables as paramters in a result variable
@@ -85,6 +85,8 @@
                     }
                 }
 
+                $nmSiteLocation = $_POST["nmSiteLocation"];
+                $nmInSiteLocation = $_POST["nmInSiteLocation"];
                 $nmDesc = $_POST["description"];
                 $nmDateTime = $_POST["dateTime"];
                 $nmPriorityLevel = $_POST["priority"];
@@ -100,7 +102,7 @@
                     $image = base64_encode(file_get_contents(addslashes($image)));
 
                     //Adds information into table collumns and stores it in a variable
-                    $insertFormDataQuery = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                    $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation', '$nmInSiteLocation', '$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
                     $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
 
                     // If something is wrong with the inserting process and error message is shown
@@ -114,6 +116,8 @@
                         while($row = mysqli_fetch_assoc($getNearMissID))
                         {
                             echo "<p><strong>Near-miss Entry ID: </strong>".$row["nearMissID"]."</p>";
+                            echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
+                            echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
                             echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                             echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
                             echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
