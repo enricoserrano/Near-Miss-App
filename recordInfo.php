@@ -39,6 +39,40 @@
                 }
             }
 
+            $nmDesc = $_POST["description"];
+            $nmDateTime = $_POST["dateTime"];
+            $nmPriorityLevel = $_POST["priority"];
+
+            // Checks if post is clicked
+            if (isset($_POST["submit"])) {
+            // Checks if the uploaded image is valid
+                // If the image uploaded is valid, the following occurs
+
+                // Declare and store image file and file name into variables
+                $image = $_FILES["uploadedImageFile"]["tmp_name"];
+                $imageFileName = $_FILES["uploadedImageFile"]["name"];
+                $image = base64_encode(file_get_contents(addslashes($image)));
+
+                //Adds information into table collumns and stores it in a variable
+                $insertFormDataQuery = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
+
+                // If something is wrong with the inserting process and error message is shown
+                if (!$insertFormDataResult) {
+                    echo "<p>There is an issue with adding information to the database. Try again.</p>";
+                } else {
+                    echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
+                    $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+                    $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
+                    $row = mysqli_fetch_assoc($getNearMissID);
+                    $displayNearMissIDRow = $row["nearMissID"];
+
+                    //Will update this more when reciept code is done
+                    echo "Near Miss Entry ID: ".$displayNearMissIDRow;
+                }
+                
+            }
+
             //Block of code using Count and Padding to add BRN to bookingReference variable
             //$nearMissIDIndexSearch = "SELECT COUNT(*) FROM nearMissFormData";
             /*$initialiseIndexCount = mysqli_query($conn, $nearMissIDIndexSearch);
@@ -46,30 +80,30 @@
             $countRowIndex = $indexRow["COUNT(*)"] + 1;
             $nearMissIDIndexSearch = "NME".str_pad($countRowIndex,5,"0",STR_PAD_LEFT);*/
 
-            $nmDesc = $_POST["description"];
-            $nmDateTime = $_POST["dateTime"];
-            $nmPriorityLevel = $_POST["priority"];
+            // $nmDesc = $_POST["description"];
+            // $nmDateTime = $_POST["dateTime"];
+            // $nmPriorityLevel = $_POST["priority"];
 
-            //Adds information into table collumns and stores it in a variable
-            $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel');";
-            $result = mysqli_query($dbConn, $query);
+            // //Adds information into table collumns and stores it in a variable
+            // $query = "INSERT INTO nearMissFormData (nmDesc, nmDateTime, nmPriority) VALUES ('$nmDesc', '$nmDateTime', '$nmPriorityLevel');";
+            // $result = mysqli_query($dbConn, $query);
 
-            if(!$result) //Checks if database table information was added
-            {
-                echo "<p>There is an issue with adding information to the database. Try again.</p>";
-            }
-            else
-            {
-                echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
+            // if(!$result) //Checks if database table information was added
+            // {
+            //     echo "<p>There is an issue with adding information to the database. Try again.</p>";
+            // }
+            // else
+            // {
+            //     echo "<p>Congratulations! The record has been stored and saved with success! Here are you details:</p>";
 
-                $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
-                $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
-                $row = mysqli_fetch_assoc($getNearMissID);
-                $displayNearMissIDRow = $row["nearMissID"];
+            //     $checkNearMissID = "SELECT `nearMissID` FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
+            //     $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
+            //     $row = mysqli_fetch_assoc($getNearMissID);
+            //     $displayNearMissIDRow = $row["nearMissID"];
 
-                //Will update this more when reciept code is done
-                echo "Near Miss Entry ID: ".$displayNearMissIDRow;
-            }
+            //     //Will update this more when reciept code is done
+            //     echo "Near Miss Entry ID: ".$displayNearMissIDRow;
+            // }
         }
         mysqli_close($dbConn);
     ?>
