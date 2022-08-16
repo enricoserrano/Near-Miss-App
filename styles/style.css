@@ -701,3 +701,11 @@ a .download{
 .receipt-text h1{
     padding-bottom: 2%;
 }
+
+@media screen and (max-width: 650px) {
+
+    .receipt-text
+    {
+        width: 100%;
+    }
+}
