@@ -111,11 +111,24 @@
                 <div id="upload-image">
                     <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
                     onchange=showImagePreviewBox() multiple required>
+                    <br>
+                    <h3 id="image-preview-title" style="display: none;">Uploaded Image Preview</h3>
+                    <div id="show-uploaded-image" style="display: none;"></div>
+                </div>
+                <!-- ADD SCRIPTS HERE -->
 
+                <div>
+                    <textarea name="description" id="description" cols="50" rows="4" placeholder="Enter description"></textarea>
+                </div>
+
+                <div>
+                    <input type="datetime-local" id="dateTime">
                 </div>
 
                 
-                <input type="submit" name="" value="Record">
+                <input type="submit" id="submit" name="" value="Record">
             </form>
         </div>
-      </body>
+        <div id="nearMissInformation">
+        </div>
+    </body>
