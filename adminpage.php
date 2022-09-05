@@ -179,7 +179,7 @@
                         echo "<td>",$row["nmDesc"],"</td>";
                         echo "<td>",$row["nmDateTime"],"</td>";
                         echo "<td>",$row["nmPriority"],"</td>";
-                        echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
+                        echo "<td>",'<img height="50px" width="50px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
                         echo "<td>",$row["caseStatus"],"</td>";
                         echo "</tr>";
                      }
