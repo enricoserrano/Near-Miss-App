@@ -95,7 +95,7 @@
             echo "Failed to establish connection!";
             exit();
          } else {
-            $displayQuery = "SELECT * FROM `nearMissFormData`";
+            $displayQuery = "SELECT * FROM `nearMissFormData` WHERE `caseStatus` = 'Unresolved'";
             $selectData = mysqli_query($establishCon, $displayQuery);
          
          
