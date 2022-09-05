@@ -13,8 +13,7 @@
       <title>Admin Page</title>
       <link rel = "icon" type = "image/png" href = "./images/logo.png">
    </head>
-<body>
-    
+   <body>
       <!-- Navbar -->
       <header>
          <!-- Navbar -->
@@ -69,75 +68,102 @@
          <!-- Navbar -->
       </header>
       <!-- Navbar -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <?php
-        $accesscode = "admin";
-
-        session_start();
-
-        if(isset($_SESSION['accesscode'])) {
-            echo"<h1> Welcome </h1> ";
-            $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
-
-            if(!$establishCon) {
-               echo "Failed to establish connection!";
-               exit();
-           } else {
-               $displayQuery = "SELECT * FROM `nearMissFormData`";
-               $selectData = mysqli_query($establishCon, $displayQuery);
-   
-               if(!$selectData) {
-                   echo "There is something wrong with the query";
-               } else {
-                echo "<table border=\"1\">";
-                echo "<tr>\n"
-                    ."<th scope=\"col\">ID</th>\n"
-                     ."<th scope=\"col\">SiteLocation</th>\n"
-                    ."<th scope=\"col\">InsiteLocation</th>\n"
-                    ."<th scope=\"col\">Description</th>\n"
-                    ."<th scope=\"col\">DateTime</th>\n"
-                    ."<th scope=\"col\">Priority</th>\n"
-                    ."<th scope=\"col\">Image</th>\n"
-                    ."<th scope=\"col\">Status</th>\n"
-                    ."</tr>\n";
-                while ($row = mysqli_fetch_assoc($selectData)){
-                   echo "<tr>";
-                   echo "<td>",$row["nearMissID"],"</td>";
-                   echo "<td>",$row["nmSiteLocation"],"</td>";
-                   echo "<td>",$row["nmInSiteLocation"],"</td>";
-                   echo "<td>",$row["nmDesc"],"</td>";
-                   echo "<td>",$row["nmDateTime"],"</td>";
-                   echo "<td>",$row["nmPriority"],"</td>";
-                   echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
-                   echo "<td>",$row["caseStatus"],"</td>";
-                   echo "</tr>";
-                }
-                echo "</table>";
-                // Frees up the memory, after using the result pointer
-                mysqli_free_result($result);
-               }
-               echo "<br><a href='adminlogout.php'><input type=button value=logout name=logout></a>";
-           }
-       
-        } else {
-            if($_POST['accesscode'] == $accesscode) {
-                $_SESSION['accesscode'] = $accesscode;
-
-                echo "<script>location.href='adminpage.php'</script>";
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <?php
+         $accesscode = "admin";
+         
+         session_start();
+         
+         if(isset($_SESSION['accesscode'])) {
+             echo"<h1> Welcome </h1> ";
+         ?>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+      View Unresolved Cases
+      </button>
+      <?php
+         $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
+         
+         if(!$establishCon) {
+            echo "Failed to establish connection!";
+            exit();
+         } else {
+            $displayQuery = "SELECT * FROM `nearMissFormData`";
+            $selectData = mysqli_query($establishCon, $displayQuery);
+         
+         
+            if(!$selectData) {
+                echo "There is something wrong with the query";
             } else {
-                echo "<script>alert('Access code is incorrect! Please try again')</script>";
-                echo "<script>location.href='adminlogin.php'</script>";
-            }
-        }
-
-    ?>
-</body>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+         ?>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Unresolved Cases</h5>
+                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <?php
+                     echo "<table border=\"1\">";
+                     echo "<tr>\n"
+                         ."<th scope=\"col\">ID</th>\n"
+                          ."<th scope=\"col\">SiteLocation</th>\n"
+                         ."<th scope=\"col\">InsiteLocation</th>\n"
+                         ."<th scope=\"col\">Description</th>\n"
+                         ."<th scope=\"col\">DateTime</th>\n"
+                         ."<th scope=\"col\">Priority</th>\n"
+                         ."<th scope=\"col\">Image</th>\n"
+                         ."<th scope=\"col\">Status</th>\n"
+                         ."</tr>\n";
+                     while ($row = mysqli_fetch_assoc($selectData)){
+                        echo "<tr>";
+                        echo "<td>",$row["nearMissID"],"</td>";
+                        echo "<td>",$row["nmSiteLocation"],"</td>";
+                        echo "<td>",$row["nmInSiteLocation"],"</td>";
+                        echo "<td>",$row["nmDesc"],"</td>";
+                        echo "<td>",$row["nmDateTime"],"</td>";
+                        echo "<td>",$row["nmPriority"],"</td>";
+                        echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
+                        echo "<td>",$row["caseStatus"],"</td>";
+                        echo "</tr>";
+                     }
+                     echo "</table>";
+                     // Frees up the memory, after using the result pointer
+                     mysqli_free_result($result);
+                     ?>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <?php
+         }
+         echo "<br><a href='adminlogout.php'><input type=button value=logout name=logout></a>";
+         }
+         
+         } else {
+         if($_POST['accesscode'] == $accesscode) {
+          $_SESSION['accesscode'] = $accesscode;
+         
+          echo "<script>location.href='adminpage.php'</script>";
+         } else {
+          echo "<script>alert('Access code is incorrect! Please try again')</script>";
+          echo "<script>location.href='adminlogin.php'</script>";
+         }
+         }
+         
+         ?>
+   </body>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
