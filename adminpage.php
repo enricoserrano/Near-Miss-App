@@ -100,11 +100,10 @@
          } else {
             $displayQueryUnresolved = "SELECT * FROM `nearMissFormData` WHERE `caseStatus` = 'Unresolved'";
             $selectDataUnresolved = mysqli_query($establishCon, $displayQueryUnresolved);
+
+            $displayQueryResolved = "SELECT * FROM `nearMissFormData` WHERE `caseStatus` = 'Resolved'";
+            $selectDataResolved = mysqli_query($establishCon, $displayQueryResolved);
          
-            
-            if(!$selectData) {
-                echo "There is something wrong with the query";
-            } else {
          ?>
       <!-- Modal -->
       <div class="modal fade" id="unresolvedcases" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -141,7 +140,52 @@
                      }
                      echo "</table>";
                      // Frees up the memory, after using the result pointer
-                     mysqli_free_result($result);
+                     mysqli_free_result($selectDataUnresolved);
+                     ?>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="resolvedcases" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Resolved Cases</h5>
+                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <?php
+                     echo "<table border=\"1\">";
+                     echo "<tr>\n"
+                         ."<th scope=\"col\">ID</th>\n"
+                          ."<th scope=\"col\">SiteLocation</th>\n"
+                         ."<th scope=\"col\">InsiteLocation</th>\n"
+                         ."<th scope=\"col\">Description</th>\n"
+                         ."<th scope=\"col\">DateTime</th>\n"
+                         ."<th scope=\"col\">Priority</th>\n"
+                         ."<th scope=\"col\">Image</th>\n"
+                         ."<th scope=\"col\">Status</th>\n"
+                         ."</tr>\n";
+                     while ($row = mysqli_fetch_assoc($selectDataResolved)){
+                        echo "<tr>";
+                        echo "<td>",$row["nearMissID"],"</td>";
+                        echo "<td>",$row["nmSiteLocation"],"</td>";
+                        echo "<td>",$row["nmInSiteLocation"],"</td>";
+                        echo "<td>",$row["nmDesc"],"</td>";
+                        echo "<td>",$row["nmDateTime"],"</td>";
+                        echo "<td>",$row["nmPriority"],"</td>";
+                        echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
+                        echo "<td>",$row["caseStatus"],"</td>";
+                        echo "</tr>";
+                     }
+                     echo "</table>";
+                     // Frees up the memory, after using the result pointer
+                     mysqli_free_result($selectDataResolved);
                      ?>
                </div>
                <div class="modal-footer">
@@ -151,8 +195,8 @@
          </div>
       </div>
       <?php
-         }
-         echo "<br><a href='adminlogout.php'><input type=button value=logout name=logout></a>";
+         echo "<br>";
+         echo "<br><a href='adminlogout.php'><button type=button class=btn btn-primary>Logout</button></a>";
          }
          
          } else {
