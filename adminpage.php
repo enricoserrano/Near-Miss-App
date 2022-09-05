@@ -88,6 +88,9 @@
       <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#unresolvedcases">
       View Unresolved Cases
       </button>
+      <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#resolvedcases">
+      View Unresolved Cases
+      </button>
       <?php
          $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
          
