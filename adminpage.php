@@ -82,7 +82,7 @@
          session_start();
          
          if(isset($_SESSION['accesscode'])) {
-             echo"<h1> Welcome </h1> ";
+             echo"<h1> Welcome Admin</h1> ";
          ?>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#unresolvedcases">
