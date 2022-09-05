@@ -84,8 +84,48 @@
 
         if(isset($_SESSION['accesscode'])) {
             echo"<h1> Welcome </h1> ";
+            $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
 
-            echo "<br><a href='adminlogout.php'><input type=button value=logout name=logout></a>";
+            if(!$establishCon) {
+               echo "Failed to establish connection!";
+               exit();
+           } else {
+               $displayQuery = "SELECT * FROM `nearMissFormData`";
+               $selectData = mysqli_query($establishCon, $displayQuery);
+   
+               if(!$selectData) {
+                   echo "There is something wrong with the query";
+               } else {
+                echo "<table border=\"1\">";
+                echo "<tr>\n"
+                    ."<th scope=\"col\">ID</th>\n"
+                     ."<th scope=\"col\">SiteLocation</th>\n"
+                    ."<th scope=\"col\">InsiteLocation</th>\n"
+                    ."<th scope=\"col\">Description</th>\n"
+                    ."<th scope=\"col\">DateTime</th>\n"
+                    ."<th scope=\"col\">Priority</th>\n"
+                    ."<th scope=\"col\">Image</th>\n"
+                    ."<th scope=\"col\">Status</th>\n"
+                    ."</tr>\n";
+                while ($row = mysqli_fetch_assoc($selectData)){
+                   echo "<tr>";
+                   echo "<td>",$row["nearMissID"],"</td>";
+                   echo "<td>",$row["nmSiteLocation"],"</td>";
+                   echo "<td>",$row["nmInSiteLocation"],"</td>";
+                   echo "<td>",$row["nmDesc"],"</td>";
+                   echo "<td>",$row["nmDateTime"],"</td>";
+                   echo "<td>",$row["nmPriority"],"</td>";
+                   echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
+                   echo "<td>",$row["caseStatus"],"</td>";
+                   echo "</tr>";
+                }
+                echo "</table>";
+                // Frees up the memory, after using the result pointer
+                mysqli_free_result($result);
+               }
+               echo "<br><a href='adminlogout.php'><input type=button value=logout name=logout></a>";
+           }
+       
         } else {
             if($_POST['accesscode'] == $accesscode) {
                 $_SESSION['accesscode'] = $accesscode;
