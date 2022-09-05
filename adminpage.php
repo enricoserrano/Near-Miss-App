@@ -85,7 +85,7 @@
              echo"<h1> Welcome </h1> ";
          ?>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+      <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#unresolvedcases">
       View Unresolved Cases
       </button>
       <?php
@@ -104,7 +104,7 @@
             } else {
          ?>
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="unresolvedcases" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
                <div class="modal-header">
