@@ -96,34 +96,32 @@
       <!-- Navbar -->
       <!-- Background image -->
       <div class = "record-case-container">
-         <br>
-         <h1 class="mb-3" style="color: white;">Record a Near-miss</h1>
+         <br><br><br><br>
+         <h1 style="color: white;">Record a Near-miss</h1>
          <div class="form-group">
             <form action="recordInfo.php" method="POST" enctype="multipart/form-data">
                <div>
                   <i class="fa-solid fa-location-dot" style="color: white;"></i>
                   <label for="siteLocation" style="color: white;">Site Location</label>
-                  <br><input type="text" id="nmSiteLocation" name="nmSiteLocation" class="form-control"
+                  <br><input type="text" id="nmSiteLocation" name="nmSiteLocation"
                      placeholder="Enter Site Location..."><br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
                </div>
                <div>
-                  <label for="location" style="color: white;">In-Site location</label>
+                  <p></p><label for="location" style="color: white;">In-Site location</label>
                   <br><input type="text" id="nmInSiteLocation" name="nmInSiteLocation"
-                     placeholder="Enter in-site description..."><br>
+                     placeholder="Enter in-site description...">
                </div>
                <div id="upload-image">
-                  <br>
                   <label for="uploadImage">Select files:</label>
                   <div id="choose-files">
                      <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
                         onchange=showImagePreviewBox() multiple required>
                   </div>
-                  <br><br>
+                  <br>
                   <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
                   <div id="show-uploaded-image" style="display:none">
                   </div>
-                  <br>
                   <div class="take-webcam-photos">
                      <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
                      <div id="take-photo-container" style="display:none">
@@ -143,7 +141,7 @@
          <div>
          <i class="fa-solid fa-note-sticky" style="color: white;"></i>
          <label for="description" style="color: white;">Description</label>
-         <br><textarea id="description" name="description" rows="4" cols="50" required>Enter Description...</textarea>
+         <br><textarea id="description" name="description" rows="4" cols="50" required></textarea>
          <span id="errImage" style="color: red; display: none"></span>
          </div>
          <div>
