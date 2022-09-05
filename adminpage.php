@@ -98,10 +98,10 @@
             echo "Failed to establish connection!";
             exit();
          } else {
-            $displayQuery = "SELECT * FROM `nearMissFormData` WHERE `caseStatus` = 'Unresolved'";
-            $selectData = mysqli_query($establishCon, $displayQuery);
+            $displayQueryUnresolved = "SELECT * FROM `nearMissFormData` WHERE `caseStatus` = 'Unresolved'";
+            $selectDataUnresolved = mysqli_query($establishCon, $displayQueryUnresolved);
          
-         
+            
             if(!$selectData) {
                 echo "There is something wrong with the query";
             } else {
@@ -127,7 +127,7 @@
                          ."<th scope=\"col\">Image</th>\n"
                          ."<th scope=\"col\">Status</th>\n"
                          ."</tr>\n";
-                     while ($row = mysqli_fetch_assoc($selectData)){
+                     while ($row = mysqli_fetch_assoc($selectDataUnresolved)){
                         echo "<tr>";
                         echo "<td>",$row["nearMissID"],"</td>";
                         echo "<td>",$row["nmSiteLocation"],"</td>";
