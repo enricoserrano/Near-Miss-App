@@ -46,13 +46,13 @@
                         </a>
                      </li>
                      <li>
-                        <a href="#">
-                           <div class="sub-menu">
-                              <i class="bi bi-person-circle"></i>
-                              <p class="menu-title">Login</p>
-                           </div>
-                        </a>
-                     </li>
+                           <a href="adminlogin.html">
+                              <div class="sub-menu">
+                                 <i class="bi bi-person-circle"></i>
+                                 <p class="menu-title">Admin</p>
+                              </div>
+                           </a>
+                        </li>
                      <li>
                         <a href="record.html">
                            <div class="sub-menu">
