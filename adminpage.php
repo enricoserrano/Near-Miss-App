@@ -296,7 +296,7 @@
           echo "<script>location.href='adminpage.php'</script>";
          } else {
           echo "<script>alert('Access code is incorrect! Please try again')</script>";
-          echo "<script>location.href='adminlogin.php'</script>";
+          echo "<script>location.href='adminlogin.html'</script>";
          }
          }
          
