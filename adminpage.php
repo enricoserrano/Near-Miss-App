@@ -13,7 +13,7 @@
       <title>Admin Page</title>
       <link rel = "icon" type = "image/png" href = "./images/logo.png">
    </head>
-   <body style="background-color: #45637d; color: #000000;">
+   <body>
       <!-- Navbar -->
       <header>
          <!-- Navbar -->
@@ -186,7 +186,7 @@
                   echo "<button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>";
                   echo "</div>";
                   echo "<div class='modal-body'>";
-                  echo '<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />';
+                  echo '<img height="465px" width="465px" src=data:image;base64,' .$row['imageFiles']. ' />';
                   echo "</div>";
                   echo "<div class='modal-footer'>";
                   echo "<button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>";
@@ -194,7 +194,6 @@
                   echo "</div>";
                   echo "</div>";
                   echo "</div>";
-                  //echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
                   echo "<td>",$row["caseStatus"],"</td>";
                   echo "</tr>";
                }
@@ -250,7 +249,7 @@
                   echo "<button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>";
                   echo "</div>";
                   echo "<div class='modal-body'>";
-                  echo '<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />';
+                  echo '<img height="465px" width="465px" src=data:image;base64,' .$row['imageFiles']. ' />';
                   echo "</div>";
                   echo "<div class='modal-footer'>";
                   echo "<button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>";
