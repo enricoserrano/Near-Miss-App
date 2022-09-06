@@ -13,7 +13,7 @@
       <title>Admin Page</title>
       <link rel = "icon" type = "image/png" href = "./images/logo.png">
    </head>
-   <body>
+   <body style="background-color: #45637d; color: #000000;">
       <!-- Navbar -->
       <header>
          <!-- Navbar -->
@@ -89,7 +89,8 @@
             echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css' rel='stylesheet'/>";
             echo"</head>";
             echo"<body>";
-             echo"<h1 class='text-center'> Welcome Admin</h1> ";
+             echo"<h1 class='text-center'>Welcome Admin</h1> ";
+             echo"<h6 class='text-center'>This is where you can track all near-miss cases and resolve them</h6> ";
              echo"<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js'></script>";
              echo"</body>";
              echo"</html>";
