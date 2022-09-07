@@ -194,7 +194,7 @@
                   echo "</div>";
                   echo "</div>";
                   echo "</div>";
-                  echo "<td><a onClick=\"javascript: return confirm('Please confirm deletion');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
+                  echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to resolve this near-miss case?');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
                   echo "</tr>";
                }
                echo "</tbody>";
