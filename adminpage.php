@@ -194,7 +194,7 @@
                   echo "</div>";
                   echo "</div>";
                   echo "</div>";
-                  echo "<td>",$row["caseStatus"],"</td>";
+                  echo "<td><a href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
                   echo "</tr>";
                }
                echo "</tbody>";
