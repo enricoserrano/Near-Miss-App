@@ -9,7 +9,9 @@
         $updateData = mysqli_query($establishCon, $updateQuery);
         
         if($updateData) {
-            header("location:adminpage.php"); 
+            echo "<script>alert('You have successfully resolved this near-miss case!')</script>";
+            echo "<script>location.href='adminpage.php'</script>";
+            //header("location:adminpage.php"); 
         } else {
             echo "error";
         }
