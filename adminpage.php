@@ -102,7 +102,7 @@
       <ul class="nav nav-tabs mb-2 justify-content-center" id="ex1" role="tablist">
          <li class="nav-item" role="presentation">
             <a
-               class="nav-link active"
+               class="nav-link"
                id="ex1-tab-1"
                data-mdb-toggle="tab"
                href="#ex1-tabs-1"
@@ -126,8 +126,8 @@
          </li>
          <li class="nav-item" role="presentation">
             <a
-               class="nav-link"
-               id="ex1-tab-2"
+               class="nav-link active"
+               id="ex1-tab-3"
                data-mdb-toggle="tab"
                href="#ex1-tabs-3"
                role="tab"
@@ -157,7 +157,7 @@
          ?>
       <div class="tab-content" id="ex1-content">
          <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="ex1-tabs-1"
             role="tabpanel"
             aria-labelledby="ex1-tab-1"
@@ -288,7 +288,7 @@
                mysqli_free_result($selectDataResolved);
                ?>
          </div>
-         <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+         <div class="tab-pane fade show active" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
          <?php
             echo '<form method = "GET">';
             echo '<input type = "text" name = "casesearch">';
@@ -302,6 +302,29 @@
                $displaySearchResults = mysqli_query($establishCon, $searchQuery);
 
                if(mysqli_num_rows($displaySearchResults) > 0){
+                  echo"<html>";
+                  echo"<head>";
+                  echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>";
+                  echo"<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet'/>";
+                  echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css' rel='stylesheet'/>";
+                  echo"</head>";
+                  echo"<body>";
+                  
+                  echo "<div class='table-responsive'>";
+                  echo "<table class='table'>";
+                  echo "<thead>";
+                  echo "<tr>";
+                  echo "<th scope='col'>Case ID</th>";
+                  echo "<th scope='col'>Site Location</th>";
+                  echo "<th scope='col'>Insite Location</th>";
+                  echo "<th scope='col'>Description</th>";
+                  echo "<th scope='col'>Date and Time</th>";
+                  echo "<th scope='col'>Priority</th>";
+                  echo "<th scope='col'>Case Image</th>";
+                  echo "<th scope='col'>Status</th>";
+                  echo "</tr>";
+                  echo "</thead>";
+                  echo "<tbody>";
 
                   while ($row = mysqli_fetch_assoc($displaySearchResults)){
                      echo "<tr>";
@@ -312,6 +335,7 @@
                      echo "<td>",$row["nmDateTime"],"</td>";
                      echo "<td>",$row["nmPriority"],"</td>";
                      echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
+                     echo "<td>",$row["caseStatus"],"</td>";
                      echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                      echo "<div class='modal-dialog'>";
                      echo "<div class='modal-content'>";
@@ -402,7 +426,6 @@
                }
             }*/
          ?>
-
             <?php
                echo"<html>";
                echo"<head>";
