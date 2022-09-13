@@ -132,6 +132,18 @@
                >View Resolved Cases</a
                >
          </li>
+         <li class="nav-item" role="presentation">
+            <a
+               class="nav-link"
+               id="ex1-tab-3"
+               data-mdb-toggle="tab"
+               href="#ex1-tabs-3"
+               role="tab"
+               aria-controls="ex1-tabs-3"
+               aria-selected="false"
+               >Search All Cases</a
+               >
+         </li>
       </ul>
       <!-- Tabs navs -->
       <?php
