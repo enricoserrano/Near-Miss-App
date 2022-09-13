@@ -98,15 +98,7 @@
       <!-- Button trigger modal -->
       <!-- Tabs navs -->
 
-      <div class="input-group">
-         <div class="form-outline">
-               <input type="search" id="form1" class="form-control" />
-               <label class="form-label" for="form1">Search For a Case</label>
-         </div>
-            <button type="button" class="btn btn-primary">
-               <i class="fas fa-search"></i>
-         </button>
-      </div>
+      
       <ul class="nav nav-tabs mb-2 justify-content-center" id="ex1" role="tablist">
          <li class="nav-item" role="presentation">
             <a
@@ -135,13 +127,13 @@
          <li class="nav-item" role="presentation">
             <a
                class="nav-link"
-               id="ex1-tab-3"
+               id="ex1-tab-2"
                data-mdb-toggle="tab"
                href="#ex1-tabs-3"
                role="tab"
                aria-controls="ex1-tabs-3"
                aria-selected="false"
-               >Search All Cases</a
+               >Search Specific Cases</a
                >
          </li>
       </ul>
@@ -158,6 +150,9 @@
          
             $displayQueryResolved = "SELECT * FROM `nearMissFormData` WHERE `caseStatus` = 'Resolved'";
             $selectDataResolved = mysqli_query($establishCon, $displayQueryResolved);
+
+            $displayQueryAllCases = "SELECT * FROM `nearMissFormData`";
+            $selectAllCases = mysqli_query($establishCon, $displayQueryAllCases);
          
          ?>
       <div class="tab-content" id="ex1-content">
@@ -291,6 +286,79 @@
                echo"</html>";
                // Frees up the memory, after using the result pointer
                mysqli_free_result($selectDataResolved);
+               ?>
+         </div>
+         <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+         <div class="input-group">
+            <div class="form-outline">
+                  <input type="search" id="form1" class="form-control" />
+                  <label class="form-label" for="form1">Search For a Case</label>
+            </div>
+               <button type="button" class="btn btn-primary">
+                  <i class="fas fa-search"></i>
+            </button>
+         </div>
+            <?php
+               echo"<html>";
+               echo"<head>";
+               echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>";
+               echo"<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' rel='stylesheet'/>";
+               echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css' rel='stylesheet'/>";
+               echo"</head>";
+               echo"<body>";
+               
+               echo "<div class='table-responsive'>";
+               echo "<table class='table'>";
+               echo "<thead>";
+               echo "<tr>";
+               echo "<th scope='col'>Case ID</th>";
+               echo "<th scope='col'>Site Location</th>";
+               echo "<th scope='col'>Insite Location</th>";
+               echo "<th scope='col'>Description</th>";
+               echo "<th scope='col'>Date and Time</th>";
+               echo "<th scope='col'>Priority</th>";
+               echo "<th scope='col'>Case Image</th>";
+               echo "<th scope='col'>Status</th>";
+               echo "</tr>";
+               echo "</thead>";
+               echo "<tbody>";
+               while ($row = mysqli_fetch_assoc($selectAllCases)){
+                  echo "<tr>";
+                  echo "<td>",$row["nearMissID"],"</td>";
+                  echo "<td>",$row["nmSiteLocation"],"</td>";
+                  echo "<td>",$row["nmInSiteLocation"],"</td>";
+                  echo "<td>",$row["nmDesc"],"</td>";
+                  echo "<td>",$row["nmDateTime"],"</td>";
+                  echo "<td>",$row["nmPriority"],"</td>";
+                  echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
+                  echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+                  echo "<div class='modal-dialog'>";
+                  echo "<div class='modal-content'>";
+                  echo "<div class='modal-header'>";
+                  echo "<h5 class='modal-title' id='exampleModalLabel'>","Case ID: ",$row["nearMissID"],"</h5>";
+                  echo "<button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>";
+                  echo "</div>";
+                  echo "<div class='modal-body'>";
+                  echo '<img height="465px" width="465px" src=data:image;base64,' .$row['imageFiles']. ' />';
+                  echo "</div>";
+                  echo "<div class='modal-footer'>";
+                  echo "<button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>";
+                  echo "</div>";
+                  echo "</div>";
+                  echo "</div>";
+                  echo "</div>";
+                  //echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
+                  echo "<td>",$row["caseStatus"],"</td>";
+                  echo "</tr>";
+               }
+               echo "</tbody>";
+               echo "</table>";
+               echo "</div>";
+               echo"<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js'></script>";
+               echo"</body>";
+               echo"</html>";
+               // Frees up the memory, after using the result pointer
+               mysqli_free_result($selectAllCases);
                ?>
          </div>
       </div>
