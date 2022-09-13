@@ -289,15 +289,6 @@
                ?>
          </div>
          <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-         <!-- <div class="input-group">
-            <div class="form-outline">
-                  <input type="text" name="casesearch" id="form1" class="form-control" />
-            </div>
-               <button type="button" name="searchbutton" class="btn btn-primary" value="Submit" onClick="showDiv(>
-                  <i class="fas fa-search"></i>
-            </button>
-         </div> -->
-
          <?php
             echo '<form method = "GET">';
             echo '<input type = "text" name = "casesearch">';
@@ -306,11 +297,43 @@
             if(isset($_GET['search_btn'])) {
                $searchedForValue = $_GET['casesearch'];
                echo "<p> You searched for: $searchedForValue </p>";
+
+               $searchQuery = "SELECT * FROM `nearMissFormData` WHERE `nearMissID` = '$searchedForValue'";
+               $displaySearchResults = mysqli_query($establishCon, $searchQuery);
+
+               if(mysqli_num_rows($displaySearchResults) > 0){
+
+                  while ($row = mysqli_fetch_assoc($displaySearchResults)){
+                     echo "<tr>";
+                     echo "<td>",$row["nearMissID"],"</td>";
+                     echo "<td>",$row["nmSiteLocation"],"</td>";
+                     echo "<td>",$row["nmInSiteLocation"],"</td>";
+                     echo "<td>",$row["nmDesc"],"</td>";
+                     echo "<td>",$row["nmDateTime"],"</td>";
+                     echo "<td>",$row["nmPriority"],"</td>";
+                     echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
+                     echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+                     echo "<div class='modal-dialog'>";
+                     echo "<div class='modal-content'>";
+                     echo "<div class='modal-header'>";
+                     echo "<h5 class='modal-title' id='exampleModalLabel'>","Case ID: ",$row["nearMissID"],"</h5>";
+                     echo "<button type='button' class='btn-close' data-mdb-dismiss='modal' aria-label='Close'></button>";
+                     echo "</div>";
+                     echo "<div class='modal-body'>";
+                     echo '<img height="465px" width="465px" src=data:image;base64,' .$row['imageFiles']. ' />';
+                     echo "</div>";
+                     echo "<div class='modal-footer'>";
+                     echo "<button type='button' class='btn btn-secondary' data-mdb-dismiss='modal'>Close</button>";
+                     echo "</div>";
+                     echo "</div>";
+                     echo "</div>";
+                     echo "</div>";
+                     // echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to resolve this near-miss case?');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
+                     echo "</tr>";
+                  }
+               }
             } else {
                $id = $_GET['casesearch'];
-
-               $searchQuery = "SELECT * FROM `nearMissFormData` WHERE `nearMissID` = '$id'";
-               $displaySearchResults = mysqli_query($establishCon, $searchQuery);
                
                if(mysqli_num_rows($displaySearchResults) > 0) {
                      echo"<html>";
