@@ -98,7 +98,7 @@
       <!-- Button trigger modal -->
       <!-- Tabs navs -->
 
-      <div class="input-group">
+      <!-- <div class="input-group">
          <div class="form-outline">
                <input type="search" id="form1" class="form-control" />
                <label class="form-label" for="form1">Search For a Case</label>
@@ -106,7 +106,7 @@
             <button type="button" class="btn btn-primary">
                <i class="fas fa-search"></i>
          </button>
-      </div>
+      </div> -->
       <ul class="nav nav-tabs mb-2 justify-content-center" id="ex1" role="tablist">
          <li class="nav-item" role="presentation">
             <a
@@ -130,6 +130,18 @@
                aria-controls="ex1-tabs-2"
                aria-selected="false"
                >View Resolved Cases</a
+               >
+         </li>
+         <li class="nav-item" role="presentation">
+            <a
+               class="nav-link"
+               id="ex1-tab-2"
+               data-mdb-toggle="tab"
+               href="#ex1-tabs-3"
+               role="tab"
+               aria-controls="ex1-tabs-3"
+               aria-selected="false"
+               >Search Specific Cases</a
                >
          </li>
       </ul>
