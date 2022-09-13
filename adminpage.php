@@ -289,16 +289,44 @@
                ?>
          </div>
          <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-         <div class="input-group">
-            <div class="form-outline">
-                  <input type="search" id="form1" class="form-control" />
-                  <label class="form-label" for="form1">Search For a Case</label>
+            <div class="input-group">
+               <div class="form-outline">
+                     <input type="search" id="form1" class="form-control" />
+                     <label class="form-label" for="form1">Search For a Case</label>
+               </div>
+                  <button type="button" class="btn btn-primary">
+                     <i class="fas fa-search"></i>
+               </button>
             </div>
-               <button type="button" class="btn btn-primary">
-                  <i class="fas fa-search"></i>
-            </button>
-         </div>
+            
             <?php
+               $adminSearchIDexists = @mysqli_query($dbConn, "SELECT * FROM searchCaseID;");
+
+               
+               if (!$adminSearchIDexists) {
+                     $createSearchCaseTableQuery = "CREATE TABLE searchCaseID (searchIDKey AUTO_INCREMENT INT PRIMARY KEY, searchCaseID INT)";
+                     $createSearchCaseTableResult = mysqli_query($establishCon, $createSearchCaseTableQuery);
+
+                     // Error message is shown if the table cannot be created else a success message is shown
+                     if (!$createSearchCaseTableResult) {
+                        echo "<p>An error has occured in the creating the table. Please try again.</p>";
+                     } 
+                     else{
+                        echo"<p>Created searchCaseID table</p>";
+                     }
+
+                     $insertSearchCaseIDQuery = "INSERT INTO searchCaseID (searchCaseID) VALUES (0)";
+                     $insertSearchCaseIDResult = mysqli_query($dbConn, $insertSearchCaseIDQuery);
+
+                     // Error message is shown if the table cannot be created else a success message is shown
+                     if (!$insertSearchCaseIDResult) {
+                        echo "<p>Unable to add default search case ID</p>";
+                     } 
+                     else{
+                        echo"<p>Able to add default search case ID</p>";
+                     }
+               }
+
                echo"<html>";
                echo"<head>";
                echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>";
