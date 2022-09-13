@@ -289,19 +289,23 @@
                ?>
          </div>
          <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-         <div class="input-group">
+         <!-- <div class="input-group">
             <div class="form-outline">
                   <input type="text" name="casesearch" id="form1" class="form-control" />
-                  <label class="form-label" for="form1">Search For a Case</label>
             </div>
                <button type="button" name="searchbutton" class="btn btn-primary" value="Submit" onClick="showDiv(>
                   <i class="fas fa-search"></i>
             </button>
-         </div>
+         </div> -->
 
          <?php
-            if(!$_GET['casesearch']) {
-               echo "testerror";
+            echo '<form method = "GET">';
+            echo '<input type = "text" name = "casesearch">';
+            echo '<input type ="submit" name ="search_btn" value="Submit">';
+            echo '</form>';
+            if(isset($_GET['search_btn'])) {
+               $searchedForValue = $_GET['casesearch'];
+               echo "<p> You searched for: $searchedForValue </p>";
             } else {
                $id = $_GET['casesearch'];
 
