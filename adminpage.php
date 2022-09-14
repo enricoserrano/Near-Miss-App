@@ -102,7 +102,7 @@
       <ul class="nav nav-tabs mb-2 justify-content-center" id="ex1" role="tablist">
          <li class="nav-item" role="presentation">
             <a
-               class="nav-link active"
+               class="nav-link"
                id="ex1-tab-1"
                data-mdb-toggle="tab"
                href="#ex1-tabs-1"
@@ -126,8 +126,8 @@
          </li>
          <li class="nav-item" role="presentation">
             <a
-               class="nav-link"
-               id="ex1-tab-2"
+               class="nav-link active"
+               id="ex1-tab-3"
                data-mdb-toggle="tab"
                href="#ex1-tabs-3"
                role="tab"
@@ -157,7 +157,7 @@
          ?>
       <div class="tab-content" id="ex1-content">
          <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="ex1-tabs-1"
             role="tabpanel"
             aria-labelledby="ex1-tab-1"
@@ -288,7 +288,7 @@
                mysqli_free_result($selectDataResolved);
                ?>
          </div>
-         <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
+         <div class="tab-pane fade show active" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
          <?php
             echo '<form method = "GET">';
             echo '<label>Search For a Case:</label> <input type = "text" name = "casesearch">';
