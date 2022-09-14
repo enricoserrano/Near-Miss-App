@@ -300,7 +300,7 @@
                $searchedForValue = $_GET['casesearch'];
 
                echo "<div class='searched-case-message'>";
-               echo "<p> You searched for: $searchedForValue </p>";
+               echo "<p> You searched for case ID: <strong> $searchedForValue <strong> </p>";
                echo "</div>";
 
                $searchQuery = "SELECT * FROM `nearMissFormData` WHERE `nearMissID` = '$searchedForValue'";
