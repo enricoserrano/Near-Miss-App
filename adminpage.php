@@ -158,10 +158,12 @@
       <div class="tab-content" id="ex1-content">
       <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
          <?php
+            echo "<div class='admin-search-bar'>";
             echo '<form method = "GET">';
             echo '<label>Search For a Case:</label> <input type = "text" name = "casesearch">';
             echo '<input type ="submit" name ="search_btn" value="Search">';
             echo '</form>';
+            echo "</div>";
             if(isset($_GET['search_btn'])) {
                $searchedForValue = $_GET['casesearch'];
                echo "<p> You searched for: $searchedForValue </p>";

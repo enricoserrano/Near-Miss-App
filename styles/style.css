@@ -710,3 +710,10 @@ a .download{
         width: 100%;
     }
 }
+
+/*Admin page styling*/
+.admin-search-bar{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+}
