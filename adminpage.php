@@ -166,7 +166,10 @@
             echo "</div>";
             if(isset($_GET['search_btn'])) {
                $searchedForValue = $_GET['casesearch'];
-               echo "<p> You searched for: $searchedForValue </p>";
+               
+               echo "<div class='searched-case-message'>";
+               echo "<p> You searched for case ID: <strong> $searchedForValue <strong> </p>";
+               echo "</div>";
 
                $searchQuery = "SELECT * FROM `nearMissFormData` WHERE `nearMissID` = '$searchedForValue'";
                $displaySearchResults = mysqli_query($establishCon, $searchQuery);
