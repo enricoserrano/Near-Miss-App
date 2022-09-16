@@ -144,10 +144,23 @@
                          echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
 
-                         $testMessage = "Test";
-                         $file = fopen("nearMissReceipt.txt", "a");
-                         fwrite($file, $testMessage);
-                         fclose($file);
+                         $textFileHeader = "Near-miss receipt\n\n"; 
+                         $recordedID = "Near-miss Entry ID: ".$row["nearMissID"]. "\n";
+                         $recordedSiteLocation = "Site Location: ".$row["nmSiteLocation"]."\n";
+                         $recordedInSiteLocation = "In-Site location: ".$row["nmInSiteLocation"]."\n";
+                         $recordedDescription = "Near-miss Description: ".$row["nmDesc"]."\n";
+                         $recordedDateTime = "Recorded Date and Time: ".$row["nmDateTime"]."\n";
+                         $recordedImageFileName = "Filename of image uploaded: ".$row["imageFileName"]."\n";
+                        
+                         $receiptFile = fopen("nearMissReceipt.txt", "a");
+                         fwrite($receiptFile, $textFileHeader);
+                         fwrite($receiptFile, $recordedID);
+                         fwrite($receiptFile, $recordedSiteLocation);
+                         fwrite($receiptFile, $recordedInSiteLocation);
+                         fwrite($receiptFile, $recordedDescription);
+                         fwrite($receiptFile, $recordedDateTime);
+                         fwrite($receiptFile, $recordedImageFileName);
+                         fclose($receiptFile);
                      }  
                  }
              }
