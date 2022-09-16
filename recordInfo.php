@@ -143,6 +143,11 @@
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
                          echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
+
+                         $testMessage = "Test";
+                         $file = fopen("nearMissReceipt.txt", "a");
+                         fwrite($file, $testMessage);
+                         fclose($file);
                      }  
                  }
              }
