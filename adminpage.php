@@ -180,7 +180,6 @@
                echo "<th scope='col'>Insite Location</th>";
                echo "<th scope='col'>Description</th>";
                echo "<th scope='col'>Date and Time</th>";
-               echo "<th scope='col'>Priority</th>";
                echo "<th scope='col'>Case Image</th>";
                echo "<th scope='col'>Status</th>";
                echo "</tr>";
@@ -193,7 +192,6 @@
                   echo "<td>",$row["nmInSiteLocation"],"</td>";
                   echo "<td>",$row["nmDesc"],"</td>";
                   echo "<td>",$row["nmDateTime"],"</td>";
-                  echo "<td>",$row["nmPriority"],"</td>";
                   echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
                   echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                   echo "<div class='modal-dialog'>";
@@ -243,7 +241,6 @@
                echo "<th scope='col'>Insite Location</th>";
                echo "<th scope='col'>Description</th>";
                echo "<th scope='col'>Date and Time</th>";
-               echo "<th scope='col'>Priority</th>";
                echo "<th scope='col'>Case Image</th>";
                echo "<th scope='col'>Status</th>";
                echo "</tr>";
@@ -256,7 +253,6 @@
                   echo "<td>",$row["nmInSiteLocation"],"</td>";
                   echo "<td>",$row["nmDesc"],"</td>";
                   echo "<td>",$row["nmDateTime"],"</td>";
-                  echo "<td>",$row["nmPriority"],"</td>";
                   echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
                   echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                   echo "<div class='modal-dialog'>";
@@ -314,7 +310,6 @@
                   echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css' rel='stylesheet'/>";
                   echo"</head>";
                   echo"<body>";
-                  
                   echo "<div class='table-responsive'>";
                   echo "<table class='table'>";
                   echo "<thead>";
@@ -324,7 +319,6 @@
                   echo "<th scope='col'>Insite Location</th>";
                   echo "<th scope='col'>Description</th>";
                   echo "<th scope='col'>Date and Time</th>";
-                  echo "<th scope='col'>Priority</th>";
                   echo "<th scope='col'>Case Image</th>";
                   echo "<th scope='col'>Status</th>";
                   echo "</tr>";
@@ -338,9 +332,8 @@
                      echo "<td>",$row["nmInSiteLocation"],"</td>";
                      echo "<td>",$row["nmDesc"],"</td>";
                      echo "<td>",$row["nmDateTime"],"</td>";
-                     echo "<td>",$row["nmPriority"],"</td>";
                      echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
-                     echo "<td>",$row["caseStatus"],"</td>";
+                     // echo "<td>",$row["caseStatus"],"</td>";
                      echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                      echo "<div class='modal-dialog'>";
                      echo "<div class='modal-content'>";
@@ -357,18 +350,19 @@
                      echo "</div>";
                      echo "</div>";
                      echo "</div>";
+                     echo "<td>",$row["caseStatus"],"</td>";
                      // echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to resolve this near-miss case?');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
                      echo "</tr>";
-                     echo "</tbody>";
-                     echo "</table>";
-                     echo "</div>";
-                     echo"<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js'></script>";
-                     echo"</body>";
-                     echo"</html>";
-                     // Frees up the memory, after using the result pointer
-                     mysqli_free_result($displaySearchResults);
-                     header("location:adminpage.php"); 
                   }
+                  echo "</tbody>";
+                  echo "</table>";
+                  echo "</div>";
+                  echo"<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js'></script>";
+                  echo"</body>";
+                  echo"</html>";
+                  // Frees up the memory, after using the result pointer
+                  mysqli_free_result($displaySearchResults);
+                  header("location:adminpage.php"); 
                }
             }
          ?>
@@ -380,7 +374,6 @@
                echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css' rel='stylesheet'/>";
                echo"</head>";
                echo"<body>";
-               
                echo "<div class='table-responsive'>";
                echo "<table class='table'>";
                echo "<thead>";
@@ -390,12 +383,12 @@
                echo "<th scope='col'>Insite Location</th>";
                echo "<th scope='col'>Description</th>";
                echo "<th scope='col'>Date and Time</th>";
-               echo "<th scope='col'>Priority</th>";
                echo "<th scope='col'>Case Image</th>";
                echo "<th scope='col'>Status</th>";
                echo "</tr>";
                echo "</thead>";
                echo "<tbody>";
+
                while ($row = mysqli_fetch_assoc($selectAllCases)){
                   echo "<tr>";
                   echo "<td>",$row["nearMissID"],"</td>";
@@ -403,7 +396,6 @@
                   echo "<td>",$row["nmInSiteLocation"],"</td>";
                   echo "<td>",$row["nmDesc"],"</td>";
                   echo "<td>",$row["nmDateTime"],"</td>";
-                  echo "<td>",$row["nmPriority"],"</td>";
                   echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
                   echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                   echo "<div class='modal-dialog'>";
@@ -433,6 +425,7 @@
                echo"</html>";
                // Frees up the memory, after using the result pointer
                mysqli_free_result($selectAllCases);
+               header("location:adminpage.php"); 
                ?>
          </div>
       </div>
