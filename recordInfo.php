@@ -171,6 +171,9 @@
       <br>
       <button class = "receipt-button receiptHomeBtn" onclick="location.href='index.html';">Return Home</button>
       <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Another Near-miss</button>
+      <!-- <button class = "receipt-button downloadReceiptBtn" href="nearMissReceipt.txt">Download Receipt</button> -->
+      <a download href="nearMissReceipt.txt">Download Receipt</a>
+
    </body>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
