@@ -290,13 +290,18 @@
          </div>
          <div class="tab-pane fade show active" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
          <?php
+            echo "<div class='admin-search-bar'>";
             echo '<form method = "GET">';
             echo '<label>Search For a Case:</label> <input type = "text" name = "casesearch">';
             echo '<input type ="submit" name ="search_btn" value="Search">';
             echo '</form>';
+            echo "</div>";
             if(isset($_GET['search_btn'])) {
                $searchedForValue = $_GET['casesearch'];
-               echo "<p> You searched for: $searchedForValue </p>";
+
+               echo "<div class='searched-case-message'>";
+               echo "<p> You searched for case ID: <strong> $searchedForValue <strong> </p>";
+               echo "</div>";
 
                $searchQuery = "SELECT * FROM `nearMissFormData` WHERE `nearMissID` = '$searchedForValue'";
                $displaySearchResults = mysqli_query($establishCon, $searchQuery);
