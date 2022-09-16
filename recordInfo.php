@@ -46,13 +46,13 @@
                         </a>
                      </li>
                      <li>
-                        <a href="#">
-                           <div class="sub-menu">
-                              <i class="bi bi-person-circle"></i>
-                              <p class="menu-title">Login</p>
-                           </div>
-                        </a>
-                     </li>
+                           <a href="adminlogin.html">
+                              <div class="sub-menu">
+                                 <i class="bi bi-person-circle"></i>
+                                 <p class="menu-title">Admin</p>
+                              </div>
+                           </a>
+                        </li>
                      <li>
                         <a href="record.html">
                            <div class="sub-menu">
@@ -91,7 +91,7 @@
                  echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
                  
                  $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
-                 imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+                 imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL, caseStatus VARCHAR(15) DEFAULT 'Unresolved') ENGINE=InnoDB DEFAULT CHARSET=latin1;";
              
                  //Stores connection and collumn creation query variables as paramters in a result variable
                  $tableResult = mysqli_query($dbConn, $createFormDataTable);
@@ -152,7 +152,7 @@
       <div>
       <br>
       <button class = "receipt-button receiptHomeBtn" onclick="location.href='index.html';">Return Home</button>
-      <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Near-miss</button>
+      <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Another Near-miss</button>
    </body>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
