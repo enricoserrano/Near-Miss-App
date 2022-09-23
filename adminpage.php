@@ -100,7 +100,7 @@
       <ul class="nav nav-tabs mb-3 justify-content-center" id="ex1" role="tablist">
          <li class="nav-item" role="presentation">
             <a
-               class="nav-link active"
+               class="nav-link"
                id="ex1-tab-1"
                data-mdb-toggle="tab"
                href="#ex1-tabs-1"
@@ -124,7 +124,7 @@
          </li>
          <li class="nav-item" role="presentation">
             <a
-               class="nav-link"
+               class="nav-link active"
                id="ex1-tab-3"
                data-mdb-toggle="tab"
                href="#ex1-tabs-3"
@@ -480,7 +480,8 @@
                echo "<td>",$row["nmInSiteLocation"],"</td>";
                echo "<td>",$row["nmDesc"],"</td>";
                echo "<td>",$row["nmDateTime"],"</td>";
-               echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+               echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","caseall",$row["nearMissID"],"'>View Image</button></td>";
+               echo "<div class='modal fade' id='","caseall",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                echo "<div class='modal-dialog'>";
                echo "<div class='modal-content'>";
                echo "<div class='modal-header'>";
