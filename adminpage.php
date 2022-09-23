@@ -446,12 +446,14 @@
 
                   }
                   else{
-                     echo "'<p style='text-align:center'>No Records Matched with your Search Query!</p>";
+                     echo "'<h3 style='text-align:center'>No Records Matched with your Search Query!</h3>";
                   }
 
                }
             ?>
             <?php
+                  echo "'<h3 style='text-align:center'>List of All Cases</h3>";
+                  echo "<br>";
                   echo"<html>";
                   echo"<head>";
                   echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>";
