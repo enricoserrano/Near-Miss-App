@@ -352,12 +352,10 @@
                         echo "</div>";
                         echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
                         
-                        if($row["caseStatus"] == "Unresolved")
-                        {
+                        if($row["caseStatus"] == "Unresolved"){
                            echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to resolve this near-miss case?');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
                         }
-                        else
-                        {
+                        else{
                            echo "<td>",$row["caseStatus"],"</td>";
                         }
                         echo "</tr>";
@@ -422,7 +420,12 @@
                   echo "</div>";
                   echo "</div>";
                   //echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
-                  echo "<td>",$row["caseStatus"],"</td>";
+                  if($row["caseStatus"] == "Unresolved"){
+                     echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to resolve this near-miss case?');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
+                  }
+                  else{
+                     echo "<td>",$row["caseStatus"],"</td>";
+                  }
                   echo "</tr>";
                }
                echo "</tbody>";
