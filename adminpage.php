@@ -466,6 +466,7 @@
                echo "<th scope='col'>Insite Location</th>";
                echo "<th scope='col'>Description</th>";
                echo "<th scope='col'>Date and Time</th>";
+               echo "<th scope='col'>Case Image</th>";
                echo "<th scope='col'>Status</th>";
                echo "</tr>";
                echo "</thead>";
