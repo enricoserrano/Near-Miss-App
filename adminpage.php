@@ -336,8 +336,8 @@
                         echo "<td>",$row["nmInSiteLocation"],"</td>";
                         echo "<td>",$row["nmDesc"],"</td>";
                         echo "<td>",$row["nmDateTime"],"</td>";
-                        // echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
-                        echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+                        echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","caseid",$row["nearMissID"],"'>View Image</button></td>";
+                        echo "<div class='modal fade' id='","caseid",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                         echo "<div class='modal-dialog'>";
                         echo "<div class='modal-content'>";
                         echo "<div class='modal-header'>";
@@ -353,7 +353,6 @@
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
-                        echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
                         
                         if($row["caseStatus"] == "Unresolved"){
                            echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to resolve this near-miss case?');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
@@ -406,8 +405,8 @@
                         echo "<td>",$row["nmInSiteLocation"],"</td>";
                         echo "<td>",$row["nmDesc"],"</td>";
                         echo "<td>",$row["nmDateTime"],"</td>";
-                        // echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","case",$row["nearMissID"],"'>View Image</button></td>";
-                        echo "<div class='modal fade' id='","case",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+                        echo "<td><button type='button' class='btn btn-primary' data-mdb-toggle='modal' data-mdb-target='#","casedesc",$row["nearMissID"],"'>View Image</button></td>";
+                        echo "<div class='modal fade' id='","casedesc",$row["nearMissID"],"' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                         echo "<div class='modal-dialog'>";
                         echo "<div class='modal-content'>";
                         echo "<div class='modal-header'>";
@@ -423,7 +422,6 @@
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
-                        echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
                         
                         if($row["caseStatus"] == "Unresolved"){
                            echo "<td><a onClick=\"javascript: return confirm('Are you sure you want to resolve this near-miss case?');\" href='resolve.php?id=",$row["nearMissID"],"' class='btn btn-success'>Resolve</a></td>";
