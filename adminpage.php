@@ -328,6 +328,8 @@
                      echo "</tr>";
                      echo "</thead>";
                      echo "<tbody>";
+                     echo "'<h3 style='text-align:center'>Search Results for Case ID Query</h3>";
+                     echo "<br>";
 
                      while ($row = mysqli_fetch_assoc($displaySearchResults)){
                         echo "<tr>";
@@ -396,6 +398,8 @@
                      echo "</tr>";
                      echo "</thead>";
                      echo "<tbody>";
+                     echo "'<h3 style='text-align:center'>Search Results for Description Query</h3>";
+                     echo "<br>";
 
                      while ($row = mysqli_fetch_assoc($displayDescriptionResults)){
                         echo "<tr>";
