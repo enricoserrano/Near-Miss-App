@@ -152,7 +152,7 @@
                          $recordedDateTime = "Recorded Date and Time: ".$row["nmDateTime"]."\n";
                          $recordedImageFileName = "Filename of image uploaded: ".$row["imageFileName"]."\n";
                         
-                         $receiptFile = fopen("nearMissReceipt.txt", "a");
+                         $receiptFile = fopen("nearMissReceipt.txt", 'w');
                          fwrite($receiptFile, $textFileHeader);
                          fwrite($receiptFile, $recordedID);
                          fwrite($receiptFile, $recordedSiteLocation);
@@ -171,6 +171,8 @@
       <br>
       <button class = "receipt-button receiptHomeBtn" onclick="location.href='index.html';">Return Home</button>
       <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Another Near-miss</button>
+      <a class="receipt-button downloadReceiptBtn" download href="nearMissReceipt.txt">Download Receipt</a>
+
    </body>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
