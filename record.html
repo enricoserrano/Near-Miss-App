@@ -80,21 +80,25 @@
                   <i class="fa-solid fa-location-dot" style="color: white;"></i>
                   <label for="siteLocation" style="color: white;">Site Location</label>
                   <br><input type="text" id="nmSiteLocation" name="nmSiteLocation"
-                     placeholder="Enter Site Location..." required placeholder="Please Enter the Site Location of your Near-miss"
-                     oninvalid="this.setCustomValidity('Please Enter the Site Location of your Near-miss')"
-                     oninput="this.setCustomValidity('')"/><br>
+                     placeholder="Enter Site Location..." title = "Please Enter the Site Location/Address of your Near-miss" required placeholder="Please Enter the Site Location or Address of your Near-miss"
+                     oninvalid="this.setCustomValidity('Please Enter the Site Location or Address of your Near-miss')"
+                     oninput="this.setCustomValidity('')"><br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
                </div>
                <div>
-                  <p></p><label for="location" style="color: white;">In-Site location</label>
+                  <p></p><label for="location" style="color: white;">In-Site Location</label>
                   <br><input type="text" id="nmInSiteLocation" name="nmInSiteLocation"
-                     placeholder="Enter in-site description..." required>
+                     placeholder="Enter In-Site Location..." title = "Please Enter the Specific In-Site Location of your Near-miss" required placeholder="Please Enter the Specific In-Site Location of your Near-miss"
+                     oninvalid="this.setCustomValidity('Please Enter the Specific In-Site Location of your Near-miss')"
+                     oninput="this.setCustomValidity('')">
                </div>
                <div id="upload-image">
-                  <label for="uploadImage">Select files:</label>
+                  <label for="uploadImage">Select Files:</label>
                   <div id="choose-files">
                      <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
-                        onchange=showImagePreviewBox() multiple required>
+                        onchange=showImagePreviewBox() title = "Attach Photos/Images to your Near-miss Case" multiple required placeholder="Please Attach atleast 1 or more photos to complement your Near-miss case"
+                        oninvalid="this.setCustomValidity('Please Attach atleast 1 image/photo. Only JPEG, PNG, JPG Images are Accepted!')"
+                        oninput="this.setCustomValidity('')">
                   </div>
                   <br>
                   <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
