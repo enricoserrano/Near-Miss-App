@@ -16,29 +16,6 @@
       <script type="text/javascript" src="xhr.js"></script>
       <script type="text/javascript" src="ajaxRecordForm.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      <script type="text/javascript">
-         $(document).ready(function () 
-         {
-             resetForm();
-             console.log($(document));
-         })
-         
-         function submit()
-         {
-         
-         }
-         
-         function cancelForm()
-         {
-             
-         }
-         
-         function verify()
-         {
-         
-         }
-         
-      </script>
    </head>
    <body>
       <header>
@@ -122,59 +99,39 @@
                   <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
                   <div id="show-uploaded-image" style="display:none">
                   </div>
-                  <!-- <div class="take-webcam-photos">
-                     <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
-                     <div id="take-photo-container" style="display:none">
-                        <h3>Preview</h3>
-                        <video id="webCamera" autoplay playsinlne width="500" height="400"></video>
-                        <h3>Image Taken & Downloaded</h3>
-                        <canvas id="photoCanvas"></canvas>
-                        <br>
-                        <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
-                     </div>
-                  </div> -->
                   <br>
                </div>
-               <script type ="text/javascript" src="camera-image-functions.js"></script>
-               <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
+               <div>
+                  <fieldset>
+                     <legend>Fill Out Form With Speech-To-Text Recognition (Chrome Only)</legend>
+                     <br>
+                     <code id="result">live transcript here ...</code>
+                     <button type="button" id="toggle">Toggle listening</button>
+                     <br><br>
+                     <i class="fa-solid fa-note-sticky" style="color: white;"></i>
+                     <br>
+                     <label for="description" style="color: white;">Description</label>
+                     <br><textarea id="description" name="description" rows="4" cols="50" required></textarea>
+                     <span id="errImage" style="color: red; display: none"></span>
+                  </fieldset>
+               </div>
+               <div>
+                  <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
+                  <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
+                  <label for="dateTime"></label>
+                  <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()">
+                  <span id="errImage" style="color: red; display: none"></span>
+               </div>
+               <br>
+               <input type="submit" id = "submit" value="Submit" name = "submit">
+               <input type="reset" value="Reset">
+            </form>
          </div>
-         <div>
-               <fieldset>
-                 <legend>Fill Out Form With Speech Recognition (Chrome)</legend>
-                 <code id="result">live transcript here ...</code>
-                 <button type="button" id="toggle">Toggle listening</button>
-                 
-                 <br>
-                 <i class="fa-solid fa-note-sticky" style="color: white;"></i>
-                 <label for="description" style="color: white;">Description</label><br>
-                 <br><textarea id="description" name="description" rows="4" cols="50" required></textarea>
-                 <span id="errImage" style="color: red; display: none"></span>
-               </fieldset>
-         
-         </div>
-         <div>
-         <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
-         <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
-         <label for="dateTime"></label>
-         <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()">
-         <span id="errImage" style="color: red; display: none"></span>
-         </div>
-         <!-- <div>
-         <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
-         <label for="priorityName" style="color: white;" >Severity</label>
-         <br><label style="color: white;"><input type="radio" class="low" name="priority" value = "Low">Low</label>
-         <label style="color: white;"><input type="radio" class="medium" name="priority" value = "Medium">Medium</label>
-         <label style="color: white;"><input type="radio" class="high" name="priority" value = "High">High</label>
-         </div> -->
-         <br>
-         <!-- <input type="button" id = "submit" value="Submit" name = "submit" onClick = "getData('recordInfo.php','nearMissInformation', description.value, dateTime.value, priority.value)"> -->
-         <input type="submit" id = "submit" value="Submit" name = "submit">
-         <input type="reset" value="Reset">
-         </form>
       </div>
       <div id ="nearMissInformation">
       </div>
    </body>
+   <script type="text/javascript" src="camera-image-functions.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
    <script type="text/javascript" src="formValidation.js"></script>
    <script type="text/javascript" src="voice-to-text-testing/voice-to-text.js"></script>
