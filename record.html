@@ -122,7 +122,7 @@
                   <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
                   <div id="show-uploaded-image" style="display:none">
                   </div>
-                  <div class="take-webcam-photos">
+                  <!-- <div class="take-webcam-photos">
                      <p><button onclick="showTakePhotoOption()">Toggle Take Webcam Photo</button></p>
                      <div id="take-photo-container" style="display:none">
                         <h3>Preview</h3>
@@ -132,7 +132,7 @@
                         <br>
                         <a class="download-button" onClick="takePhoto()" download>Take Photo</a>
                      </div>
-                  </div>
+                  </div> -->
                   <br>
                </div>
                <script type ="text/javascript" src="camera-image-functions.js"></script>
@@ -151,13 +151,13 @@
          <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()">
          <span id="errImage" style="color: red; display: none"></span>
          </div>
-         <div>
+         <!-- <div>
          <br><i class="fa-solid fa-triangle-exclamation" style="color: white;"></i>
          <label for="priorityName" style="color: white;" >Severity</label>
          <br><label style="color: white;"><input type="radio" class="low" name="priority" value = "Low">Low</label>
          <label style="color: white;"><input type="radio" class="medium" name="priority" value = "Medium">Medium</label>
          <label style="color: white;"><input type="radio" class="high" name="priority" value = "High">High</label>
-         </div>
+         </div> -->
          <br>
          <!-- <input type="button" id = "submit" value="Submit" name = "submit" onClick = "getData('recordInfo.php','nearMissInformation', description.value, dateTime.value, priority.value)"> -->
          <input type="submit" id = "submit" value="Submit" name = "submit">
