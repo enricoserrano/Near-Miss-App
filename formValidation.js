@@ -22,7 +22,7 @@ function checkForValidDate() {
 
   // Checks if the date selected by the user is earlier than the actual date of the booking
   if (new Date(UserDate).getTime() >= ToDate.getTime()) {
-    alert("The date must be earlier than or equal to today's date");
+    alert("The Date and Time of the Near-miss Must Be Earlier Than or Equal to Today's Date and Time");
     document.getElementById("dateTime").value = currentDate;
     return false;
   }
