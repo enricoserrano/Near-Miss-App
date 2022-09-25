@@ -139,6 +139,16 @@
                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
          </div>
          <div>
+            <form>
+               <fieldset>
+                 <legend>Fill Out Form With Speech Recognition (Chrome)</legend>
+                 <code id="result">live transcript here ...</code>
+                 <button type="button" id="toggle">Toggle listening</button>
+                 <p>Click on “Toggle listening”, then click on the form field, where you want to insert speeched text. Pause a bit after a sentence to process the speech-data. This demo only works with language <strong>“en-US”</strong>, only in Chrome, and only if you allow the microphone on this page!</p>
+                 
+                 <label>Description 4<textarea></textarea></label>
+               </fieldset>
+             </form>
          <i class="fa-solid fa-note-sticky" style="color: white;"></i>
          <label for="description" style="color: white;">Description</label>
          <br><textarea id="description" name="description" rows="4" cols="50" required></textarea>
@@ -169,4 +179,5 @@
    </body>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
    <script type="text/javascript" src="formValidation.js"></script>
+   <script type="text/javascript" src="voice-to-text-testing/voice-to-text.js"></script>
 </html>
