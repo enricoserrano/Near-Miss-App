@@ -116,7 +116,9 @@
                      <i class="fa-solid fa-note-sticky" style="color: white;"></i>
                      <br>
                      <label for="description" style="color: white;">Description</label>
-                     <br><textarea id="description" name="description" rows="4" cols="50" required></textarea>
+                     <br><textarea id="description" name="description" rows="4" cols="50" required placeholder="Please Provide a Description of your Near-miss"
+                     oninvalid="this.setCustomValidity('Please provide a Description of your Near-miss')"
+                     oninput="this.setCustomValidity('')"></textarea>
                      <span id="errImage" style="color: red; display: none"></span>
                   </fieldset>
                </div>
