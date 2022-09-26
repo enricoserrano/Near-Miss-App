@@ -151,8 +151,7 @@
                          $recordedDateTime = "Recorded Date and Time: ".$row["nmDateTime"]."\n";
                          $recordedImageFileName = "Filename of image uploaded: ".$row["imageFileName"]."\n";
                         
-                         $receiptFile = fopen("nearMissReceipt.txt", 'a');
-                         fwrite($receiptFile, "new stuff");
+                         $receiptFile = fopen("nearMissReceipt.txt", 'w');
                          fwrite($receiptFile, $textFileHeader);
                          fwrite($receiptFile, $recordedID);
                          fwrite($receiptFile, $recordedSiteLocation);
