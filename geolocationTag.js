@@ -1,5 +1,6 @@
 const findMyArea = () => {
-  const status = document.querySelector(".status");
+//   const status = document.querySelector(".status");
+  const siteLocInputField = document.querySelector(".siteLoc");
 
   const success = (position) => {
     console.log(position);
@@ -13,13 +14,17 @@ const findMyArea = () => {
     fetch(geoApiUrl)
       .then((res) => res.json())
       .then((data) => {
-        status.textContent = data.city + " " + data.locality;
+        document.getElementById("nmSiteLocation").value =
+          data.city + " " + data.locality;
+        // status.textContent = data.city + " " + data.locality;
+        // siteLocInputField.textContent = data.city + " " + data.locality;
         console.log(data);
       });
   };
 
   const error = () => {
     status.textContent = "Unable to retrieve your location";
+    siteLocInputField.textContent = "Unable to retrieve your location";
   };
 
   navigator.geolocation.getCurrentPosition(success, error);
