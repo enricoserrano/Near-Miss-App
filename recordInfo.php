@@ -137,12 +137,29 @@
                      while($row = mysqli_fetch_assoc($getNearMissID))
                      {
                          echo "<p><strong>Near-miss Entry ID: </strong>".$row["nearMissID"]."</p>";
-                         echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
-                         echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
+                         echo "<p><strong>Site Location: </strong>".$row["nmSiteLocation"]."</p>";
+                         echo "<p><strong>In-Site location: </strong>".$row["nmInSiteLocation"]."</p>";
                          echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
-                         echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
+
+                         $textFileHeader = "Near-miss receipt\n\n"; 
+                         $recordedID = "Near-miss Entry ID: ".$row["nearMissID"]. "\n";
+                         $recordedSiteLocation = "Site Location: ".$row["nmSiteLocation"]."\n";
+                         $recordedInSiteLocation = "In-Site location: ".$row["nmInSiteLocation"]."\n";
+                         $recordedDescription = "Near-miss Description: ".$row["nmDesc"]."\n";
+                         $recordedDateTime = "Recorded Date and Time: ".$row["nmDateTime"]."\n";
+                         $recordedImageFileName = "Filename of image uploaded: ".$row["imageFileName"]."\n";
+                        
+                         $receiptFile = fopen("nearMissReceipt.txt", 'w');
+                         fwrite($receiptFile, $textFileHeader);
+                         fwrite($receiptFile, $recordedID);
+                         fwrite($receiptFile, $recordedSiteLocation);
+                         fwrite($receiptFile, $recordedInSiteLocation);
+                         fwrite($receiptFile, $recordedDescription);
+                         fwrite($receiptFile, $recordedDateTime);
+                         fwrite($receiptFile, $recordedImageFileName);
+                         fclose($receiptFile);
                      }  
                  }
              }
@@ -153,6 +170,8 @@
       <br>
       <button class = "receipt-button receiptHomeBtn" onclick="location.href='index.html';">Return Home</button>
       <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Another Near-miss</button>
+      <a class="receipt-button downloadReceiptBtn" download href="nearMissReceipt.txt">Download Receipt</a>
+
    </body>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>

@@ -332,9 +332,9 @@ header {
 }
 
 .our-team-section {
-    padding: 30px;
+    padding: 15px;
     text-align: center;
-    background-color: #000000;
+    background-color: #282a35;
     color: white;
 }
 
@@ -691,6 +691,9 @@ a .download{
 
 .receiptRecordBtn{background-color:rgb(47, 165, 47);}
 .receiptRecordBtn:hover{background-color:rgb(53, 218, 53);}
+
+.downloadReceiptBtn{background-color:rgb(255, 8, 0);}
+.downloadReceiptBtn:hover{background-color: rgb(175, 6, 0);}
 
 .receipt-text{
     padding-top: 2%;
