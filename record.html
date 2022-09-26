@@ -80,19 +80,25 @@
                   <i class="fa-solid fa-location-dot" style="color: white;"></i>
                   <label for="siteLocation" style="color: white;">Site Location</label>
                   <br><input type="text" id="nmSiteLocation" name="nmSiteLocation"
-                     placeholder="Enter Site Location..."><br>
+                     placeholder="Enter Site Location..." title = "Please Enter the Site Location/Address of your Near-miss" required placeholder="Please Enter the Site Location or Address of your Near-miss"
+                     oninvalid="this.setCustomValidity('Please Enter the Site Location or Address of your Near-miss')"
+                     oninput="this.setCustomValidity('')"><br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
                </div>
                <div>
-                  <p></p><label for="location" style="color: white;">In-Site location</label>
+                  <p></p><label for="location" style="color: white;">In-Site Location</label>
                   <br><input type="text" id="nmInSiteLocation" name="nmInSiteLocation"
-                     placeholder="Enter in-site description...">
+                     placeholder="Enter In-Site Location..." title = "Please Enter the Specific In-Site Location of your Near-miss" required placeholder="Please Enter the Specific In-Site Location of your Near-miss"
+                     oninvalid="this.setCustomValidity('Please Enter the Specific In-Site Location of your Near-miss')"
+                     oninput="this.setCustomValidity('')">
                </div>
                <div id="upload-image">
-                  <label for="uploadImage">Select files:</label>
+                  <label for="uploadImage">Select Files:</label>
                   <div id="choose-files">
                      <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
-                        onchange=showImagePreviewBox() multiple required>
+                        onchange=showImagePreviewBox() title = "Attach Photos/Images to your Near-miss Case" multiple required placeholder="Please Attach atleast 1 or more photos to complement your Near-miss case"
+                        oninvalid="this.setCustomValidity('Please Attach atleast 1 image/photo. Only JPEG, PNG, JPG Images are Accepted!')"
+                        oninput="this.setCustomValidity('')">
                   </div>
                   <br>
                   <h3 id="image-preview-title" style="display:none">Uploaded Image Preview</h3>
@@ -103,14 +109,17 @@
                <div>
                   <fieldset>
                      <legend>Fill Out Form With Speech-To-Text Recognition (Chrome Only)</legend>
+                     <p>To use Speech-To-Text, place your cursor in the description field and Toggle Voice Listening</p>
                      <br>
-                     <code id="result">live transcript here ...</code>
-                     <button type="button" id="toggle">Toggle listening</button>
+                     <code id="result">Live Speech-Transcript Here ...</code>
+                     <button type="button" id="toggle">Toggle Voice Listening</button>
                      <br><br>
                      <i class="fa-solid fa-note-sticky" style="color: white;"></i>
                      <br>
                      <label for="description" style="color: white;">Description</label>
-                     <br><textarea id="description" name="description" rows="4" cols="50" required></textarea>
+                     <br><textarea id="description" name="description" rows="4" cols="50" title = "Please Provide a Description of your Near-miss" required placeholder="Please Provide a Description of your Near-miss"
+                     oninvalid="this.setCustomValidity('Please Provide a Description of your Near-miss')"
+                     oninput="this.setCustomValidity('')"></textarea>
                      <span id="errImage" style="color: red; display: none"></span>
                   </fieldset>
                </div>
@@ -118,7 +127,9 @@
                   <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
                   <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
                   <label for="dateTime"></label>
-                  <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()">
+                  <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()" title = "Please Provide a Date and Time of your Near-miss" required placeholder="Please Enter the Date and Time of the Near-miss"
+                  oninvalid="this.setCustomValidity('Please Enter a valid Date and Time for your Near-miss')"
+                  oninput="this.setCustomValidity('')">
                   <span id="errImage" style="color: red; display: none"></span>
                </div>
                <br>
@@ -130,6 +141,6 @@
    </body>
    <script type="text/javascript" src="camera-image-functions.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
-   <script type="text/javascript" src="formValidation.js"></script>
+   <script type="text/javascript" src="dateTimeValidation.js"></script>
    <script type="text/javascript" src="voice-to-text-testing/voice-to-text.js"></script>
 </html>
