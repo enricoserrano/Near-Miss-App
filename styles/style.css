@@ -317,7 +317,7 @@ header {
     }
 
     #record-icon-center {
-        text-align: center;
+        /* text-align: right; */
         padding-left: 50%;
         /* margin: 0 auto; */
         /* width: 60%; */
