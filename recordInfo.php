@@ -143,22 +143,27 @@
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
 
-                         $textFileHeader = "Near-miss receipt\n\n"; 
-                         $recordedID = "Near-miss Entry ID: ".$row["nearMissID"]. "\n";
-                         $recordedSiteLocation = "Site Location: ".$row["nmSiteLocation"]."\n";
-                         $recordedInSiteLocation = "In-Site location: ".$row["nmInSiteLocation"]."\n";
-                         $recordedDescription = "Near-miss Description: ".$row["nmDesc"]."\n";
-                         $recordedDateTime = "Recorded Date and Time: ".$row["nmDateTime"]."\n";
-                         $recordedImageFileName = "Filename of image uploaded: ".$row["imageFileName"]."\n";
-                        
+                         $textFileHeader = "**************************************************************************************************************\n";
+                         $textHeader = "                                             *******************\n********************************************* Near-miss receipt **********************************************\n                                             *******************\n\n"; 
+                         $recordedID = "--------------------------------------------------------------------------------------------------------------\nNear-miss Entry ID: ".$row["nearMissID"]. "\n";
+                         $recordedSiteLocation = "--------------------------------------------------------------------------------------------------------------\nSite Location: ".$row["nmSiteLocation"]."\n";
+                         $recordedInSiteLocation = "--------------------------------------------------------------------------------------------------------------\nIn-Site location: ".$row["nmInSiteLocation"]."\n";
+                         $recordedDescription = "--------------------------------------------------------------------------------------------------------------\nNear-miss Description: ".$row["nmDesc"]."\n";
+                         $recordedDateTime = "--------------------------------------------------------------------------------------------------------------\nRecorded Date and Time: ".$row["nmDateTime"]."\n";
+                         $recordedImageFileName = "--------------------------------------------------------------------------------------------------------------\nFilename of image uploaded: ".$row["imageFileName"]."\n--------------------------------------------------------------------------------------------------------------\n";
+                         $thankYouMessage = "\n--------------------------------------------------------------------------------------------------------------\nThank you for your Near-miss submission. We will work on deploying a solution as soon as possible.\nIf you have any queries please contact us on our email and include your near-miss entry ID.\nHave a good day.";
+                         $textFileFooter = "\n--------------------------------------------------------------------------------------------------------------\n\n**************************************************************************************************************\n";
+                         
                          $receiptFile = fopen("nearMissReceipt.txt", 'w');
-                         fwrite($receiptFile, $textFileHeader);
+                         fwrite($receiptFile, $textHeader);
                          fwrite($receiptFile, $recordedID);
                          fwrite($receiptFile, $recordedSiteLocation);
                          fwrite($receiptFile, $recordedInSiteLocation);
                          fwrite($receiptFile, $recordedDescription);
                          fwrite($receiptFile, $recordedDateTime);
                          fwrite($receiptFile, $recordedImageFileName);
+                         fwrite($receiptFile, $thankYouMessage);
+                         fwrite($receiptFile, $textFileFooter);
                          fclose($receiptFile);
                      }  
                  }
