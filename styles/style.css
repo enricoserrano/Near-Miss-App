@@ -544,6 +544,30 @@ input[name=nmSiteLocation]
     width: 65%;
 }
 
+input[name=nmRegionSubdiv]:focus {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 80%;
+}
+
+input[name=nmRegionSubdiv] {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 65%;
+}
+
 input[name=nmInSiteLocation]:focus
 {
     box-sizing: border-box;

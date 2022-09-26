@@ -14,7 +14,7 @@ const findMyArea = () => {
     fetch(geoApiUrl)
       .then((res) => res.json())
       .then((data) => {
-        document.getElementById("nmSiteLocation").value =
+        document.getElementById("nmRegionSubdiv").value =
           data.principalSubdivision + " " + data.principalSubdivisionCode;
         // status.textContent = data.city + " " + data.locality;
         // siteLocInputField.textContent = data.city + " " + data.locality;
