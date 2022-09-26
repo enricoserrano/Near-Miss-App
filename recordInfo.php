@@ -141,7 +141,6 @@
                          echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
                          echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
-                         echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
 
                          $textFileHeader = "Near-miss receipt\n\n"; 
