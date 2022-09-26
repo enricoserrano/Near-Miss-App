@@ -137,8 +137,8 @@
                      while($row = mysqli_fetch_assoc($getNearMissID))
                      {
                          echo "<p><strong>Near-miss Entry ID: </strong>".$row["nearMissID"]."</p>";
-                         echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
-                         echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
+                         echo "<p><strong>Site Location: </strong>".$row["nmSiteLocation"]."</p>";
+                         echo "<p><strong>In-Site location: </strong>".$row["nmInSiteLocation"]."</p>";
                          echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
