@@ -15,7 +15,7 @@ const findMyArea = () => {
       .then((res) => res.json())
       .then((data) => {
         document.getElementById("nmSiteLocation").value =
-          data.city + " " + data.locality;
+          data.principalSubdivision + " " + data.principalSubdivisionCode;
         // status.textContent = data.city + " " + data.locality;
         // siteLocInputField.textContent = data.city + " " + data.locality;
         console.log(data);
