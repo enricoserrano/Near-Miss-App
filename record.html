@@ -117,8 +117,8 @@
                      <i class="fa-solid fa-note-sticky" style="color: white;"></i>
                      <br>
                      <label for="description" style="color: white;">Description</label>
-                     <br><textarea id="description" name="description" rows="4" cols="50" required placeholder="Please Provide a Description of your Near-miss"
-                     oninvalid="this.setCustomValidity('Please provide a Description of your Near-miss')"
+                     <br><textarea id="description" name="description" rows="4" cols="50" title = "Please Provide a Description of your Near-miss" required placeholder="Please Provide a Description of your Near-miss"
+                     oninvalid="this.setCustomValidity('Please Provide a Description of your Near-miss')"
                      oninput="this.setCustomValidity('')"></textarea>
                      <span id="errImage" style="color: red; display: none"></span>
                   </fieldset>
@@ -127,7 +127,7 @@
                   <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
                   <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
                   <label for="dateTime"></label>
-                  <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()" required placeholder="Please Enter the Date and Time of the Near-miss"
+                  <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()" title = "Please Provide a Date and Time of your Near-miss" required placeholder="Please Enter the Date and Time of the Near-miss"
                   oninvalid="this.setCustomValidity('Please Enter a valid Date and Time for your Near-miss')"
                   oninput="this.setCustomValidity('')">
                   <span id="errImage" style="color: red; display: none"></span>
