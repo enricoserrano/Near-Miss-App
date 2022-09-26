@@ -25,4 +25,4 @@ const findMyArea = () => {
   navigator.geolocation.getCurrentPosition(success, error);
 };
 
-document.querySelector(".find-location").addEventListener("click", findMyArea);
+document.querySelector(".find-geolocation").addEventListener("click", findMyArea);
