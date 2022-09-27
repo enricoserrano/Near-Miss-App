@@ -175,6 +175,7 @@
                echo "<tr>";
                echo "<th scope='col'>Case ID</th>";
                echo "<th scope='col'>Site Location</th>";
+               echo "<th scope='col'>Region</th>";
                echo "<th scope='col'>Insite Location</th>";
                echo "<th scope='col'>Description</th>";
                echo "<th scope='col'>Date and Time</th>";
@@ -187,6 +188,7 @@
                   echo "<tr>";
                   echo "<td>",$row["nearMissID"],"</td>";
                   echo "<td>",$row["nmSiteLocation"],"</td>";
+                  echo "<td>",$row["nmRegionSubdiv"],"</td>";
                   echo "<td>",$row["nmInSiteLocation"],"</td>";
                   echo "<td>",$row["nmDesc"],"</td>";
                   echo "<td>",$row["nmDateTime"],"</td>";
@@ -236,6 +238,7 @@
                echo "<tr>";
                echo "<th scope='col'>Case ID</th>";
                echo "<th scope='col'>Site Location</th>";
+               echo "<th scope='col'>Region</th>";
                echo "<th scope='col'>Insite Location</th>";
                echo "<th scope='col'>Description</th>";
                echo "<th scope='col'>Date and Time</th>";
@@ -248,6 +251,7 @@
                   echo "<tr>";
                   echo "<td>",$row["nearMissID"],"</td>";
                   echo "<td>",$row["nmSiteLocation"],"</td>";
+                  echo "<td>",$row["nmRegionSubdiv"],"</td>";
                   echo "<td>",$row["nmInSiteLocation"],"</td>";
                   echo "<td>",$row["nmDesc"],"</td>";
                   echo "<td>",$row["nmDateTime"],"</td>";
@@ -318,6 +322,7 @@
                      echo "<tr>";
                      echo "<th scope='col'>Case ID</th>";
                      echo "<th scope='col'>Site Location</th>";
+                     echo "<th scope='col'>Region</th>";
                      echo "<th scope='col'>Insite Location</th>";
                      echo "<th scope='col'>Description</th>";
                      echo "<th scope='col'>Date and Time</th>";
@@ -333,6 +338,7 @@
                         echo "<tr>";
                         echo "<td>",$row["nearMissID"],"</td>";
                         echo "<td>",$row["nmSiteLocation"],"</td>";
+                        echo "<td>",$row["nmRegionSubdiv"],"</td>";
                         echo "<td>",$row["nmInSiteLocation"],"</td>";
                         echo "<td>",$row["nmDesc"],"</td>";
                         echo "<td>",$row["nmDateTime"],"</td>";
@@ -387,6 +393,7 @@
                      echo "<tr>";
                      echo "<th scope='col'>Case ID</th>";
                      echo "<th scope='col'>Site Location</th>";
+                     echo "<th scope='col'>Region</th>";
                      echo "<th scope='col'>Insite Location</th>";
                      echo "<th scope='col'>Description</th>";
                      echo "<th scope='col'>Date and Time</th>";
@@ -402,6 +409,7 @@
                         echo "<tr>";
                         echo "<td>",$row["nearMissID"],"</td>";
                         echo "<td>",$row["nmSiteLocation"],"</td>";
+                        echo "<td>",$row["nmRegionSubdiv"],"</td>";
                         echo "<td>",$row["nmInSiteLocation"],"</td>";
                         echo "<td>",$row["nmDesc"],"</td>";
                         echo "<td>",$row["nmDateTime"],"</td>";
@@ -463,6 +471,7 @@
                echo "<tr>";
                echo "<th scope='col'>Case ID</th>";
                echo "<th scope='col'>Site Location</th>";
+               echo "<th scope='col'>Region</th>";
                echo "<th scope='col'>Insite Location</th>";
                echo "<th scope='col'>Description</th>";
                echo "<th scope='col'>Date and Time</th>";
@@ -476,6 +485,7 @@
                echo "<tr>";
                echo "<td>",$row["nearMissID"],"</td>";
                echo "<td>",$row["nmSiteLocation"],"</td>";
+               echo "<td>",$row["nmRegionSubdiv"],"</td>";
                echo "<td>",$row["nmInSiteLocation"],"</td>";
                echo "<td>",$row["nmDesc"],"</td>";
                echo "<td>",$row["nmDateTime"],"</td>";
