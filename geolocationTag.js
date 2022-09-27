@@ -14,11 +14,15 @@ const findMyArea = () => {
     fetch(geoApiUrl)
       .then((res) => res.json())
       .then((data) => {
-        document.getElementById("nmSiteLocation").value =
-          data.city + " " + data.locality;
+
+        document.getElementById("nmRegionSubdiv").value =
+          data.principalSubdivision + " " + data.principalSubdivisionCode;
+        let caseRegion =
+          data.principalSubdivision + " " + data.principalSubdivisionCode;
         // status.textContent = data.city + " " + data.locality;
         // siteLocInputField.textContent = data.city + " " + data.locality;
         console.log(data);
+        console.log(caseRegion);
       });
   };
 
