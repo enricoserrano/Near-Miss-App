@@ -3,7 +3,7 @@ body {
     text-align: center;
     height: 100%;
     margin: 0;
-    color: #000000;
+    color: #000000; 
 }
 html {
     box-sizing: border-box;
@@ -317,14 +317,19 @@ header {
     }
 
     #record-icon-center {
-        text-align: center;
+        /* text-align: right; */
         padding-left: 50%;
         /* margin: 0 auto; */
         /* width: 60%; */
         /* border-style: solid; */
-    }
+    }  
+}
 
-    
+@media screen and (min-width: 1800px) {
+
+    .about-page-difference-img{
+        width: 75%;
+    }
 }
 
 .about-oneLiner{

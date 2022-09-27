@@ -31,7 +31,7 @@ function init() {
         }
         else {
           toggle.classList.remove('listening');
-          toggle.innerText = 'Toggle listening';
+          toggle.innerText = 'Press to Speak';
           speech.recognition.stop();
         }
       })
