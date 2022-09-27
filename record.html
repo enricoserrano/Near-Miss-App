@@ -86,7 +86,7 @@
                   <span id="errSiteLocation" style="color: red; display: none"></span>
                   <h1 class="status"></h1>
                   <br>
-                  <button class="find-geolocation">Track my Geolocation</button>
+                  <button name="geolocationtag" class="find-geolocation" style="border-radius: 20px; padding: 10px; margin: 2px 4px;">Track my Geolocation</button>
                </div>
                <div>
                   <p></p><label for="location" style="color: white;">In-Site Location</label>
@@ -96,7 +96,7 @@
                      oninput="this.setCustomValidity('')">
                </div>
                <div id="upload-image">
-                  <label for="uploadImage">Select Files:</label>
+                  <label  for="uploadImage">Select Files:</label>
                   <div id="choose-files">
                      <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
                         onchange=showImagePreviewBox() title = "Attach Photos/Images to your Near-miss Case" multiple required placeholder="Please Attach atleast 1 or more photos to complement your Near-miss case"
@@ -115,7 +115,7 @@
                      <p>To use Speech-To-Text, place your cursor in the description field and Toggle Voice Listening</p>
                      <br>
                      <code id="result">Live Speech-Transcript Here ...</code>
-                     <button type="button" id="toggle">Toggle Voice Listening</button>
+                     <button type="button" id="toggle" style="border-radius: 20px; padding: 10px; margin: 2px 4px;">Toggle Voice Listening</button>
                      <br><br>
                      <i class="fa-solid fa-note-sticky" style="color: white;"></i>
                      <br>
@@ -123,7 +123,6 @@
                      <br><textarea id="description" name="description" rows="3" cols="100" title = "Please Provide a Description of your Near-miss" required placeholder="Please Provide a Description of your Near-miss"
                      oninvalid="this.setCustomValidity('Please Provide a Description of your Near-miss')"
                      oninput="this.setCustomValidity('')"></textarea>
-                     <span id="errImage" style="color: red; display: none"></span>
                   </fieldset>
                </div>
                <div>
@@ -133,11 +132,10 @@
                   <input type="datetime-local" id="dateTime" name="dateTime" onchange="checkForValidDate()" title = "Please Provide a Date and Time of your Near-miss" required placeholder="Please Enter the Date and Time of the Near-miss"
                   oninvalid="this.setCustomValidity('Please Enter a valid Date and Time for your Near-miss')"
                   oninput="this.setCustomValidity('')">
-                  <span id="errImage" style="color: red; display: none"></span>
                </div>
                <br>
-               <input type="submit" id = "submit" value="Submit" name = "submit">
-               <input type="reset" value="Reset">
+               <input type="submit" id = "submit" value="Submit" name = "submit" style="border-radius: 20px; padding: 10px; margin: 2px 4px;">
+               <input type="reset" value="Reset" style="border-radius: 20px; padding: 10px; margin: 2px 4px;">
             </form>
          </div>
       </div>

@@ -612,6 +612,7 @@ input[name=time]:focus
     width: 35%;
 }
 
+
 input[name=time]
 {
     box-sizing: border-box;
@@ -621,7 +622,7 @@ input[name=time]
     background-color: white;
     padding: 12px 20px 12px 40px;
     transition: width 0.4s ease-in-out;
-    width: 30%;
+    width: 100%;
 }
 
 @media screen and (max-width: 650px) {
