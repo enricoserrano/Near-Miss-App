@@ -90,7 +90,7 @@
              { 
                  echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
                  
-                 $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
+                 $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmRegionSubdiv VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME,
                  imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL, caseStatus VARCHAR(15) DEFAULT 'Unresolved') ENGINE=InnoDB DEFAULT CHARSET=latin1;";
              
                  //Stores connection and collumn creation query variables as paramters in a result variable
@@ -111,7 +111,6 @@
              $nmInSiteLocation = $_POST["nmInSiteLocation"];
              $nmDesc = $_POST["description"];
              $nmDateTime = $_POST["dateTime"];
-             $nmPriorityLevel = $_POST["priority"];
          
              // Checks if post is clicked
              if (isset($_POST["submit"])) {
@@ -124,7 +123,7 @@
                  $image = base64_encode(file_get_contents(addslashes($image)));
          
                  //Adds information into table collumns and stores it in a variable
-                 $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation', '$nmInSiteLocation', '$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                 $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmRegionSubdiv, nmInSiteLocation, nmDesc, nmDateTime, imageFileName, imageFiles) VALUES ('$nmSiteLocation', '$nmRegionSubdiv', '$nmInSiteLocation', '$nmDesc', '$nmDateTime', '$imageFileName', '$image');";
                  $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
          
                  // If something is wrong with the inserting process and error message is shown
@@ -139,6 +138,7 @@
                      {
                          echo "<p><strong>Near-miss Entry ID: </strong>".$row["nearMissID"]."</p>";
                          echo "<p><strong>Site Location: </strong>".$row["nmSiteLocation"]."</p>";
+                         echo "<p><strong>Region: </strong>".$row["nmRegionSubdiv"]."</p>";
                          echo "<p><strong>In-Site location: </strong>".$row["nmInSiteLocation"]."</p>";
                          echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
@@ -148,6 +148,7 @@
                          $textHeader = "                                             *******************\n********************************************* Near-miss receipt **********************************************\n                                             *******************\n\n"; 
                          $recordedID = "--------------------------------------------------------------------------------------------------------------\nNear-miss Entry ID: ".$row["nearMissID"]. "\n";
                          $recordedSiteLocation = "--------------------------------------------------------------------------------------------------------------\nSite Location: ".$row["nmSiteLocation"]."\n";
+                         $recordedRegion = "--------------------------------------------------------------------------------------------------------------\nRegion: ".$row["nmRegionSubdiv"]."\n";
                          $recordedInSiteLocation = "--------------------------------------------------------------------------------------------------------------\nIn-Site location: ".$row["nmInSiteLocation"]."\n";
                          $recordedDescription = "--------------------------------------------------------------------------------------------------------------\nNear-miss Description: ".$row["nmDesc"]."\n";
                          $recordedDateTime = "--------------------------------------------------------------------------------------------------------------\nRecorded Date and Time: ".$row["nmDateTime"]."\n";
@@ -159,6 +160,7 @@
                          fwrite($receiptFile, $textHeader);
                          fwrite($receiptFile, $recordedID);
                          fwrite($receiptFile, $recordedSiteLocation);
+                         fwrite($receiptFile, $recordedRegion);
                          fwrite($receiptFile, $recordedInSiteLocation);
                          fwrite($receiptFile, $recordedDescription);
                          fwrite($receiptFile, $recordedDateTime);
