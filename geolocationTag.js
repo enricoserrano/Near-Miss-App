@@ -1,5 +1,6 @@
 const findMyArea = () => {
-  const status = document.querySelector(".status");
+//   const status = document.querySelector(".status");
+  const siteLocInputField = document.querySelector(".siteLoc");
 
   const success = (position) => {
     console.log(position);
@@ -13,16 +14,24 @@ const findMyArea = () => {
     fetch(geoApiUrl)
       .then((res) => res.json())
       .then((data) => {
-        status.textContent = data.city + " " + data.locality;
+
+        document.getElementById("nmRegionSubdiv").value =
+          data.principalSubdivision + " " + data.principalSubdivisionCode;
+        let caseRegion =
+          data.principalSubdivision + " " + data.principalSubdivisionCode;
+        // status.textContent = data.city + " " + data.locality;
+        // siteLocInputField.textContent = data.city + " " + data.locality;
         console.log(data);
+        console.log(caseRegion);
       });
   };
 
   const error = () => {
     status.textContent = "Unable to retrieve your location";
+    siteLocInputField.textContent = "Unable to retrieve your location";
   };
 
   navigator.geolocation.getCurrentPosition(success, error);
 };
 
-document.querySelector(".find-location").addEventListener("click", findMyArea);
+document.querySelector(".find-geolocation").addEventListener("click", findMyArea);

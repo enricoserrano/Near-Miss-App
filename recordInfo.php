@@ -107,6 +107,7 @@
              }
          
              $nmSiteLocation = $_POST["nmSiteLocation"];
+             $nmRegionSubdiv = $_POST["nmRegionSubdiv"];
              $nmInSiteLocation = $_POST["nmInSiteLocation"];
              $nmDesc = $_POST["description"];
              $nmDateTime = $_POST["dateTime"];

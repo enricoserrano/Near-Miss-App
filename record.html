@@ -79,11 +79,22 @@
                <div>
                   <i class="fa-solid fa-location-dot" style="color: white;"></i>
                   <label for="siteLocation" style="color: white;">Site Location</label>
-                  <br><input type="text" id="nmSiteLocation" name="nmSiteLocation"
+                  <br><input style="height:50px;font-size:14pt;" type="text" id="nmSiteLocation" name="nmSiteLocation" class = "siteLoc"
                      placeholder="Enter Site Location..." title = "Please Enter the Site Location/Address of your Near-miss" required placeholder="Please Enter the Site Location or Address of your Near-miss"
                      oninvalid="this.setCustomValidity('Please Enter the Site Location or Address of your Near-miss')"
                      oninput="this.setCustomValidity('')"><br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
+               <div>
+               <div>
+                  <br>
+                  <i class="fa-solid fa-location-dot" style="color: white;"></i>
+                  <label for="siteLocation" style="color: white;">Region</label><br>
+                  <br><input style="height:50px;font-size:14pt;" type="text" id="nmRegionSubdiv" name="nmRegionSubdiv" class="siteLoc"
+                     placeholder="Region/Subdivision (Optional)"><br>
+                  <span id="errSiteLocation" style="color: red; display: none"></span>
+                  <h1 class="status"></h1>
+                  <br>
+                  <button class="find-geolocation" type="button">Track my Geolocation</button>
                </div>
                <div>
                   <p></p><label for="location" style="color: white;">In-Site Location</label>
@@ -143,5 +154,6 @@
    <script type="text/javascript" src="camera-image-functions.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
    <script type="text/javascript" src="dateTimeValidation.js"></script>
+   <script type="text/javascript" src="geolocationTag.js"></script>
    <script type="text/javascript" src="voice-to-text-testing/voice-to-text.js"></script>
 </html>
