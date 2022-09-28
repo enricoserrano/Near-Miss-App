@@ -76,7 +76,7 @@
          <h1 style="color: white;">Record a Near-miss</h1>
          <div class="form-group">
             <form action="recordInfo.php" method="POST" enctype="multipart/form-data">
-               <div>
+               <div id = "site-location">
                   <i class="fa-solid fa-location-dot" style="color: white;"></i>
                   <label for="siteLocation" style="color: white;">Site Location</label>
                   <br><input style="height:50px;font-size:14pt;" type="text" id="nmSiteLocation" name="nmSiteLocation" class = "siteLoc"
@@ -85,26 +85,26 @@
                      oninput="this.setCustomValidity('')"><br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
                <div>
-               <div>
+               <div id="region-field">
                   <br>
                   <i class="fa-solid fa-location-dot" style="color: white;"></i>
-                  <label for="siteLocation" style="color: white;">Region</label><br>
+                  <label for="siteLocation" style="color: white;">Region</label>
                   <br><input style="height:50px;font-size:14pt;" type="text" id="nmRegionSubdiv" name="nmRegionSubdiv" class="siteLoc"
                      placeholder="Region/Subdivision (Optional)"><br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
                   <h1 class="status"></h1>
-                  <br>
                   <button class="find-geolocation" type="button">Track my Geolocation</button>
                </div>
-               <div>
-                  <p></p><label for="location" style="color: white;">In-Site Location</label>
-                  <br><input type="text" id="nmInSiteLocation" name="nmInSiteLocation"
+               <div id="insite-location">
+                  <p></p><i class="fa-solid fa-location-dot" style="color: white;"></i>
+                  <label for="location" style="color: white;">In-Site Location</label>
+                  <br><input style="height:50px;font-size:14pt;"type="text" id="nmInSiteLocation" name="nmInSiteLocation"
                      placeholder="Enter In-Site Location..." title = "Please Enter the Specific In-Site Location of your Near-miss" required placeholder="Please Enter the Specific In-Site Location of your Near-miss"
                      oninvalid="this.setCustomValidity('Please Enter the Specific In-Site Location of your Near-miss')"
                      oninput="this.setCustomValidity('')">
                </div>
                <div id="upload-image">
-                  <label for="uploadImage">Select Files:</label>
+                  <label for="uploadImage">Image of Near-miss:</label>
                   <div id="choose-files">
                      <input type="file" id="uploaded-image" accept="image/jpeg, image/png, image/jpg" name="uploadedImageFile"
                         onchange=showImagePreviewBox() title = "Attach Photos/Images to your Near-miss Case" multiple required placeholder="Please Attach atleast 1 or more photos to complement your Near-miss case"
@@ -117,25 +117,21 @@
                   </div>
                   <br>
                </div>
-               <div>
+               <div id = "description-field">
                   <fieldset>
-                     <legend>Fill Out Form With Speech-To-Text Recognition (Chrome Only)</legend>
-                     <p>To use Speech-To-Text, place your cursor in the description field and Press to Speak.</p>
-                     <p>Press "Listening" to stop the feature.</p>
-                     <br>
+                     <i class="fa-solid fa-note-sticky" style="color: white;"></i>
+                     <label for="description" style="color: white;">Description</label>
+                     <p style="color: white;">To use Speech-To-Text, click on "Press to Speak" then click your cursor in the description field. Press "Listening" to stop the feature.</p>
                      <code id="result">Live Speech-Transcript Here ...</code>
                      <button type="button" id="toggle">Press to Speak</button>
                      <br><br>
-                     <i class="fa-solid fa-note-sticky" style="color: white;"></i>
-                     <br>
-                     <label for="description" style="color: white;">Description</label>
-                     <br><textarea id="description" name="description" rows="4" cols="50" title = "Please Provide a Description of your Near-miss" required placeholder="Please Provide a Description of your Near-miss"
+                     <textarea id="description" name="description" rows="4" cols="50" title = "Please Provide a Description of your Near-miss" required placeholder="Please Provide a Description of your Near-miss"
                      oninvalid="this.setCustomValidity('Please Provide a Description of your Near-miss')"
                      oninput="this.setCustomValidity('')"></textarea>
                      <span id="errImage" style="color: red; display: none"></span>
                   </fieldset>
                </div>
-               <div>
+               <div id = "date-time-field">
                   <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
                   <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
                   <label for="dateTime"></label>
