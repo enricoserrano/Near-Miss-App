@@ -1,5 +1,4 @@
 body {
-    background-color: #45637d;
     text-align: center;
     height: 100%;
     margin: 0;
@@ -463,7 +462,7 @@ header {
 
 #upload-image h3{
     font-size: 18px;
-    color: rgb(255, 210, 11);
+    color: rgb(0, 0, 0);
 }
 
 /* Styling for the preview of the image uploaded */
@@ -527,9 +526,9 @@ header {
     background-color: white;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 80%;
+    width: 85%;
 }
 
 input[name=nmSiteLocation]
@@ -539,9 +538,9 @@ input[name=nmSiteLocation]
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 12px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 65%;
+    width: 75%;
 }
 
 input[name=nmRegionSubdiv]:focus {
@@ -552,9 +551,9 @@ input[name=nmRegionSubdiv]:focus {
     background-color: white;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 80%;
+    width: 85%;
 }
 
 input[name=nmRegionSubdiv] {
@@ -563,9 +562,9 @@ input[name=nmRegionSubdiv] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 65%;
+    width: 75%;
 }
 
 input[name=nmInSiteLocation]:focus
@@ -577,9 +576,9 @@ input[name=nmInSiteLocation]:focus
     background-color: white;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 80%;
+    width: 85%;
 }
 
 input[name=nmInSiteLocation]
@@ -589,12 +588,10 @@ input[name=nmInSiteLocation]
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 65%;
+    width: 75%;
 }
-
-
 
 input[name=description]:focus
 {
@@ -605,9 +602,9 @@ input[name=description]:focus
     background-color: white;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 80%;
+    width: 85%;
 }
 
 input[name=description]
@@ -617,7 +614,7 @@ input[name=description]
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
     width: 100%;
 }
@@ -631,7 +628,7 @@ input[name=time]:focus
     background-color: white;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
     width: 35%;
 }
@@ -644,7 +641,7 @@ input[name=time]
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
     width: 100%;
 }
