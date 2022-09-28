@@ -466,6 +466,26 @@ header {
     padding-top: 50px;
 }
 
+#site-location{
+    font-size: 20px;
+}
+
+#insite-location{
+    font-size: 20px;
+}
+
+#upload-image{
+    font-size: 20px;
+}
+
+#description-field{
+    font-size: 20px;
+}
+
+#date-time-field{
+    font-size: 20px;
+}
+
 #upload-image h3{
     font-size: 18px;
     color: rgb(255, 210, 11);
