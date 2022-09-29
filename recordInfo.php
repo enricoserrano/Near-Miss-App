@@ -73,8 +73,7 @@
       <br>
       <br>
       <br>
-      <h1 >Near-miss Receipt</h1>
-      <br>
+      <h1>Near-miss Receipt</h1>
       <?php
          $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
          
@@ -130,7 +129,7 @@
                  if (!$insertFormDataResult) {
                      echo "<p>There is an issue with adding information to the database. Try again.</p>";
                  } else {
-                     echo "<p><strong>Congratulations!</strong> The record has been successfully stored! Here is your receipt.</p>";
+                     echo "<p><strong>Congratulations!</strong> Your near-miss entry has been successfully submitted! Here is the details of your reciept:</p>";
                      $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
                      $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
                      
@@ -143,6 +142,7 @@
                          echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
+                         echo "<br><strong>Feel free to return home, record another near-miss or download a copy of your reciept with the options provided below.</br><br>Thank you and have a good day.</strong></br>";
 
                          $textHeader = "                                             *******************\n********************************************* Near-miss receipt **********************************************\n                                             *******************\n\n"; 
                          $recordedID = "--------------------------------------------------------------------------------------------------------------\nNear-miss Entry ID: ".$row["nearMissID"]. "\n";
