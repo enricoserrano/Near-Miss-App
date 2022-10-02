@@ -1,5 +1,4 @@
 const findMyArea = () => {
-//   const status = document.querySelector(".status");
   const siteLocInputField = document.querySelector(".siteLoc");
 
   const success = (position) => {
@@ -19,8 +18,6 @@ const findMyArea = () => {
           data.principalSubdivision + " " + data.principalSubdivisionCode;
         let caseRegion =
           data.principalSubdivision + " " + data.principalSubdivisionCode;
-        // status.textContent = data.city + " " + data.locality;
-        // siteLocInputField.textContent = data.city + " " + data.locality;
         console.log(data);
         console.log(caseRegion);
       });
