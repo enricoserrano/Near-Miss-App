@@ -13,7 +13,6 @@ const findMyArea = () => {
     fetch(geoApiUrl)
       .then((res) => res.json())
       .then((data) => {
-
         document.getElementById("nmRegionSubdiv").value =
           data.principalSubdivision + " " + data.principalSubdivisionCode;
         let caseRegion =
@@ -24,11 +23,12 @@ const findMyArea = () => {
   };
 
   const error = () => {
-    status.textContent = "Unable to retrieve your location";
     siteLocInputField.textContent = "Unable to retrieve your location";
   };
 
   navigator.geolocation.getCurrentPosition(success, error);
 };
 
-document.querySelector(".find-geolocation").addEventListener("click", findMyArea);
+document
+  .querySelector(".find-geolocation")
+  .addEventListener("click", findMyArea);
