@@ -16,7 +16,6 @@
    <body>
       <!-- Navbar -->
       <header>
-         <!-- Navbar -->
          <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                <nav aria-label="breadcrumb">
@@ -67,7 +66,6 @@
          </nav>
          <!-- Navbar -->
       </header>
-      <!-- Navbar -->
       <br>
       <br>
       <br>
@@ -76,6 +74,7 @@
       <br>
       <br>
       <br>
+      <!-- Admin page access code validation -->
       <?php
          $accesscode = "admin";
          
@@ -89,14 +88,13 @@
             echo"<link href='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css' rel='stylesheet'/>";
             echo"</head>";
             echo"<body>";
-             echo"<h1 class='text-center'>Welcome Admin</h1> ";
-             echo"<h6 class='text-center'>This is where you can track all near-miss cases and resolve them</h6> ";
-             echo"<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js'></script>";
-             echo"</body>";
-             echo"</html>";
+            echo"<h1 class='text-center'>Welcome Admin</h1> ";
+            echo"<h6 class='text-center'>This is where you can track all near-miss cases and resolve them</h6> ";
+            echo"<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js'></script>";
+            echo"</body>";
+            echo"</html>";
          ?>
-      <!-- Button trigger modal -->
-      <!-- Tabs navs -->
+      <!-- Tabs Navigation -->
       <ul class="nav nav-tabs mb-3 justify-content-center" id="ex1" role="tablist">
          <li class="nav-item" role="presentation">
             <a
@@ -136,6 +134,7 @@
          </li>
       </ul>
       <!-- Tabs navs -->
+      <!-- Querying information and displaying into data -->
       <?php
          $establishCon = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
          
@@ -153,6 +152,8 @@
             $selectAllCases = mysqli_query($establishCon, $displayQueryAllCases);
          
          ?>
+      <!-- Querying information and displaying into data -->
+      <!-- Admin tabs -->
       <div class="tab-content" id="ex1-content">
          <div
             class="tab-pane fade"
@@ -160,6 +161,7 @@
             role="tabpanel"
             aria-labelledby="ex1-tab-1"
             >
+            <!-- Unresolved Tab -->
             <?php
                echo"<html>";
                echo"<head>";
@@ -221,7 +223,10 @@
                // Frees up the memory, after using the result pointer
                mysqli_free_result($selectDataUnresolved);
                ?>
+            <!-- Unresolved Tab -->
          </div>
+         <!-- Admin tabs -->
+         <!-- Resolved Tab -->
          <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
             <?php
                echo"<html>";
@@ -272,7 +277,6 @@
                   echo "</div>";
                   echo "</div>";
                   echo "</div>";
-                  //echo "<td>",'<img height="250px" width="250px" src=data:image;base64,' .$row['imageFiles']. ' />',"</td>";
                   echo "<td>",$row["caseStatus"],"</td>";
                   echo "</tr>";
                }
@@ -286,6 +290,8 @@
                mysqli_free_result($selectDataResolved);
                ?>
          </div>
+         <!-- Resolved Tab -->
+         <!-- Search Tab -->
          <div class="tab-pane fade show active" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
             <?php
                echo "<div class='admin-search-bar'>";
@@ -526,6 +532,7 @@
                ?>
          </div>
       </div>
+      <!-- Search Tab -->
       <?php
          echo"<html>";
          echo"<head>";
