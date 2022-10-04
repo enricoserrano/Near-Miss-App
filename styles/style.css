@@ -1,8 +1,8 @@
 body {
-    background-color: #45637d;
     text-align: center;
     height: 100%;
     margin: 0;
+    color: #000000; 
 }
 html {
     box-sizing: border-box;
@@ -316,14 +316,19 @@ header {
     }
 
     #record-icon-center {
-        text-align: center;
+        /* text-align: right; */
         padding-left: 50%;
         /* margin: 0 auto; */
         /* width: 60%; */
         /* border-style: solid; */
-    }
+    }  
+}
 
-    
+@media screen and (min-width: 1800px) {
+
+    .about-page-difference-img{
+        width: 75%;
+    }
 }
 
 .about-oneLiner{
@@ -331,9 +336,9 @@ header {
 }
 
 .our-team-section {
-    padding: 30px;
+    padding: 15px;
     text-align: center;
-    background-color: #000000;
+    background-color: #282a35;
     color: white;
 }
 
@@ -460,9 +465,29 @@ header {
     padding-top: 50px;
 }
 
+#site-location{
+    font-size: 20px;
+}
+
+#insite-location{
+    font-size: 20px;
+}
+
+#upload-image{
+    font-size: 20px;
+}
+
+#description-field{
+    font-size: 20px;
+}
+
+#date-time-field{
+    font-size: 20px;
+}
+
 #upload-image h3{
     font-size: 18px;
-    color: rgb(255, 210, 11);
+    color: rgb(0, 0, 0);
 }
 
 /* Styling for the preview of the image uploaded */
@@ -526,9 +551,9 @@ header {
     background-color: white;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 80%;
+    width: 85%;
 }
 
 input[name=nmSiteLocation]
@@ -538,9 +563,59 @@ input[name=nmSiteLocation]
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 12px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 65%;
+    width: 75%;
+}
+
+input[name=nmRegionSubdiv]:focus {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    transition: width 0.4s ease-in-out;
+    width: 85%;
+}
+
+input[name=nmRegionSubdiv] {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 10px;
+    transition: width 0.4s ease-in-out;
+    width: 75%;
+}
+
+input[name=nmInSiteLocation]:focus
+{
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    transition: width 0.4s ease-in-out;
+    width: 85%;
+}
+
+input[name=nmInSiteLocation]
+{
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 10px;
+    transition: width 0.4s ease-in-out;
+    width: 75%;
 }
 
 input[name=description]:focus
@@ -552,9 +627,9 @@ input[name=description]:focus
     background-color: white;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 35%;
+    width: 85%;
 }
 
 input[name=description]
@@ -564,9 +639,9 @@ input[name=description]
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 30%;
+    width: 100%;
 }
 
 input[name=time]:focus
@@ -578,10 +653,11 @@ input[name=time]:focus
     background-color: white;
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
     width: 35%;
 }
+
 
 input[name=time]
 {
@@ -590,9 +666,9 @@ input[name=time]
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 10px;
     transition: width 0.4s ease-in-out;
-    width: 30%;
+    width: 100%;
 }
 
 @media screen and (max-width: 650px) {
@@ -660,13 +736,13 @@ a .download{
         display: none;
     }
     #choose-files {
-        padding-left: 5px;
+
     }
 }
 
 @media (min-width: 992px) {
     #choose-files {
-        padding-left: 100px;
+        /* padding-left: 100px; */
     }
 }
 
@@ -691,9 +767,12 @@ a .download{
 .receiptRecordBtn{background-color:rgb(47, 165, 47);}
 .receiptRecordBtn:hover{background-color:rgb(53, 218, 53);}
 
+.downloadReceiptBtn{background-color:rgb(255, 8, 0);}
+.downloadReceiptBtn:hover{background-color: rgb(175, 6, 0);}
+
 .receipt-text{
     padding-top: 2%;
-    color:white;
+    color:black;
     font-size: 20px;
     text-align: center;
 }
@@ -708,4 +787,33 @@ a .download{
     {
         width: 100%;
     }
+}
+
+/*Admin page styling*/
+.admin-search-bar{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+.searched-case-message{
+    text-align: center;
+}
+
+
+.box{
+    width: 400px;
+    padding: 50px;
+    position: absolute;
+    /* top: 50%; */
+    top: 17cm;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+    border-radius: 24px;
+    
+}
+.transcriptText{
+    color: #2590cf !important;
 }

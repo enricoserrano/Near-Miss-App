@@ -46,10 +46,10 @@
                         </a>
                      </li>
                      <li>
-                        <a href="#">
+                        <a href="adminlogin.html">
                            <div class="sub-menu">
                               <i class="bi bi-person-circle"></i>
-                              <p class="menu-title">Login</p>
+                              <p class="menu-title">Admin</p>
                            </div>
                         </a>
                      </li>
@@ -73,8 +73,7 @@
       <br>
       <br>
       <br>
-      <h1 >Near-miss Receipt</h1>
-      <br>
+      <h1>Near-miss Receipt</h1>
       <?php
          $dbConn = @mysqli_connect("cmslamp14","nearmiss", "cHz4n3armiss2022", "nearmiss");
          
@@ -90,8 +89,9 @@
              { 
                  echo "<p>The table 'recordFormData' does not exist, creating table now.</p>";
                  
-                 $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME, nmPriority VARCHAR(10),
-                 imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+                 //Creates database table with the variables specifiying thier type, size and other aspects
+                 $createFormDataTable = "CREATE TABLE nearMissFormData (nearMissID INT(20) AUTO_INCREMENT PRIMARY KEY, nmSiteLocation VARCHAR(255), nmRegionSubdiv VARCHAR(100), nmInSiteLocation VARCHAR(100), nmDesc VARCHAR(100), nmDateTime DATETIME,
+                 imageFileName VARCHAR(100) NOT NULL, imageFiles longblob NOT NULL, caseStatus VARCHAR(15) DEFAULT 'Unresolved') ENGINE=InnoDB DEFAULT CHARSET=latin1;";
              
                  //Stores connection and collumn creation query variables as paramters in a result variable
                  $tableResult = mysqli_query($dbConn, $createFormDataTable);
@@ -106,11 +106,12 @@
                  }
              }
          
+             //Gets Post data for these variables and stores it into a new variable
              $nmSiteLocation = $_POST["nmSiteLocation"];
+             $nmRegionSubdiv = $_POST["nmRegionSubdiv"];
              $nmInSiteLocation = $_POST["nmInSiteLocation"];
              $nmDesc = $_POST["description"];
              $nmDateTime = $_POST["dateTime"];
-             $nmPriorityLevel = $_POST["priority"];
          
              // Checks if post is clicked
              if (isset($_POST["submit"])) {
@@ -122,27 +123,55 @@
                  $imageFileName = $_FILES["uploadedImageFile"]["name"];
                  $image = base64_encode(file_get_contents(addslashes($image)));
          
-                 //Adds information into table collumns and stores it in a variable
-                 $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmInSiteLocation, nmDesc, nmDateTime, nmPriority, imageFileName, imageFiles) VALUES ('$nmSiteLocation', '$nmInSiteLocation', '$nmDesc', '$nmDateTime', '$nmPriorityLevel', '$imageFileName', '$image');";
+                 //Adds information into table collumns and stores it in a variable and assigns values
+                 $insertFormDataQuery = "INSERT INTO nearMissFormData (nmSiteLocation, nmRegionSubdiv, nmInSiteLocation, nmDesc, nmDateTime, imageFileName, imageFiles) VALUES ('$nmSiteLocation', '$nmRegionSubdiv', '$nmInSiteLocation', '$nmDesc', '$nmDateTime', '$imageFileName', '$image');";
                  $insertFormDataResult = mysqli_query($dbConn, $insertFormDataQuery);
          
                  // If something is wrong with the inserting process and error message is shown
                  if (!$insertFormDataResult) {
                      echo "<p>There is an issue with adding information to the database. Try again.</p>";
                  } else {
-                     echo "<p><strong>Congratulations!</strong> The record has been successfully stored! Here is your receipt.</p>";
+                     echo "<p><strong>Congratulations!</strong> Your near-miss entry has been successfully submitted! Here is the details of your receipt:</p>";
                      $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
                      $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
                      
                      while($row = mysqli_fetch_assoc($getNearMissID))
                      {
+                        //Echo statements that call the variables in the form to use to print out in the HTML form
                          echo "<p><strong>Near-miss Entry ID: </strong>".$row["nearMissID"]."</p>";
-                         echo "<p>Site Location: ".$row["nmSiteLocation"]."</p>";
-                         echo "<p>In-Site location: ".$row["nmInSiteLocation"]."</p>";
+                         echo "<p><strong>Site Location: </strong>".$row["nmSiteLocation"]."</p>";
+                         echo "<p><strong>Region: </strong>".$row["nmRegionSubdiv"]."</p>";
+                         echo "<p><strong>In-Site location: </strong>".$row["nmInSiteLocation"]."</p>";
                          echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
-                         echo "<p><strong>Priority level: </strong>".$row["nmPriority"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
+                         echo "<br><strong>Feel free to return home, record another near-miss or download a copy of your receipt with the options provided below.</br><br>Thank you and have a good day.</strong></br>";
+         
+                         //Stores text statements inside variables to use in the .txt file
+                         $textHeader = "                                             *******************\n********************************************* Near-miss receipt **********************************************\n                                             *******************\n\n"; 
+                         $recordedID = "--------------------------------------------------------------------------------------------------------------\nNear-miss Entry ID: ".$row["nearMissID"]. "\n";
+                         $recordedSiteLocation = "--------------------------------------------------------------------------------------------------------------\nSite Location: ".$row["nmSiteLocation"]."\n";
+                         $recordedRegion = "--------------------------------------------------------------------------------------------------------------\nRegion: ".$row["nmRegionSubdiv"]."\n";
+                         $recordedInSiteLocation = "--------------------------------------------------------------------------------------------------------------\nIn-Site location: ".$row["nmInSiteLocation"]."\n";
+                         $recordedDescription = "--------------------------------------------------------------------------------------------------------------\nNear-miss Description: ".$row["nmDesc"]."\n";
+                         $recordedDateTime = "--------------------------------------------------------------------------------------------------------------\nRecorded Date and Time: ".$row["nmDateTime"]."\n";
+                         $recordedImageFileName = "--------------------------------------------------------------------------------------------------------------\nFilename of image uploaded: ".$row["imageFileName"]."\n--------------------------------------------------------------------------------------------------------------\n";
+                         $thankYouMessage = "\n--------------------------------------------------------------------------------------------------------------\nThank you for your Near-miss submission. We will work on deploying a solution as soon as possible.\nIf you have any queries please contact us on our email and include your near-miss entry ID.\nHave a good day.";
+                         $textFileFooter = "\n--------------------------------------------------------------------------------------------------------------\n\n**************************************************************************************************************\n";
+                         
+                         //This will open up a .txt file and "write" the contents from the variables above and store it into the .txt file
+                         $receiptFile = fopen("nearMissReceipt.txt", 'w');
+                         fwrite($receiptFile, $textHeader);
+                         fwrite($receiptFile, $recordedID);
+                         fwrite($receiptFile, $recordedSiteLocation);
+                         fwrite($receiptFile, $recordedRegion);
+                         fwrite($receiptFile, $recordedInSiteLocation);
+                         fwrite($receiptFile, $recordedDescription);
+                         fwrite($receiptFile, $recordedDateTime);
+                         fwrite($receiptFile, $recordedImageFileName);
+                         fwrite($receiptFile, $thankYouMessage);
+                         fwrite($receiptFile, $textFileFooter);
+                         fclose($receiptFile);
                      }  
                  }
              }
@@ -151,8 +180,10 @@
          ?>
       <div>
       <br>
+      <!--Buttons which are to allow the user to return to the home page, record another miss, or download a reciept of thier submission-->
       <button class = "receipt-button receiptHomeBtn" onclick="location.href='index.html';">Return Home</button>
-      <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Near-miss</button>
+      <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Another Near-miss</button>
+      <a class="receipt-button downloadReceiptBtn" download href="nearMissReceipt.txt">Download Receipt</a>
    </body>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
