@@ -1,8 +1,7 @@
 // This function is used in the process of translating the users voice input
 // into text in the description box of the record form page upon the button click.
 function init() {
-  let descField = document.getElementById('description');
-  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
       let speech = {
         enabled: true,
@@ -17,13 +16,9 @@ function init() {
         const audio = event.results[event.results.length - 1];
         speech.text = audio[0].transcript;
         const tag = document.activeElement.nodeName;
-        if (audio.isFinal) {
-          descField.value = descField.value + speech.text;
-        }
         if (tag === 'INPUT' || tag === 'TEXTAREA') {
           if (audio.isFinal) {
             document.activeElement.value += speech.text;
-            descField.value = descField.value + speech.text;
           }
         }
         result.innerText = speech.text;
@@ -33,7 +28,7 @@ function init() {
         speech.listening = !speech.listening;
         if (speech.listening) {
           toggle.classList.add('listening');
-          toggle.innerText = 'Listening, press to stop';
+          toggle.innerText = 'Listening...';
           speech.recognition.start();
         }
         else {
@@ -44,4 +39,4 @@ function init() {
       })
     }
   }
-  init();
+init();

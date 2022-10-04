@@ -46,13 +46,13 @@
                         </a>
                      </li>
                      <li>
-                           <a href="adminlogin.html">
-                              <div class="sub-menu">
-                                 <i class="bi bi-person-circle"></i>
-                                 <p class="menu-title">Admin</p>
-                              </div>
-                           </a>
-                        </li>
+                        <a href="adminlogin.html">
+                           <div class="sub-menu">
+                              <i class="bi bi-person-circle"></i>
+                              <p class="menu-title">Admin</p>
+                           </div>
+                        </a>
+                     </li>
                      <li>
                         <a href="record.html">
                            <div class="sub-menu">
@@ -146,7 +146,7 @@
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
                          echo "<br><strong>Feel free to return home, record another near-miss or download a copy of your receipt with the options provided below.</br><br>Thank you and have a good day.</strong></br>";
-
+         
                          //Stores text statements inside variables to use in the .txt file
                          $textHeader = "                                             *******************\n********************************************* Near-miss receipt **********************************************\n                                             *******************\n\n"; 
                          $recordedID = "--------------------------------------------------------------------------------------------------------------\nNear-miss Entry ID: ".$row["nearMissID"]. "\n";
@@ -184,7 +184,6 @@
       <button class = "receipt-button receiptHomeBtn" onclick="location.href='index.html';">Return Home</button>
       <button class = "receipt-button receiptRecordBtn" onclick="location.href='record.html';">Record Another Near-miss</button>
       <a class="receipt-button downloadReceiptBtn" download href="nearMissReceipt.txt">Download Receipt</a>
-
    </body>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
 </html>
