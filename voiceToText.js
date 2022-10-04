@@ -28,7 +28,7 @@ function init() {
         speech.listening = !speech.listening;
         if (speech.listening) {
           toggle.classList.add('listening');
-          toggle.innerText = 'Listening...';
+          toggle.innerText = 'Listening, press to stop';
           speech.recognition.start();
         }
         else {
