@@ -75,12 +75,14 @@
             position: relative;
             margin-left: -79px;
             padding-bottom: 5px;
-            padding-left: 14px;
             height: 40px;
             width: 70px;
-            top: -5px;
+            top: -3px;
             border: 0;
             -webkit-appearance: none;
+            background-color: black;
+            color: white;
+            border-radius: 5rem;
          }
 
 
@@ -175,7 +177,7 @@
                             name="nmRegionSubdiv" 
                             class="siteLoc"
                             placeholder="Region (Optional)">
-                            <button class="find-geolocation" class="btn btn-dark" id='btnTrack'  type="button">Detect</button>
+                            <button class="find-geolocation" class="btn btn-dark btn-rounded" id='btnTrack' >Detect</button>
                      <br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
                </div>
@@ -189,7 +191,7 @@
                <div id="upload-image">
                   <label for="uploadImage">Attach Image:</label>
                   <div id="choose-files">
-                     <input type="button" class='btn btn-dark' value="Capture Image" onclick="document.getElementById('uploaded-image').click();" />
+                     <input type="button" class="btn btn-dark btn-rounded" value="Capture Image" onclick="document.getElementById('uploaded-image').click();" />
                      <input type="file" 
                             class="custom-file-input"
                             id="uploaded-image" 
@@ -212,12 +214,11 @@
                </div>
                <div>
                   <fieldset>
-                     <legend>Fill Out Form With Speech-To-Text Recognition (Chrome Only)</legend>
-                     <p>To use <b>Speech-To-Text</b>, Toggle Voice Listening and speak</p>
+                     <h5>Fill Out Description With Speech-To-Text Recognition (Chrome Only)</h5>
                      <br>
 
                      <div>
-                        <button type="button" id="toggle" class="btn btn-dark">Toggle Voice Listening</button>
+                        <button type="button" id="toggle" class="btn btn-dark btn-rounded">Record description</button>
                         <br />
                         <br />
                         <code id="result" class="transcriptText" >Live Speech-Transcript Here ...</code>
@@ -245,8 +246,8 @@
                   oninput="this.setCustomValidity('')">
                </div>
                <br>
-               <input type="submit" class='btn btn-dark' id = "submit" value="Submit" name = "submit">
-               <input type="reset" class='btn btn-dark'  value="Reset" >
+               <input type="reset" class="btn btn-outline-dark" data-mdb-ripple-color="dark"  value="Reset" >
+               <input type="submit" class="btn btn-success" id = "submit" value="Submit" name = "submit">
                <br><br>
             </form>
          </div>
