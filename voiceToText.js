@@ -1,3 +1,5 @@
+// This function is used in the process of translating the users voice input
+// into text in the description box of the record form page upon the button click.
 function init() {
   let descField = document.getElementById('description');
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
