@@ -174,7 +174,7 @@
                             id="nmRegionSubdiv" 
                             name="nmRegionSubdiv" 
                             class="siteLoc"
-                            placeholder="Region/Subdivision (Optional)">
+                            placeholder="Region (Optional)">
                             <button id='btnTrack' class="btn btn-dark" type="button">Detect</button>
                      <br>
                   <span id="errSiteLocation" style="color: red; display: none"></span>
@@ -187,9 +187,9 @@
                      oninput="this.setCustomValidity('')">
                </div>
                <div id="upload-image">
-                  <label for="uploadImage">Select Files:</label>
+                  <label for="uploadImage">Attach Image:</label>
                   <div id="choose-files">
-                     <input type="button" class='btn btn-dark' value="Browse..." onclick="document.getElementById('uploaded-image').click();" />
+                     <input type="button" class='btn btn-dark' value="Capture Image" onclick="document.getElementById('uploaded-image').click();" />
                      <input type="file" 
                             class="custom-file-input"
                             id="uploaded-image" 
@@ -220,7 +220,7 @@
                         <button type="button" id="toggle" class="btn btn-dark">Toggle Voice Listening</button>
                         <br />
                         <br />
-                        <code id="result" >Live Speech-Transcript Here ...</code>
+                        <code id="result" class="transcriptText" >Live Speech-Transcript Here ...</code>
                      </div>
                   </fieldset>
                      <!-- <br><br>
@@ -236,24 +236,6 @@
                               oninvalid="this.setCustomValidity('Please Provide a Description of your Near-miss')"
                               oninput="this.setCustomValidity('')"></textarea>
                </div>
-               <div>
-
-
-
-
-
-                  <label for="dtpickerdemo" class="col-sm-2 control-label">Select date/time:</label>
-                  <div class='col-sm-4 input-group date'>
-                      <input type='text' class="form-control" id='dtpickerdemo' />
-                  </div>
-              </div>
-
-
-
-
-
-
-
 
                   <p></p><i class="fa-solid fa-clock" style="color: white;"></i>
                   <label for="time" style="color: white;">Date and Time of Near-miss</label><br>
@@ -265,6 +247,7 @@
                <br>
                <input type="submit" class='btn btn-dark' id = "submit" value="Submit" name = "submit">
                <input type="reset" class='btn btn-dark'  value="Reset" >
+               <br><br>
             </form>
          </div>
       </div>
