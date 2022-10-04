@@ -131,7 +131,7 @@
                  if (!$insertFormDataResult) {
                      echo "<p>There is an issue with adding information to the database. Try again.</p>";
                  } else {
-                     echo "<p><strong>Congratulations!</strong> Your near-miss entry has been successfully submitted! Here is the details of your reciept:</p>";
+                     echo "<p><strong>Congratulations!</strong> Your near-miss entry has been successfully submitted! Here is the details of your receipt:</p>";
                      $checkNearMissID = "SELECT * FROM `nearMissFormData` ORDER BY `nearMissID` DESC LIMIT 1";
                      $getNearMissID = mysqli_query($dbConn, $checkNearMissID);
                      
@@ -145,7 +145,7 @@
                          echo "<p><strong>Near-miss Description: </strong>".$row["nmDesc"]."</p>";
                          echo "<p><strong>Recorded Date and Time: </strong>".$row["nmDateTime"]."</p>";
                          echo "<p><strong>Filename of image uploaded: </strong>".$row["imageFileName"]."</p>";
-                         echo "<br><strong>Feel free to return home, record another near-miss or download a copy of your reciept with the options provided below.</br><br>Thank you and have a good day.</strong></br>";
+                         echo "<br><strong>Feel free to return home, record another near-miss or download a copy of your receipt with the options provided below.</br><br>Thank you and have a good day.</strong></br>";
 
                          //Stores text statements inside variables to use in the .txt file
                          $textHeader = "                                             *******************\n********************************************* Near-miss receipt **********************************************\n                                             *******************\n\n"; 
