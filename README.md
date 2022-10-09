@@ -7,9 +7,9 @@ WorkSafe is New Zealand’s primary workplace health and safety regulator, and t
 
 ## Problem Details
 The current problem WorkSafe face is in recording near misses, with the major issues following as such:
-• Lack of Interest – Currently, workers find recording a near-miss tedious and inefficient.
-• Challenging to complete – Currently, workers are unsure how to record a near miss, where to look and what details to register.
-• Difficult to acknowledge the importance – Some workers are unsure what a near miss is and are unsure what the significance is. Hence, when a near miss occurs, they ignore it when they should report it as it helps to find and solve problems in the workplace.
+• Lack of Interest – Currently, workers find recording a near-miss tedious and inefficient. <br>
+• Challenging to complete – Currently, workers are unsure how to record a near miss, where to look and what details to register. <br>
+• Difficult to acknowledge the importance – Some workers are unsure what a near miss is and are unsure what the significance is. Hence, when a near miss occurs, they ignore it when they should report it as it helps to find and solve problems in the workplace. <br>
 
 ## Project Solution
 Our team's mission is to deliver a simple yet effective proof-of-concept application that will allow any user to record a near miss and therefore promote a safer work environment. The following are the core features we will implement in the application
@@ -25,6 +25,6 @@ Our team's mission is to deliver a simple yet effective proof-of-concept applica
 4. Run index.html
 
 ## Technologies
-Frontend - HTML/CSS/Javascript
-Backend - PHP
-Database - MySQL
+Frontend - HTML/CSS/Javascript <br>
+Backend - PHP <br>
+Database - MySQL <br>
