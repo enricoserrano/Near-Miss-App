@@ -28,3 +28,12 @@ Our team's mission is to deliver a simple yet effective proof-of-concept applica
 Frontend - HTML/CSS/Javascript <br>
 Backend - PHP <br>
 Database - MySQL <br>
+
+## Screenshots
+![nm1](https://user-images.githubusercontent.com/69224805/205565750-38fac7eb-b2c0-490b-98eb-f629bd7c4e63.png)
+![nm2](https://user-images.githubusercontent.com/69224805/205565798-ff33346b-3d0a-4727-833c-f503f0070c7b.png)
+![nm3](https://user-images.githubusercontent.com/69224805/205565805-cd77462f-5a00-465c-8d29-6d5af83c5911.png)
+![nm4](https://user-images.githubusercontent.com/69224805/205565844-27c7e825-a9f8-4a75-a125-7b140aa4091d.png)
+![nm5](https://user-images.githubusercontent.com/69224805/205565867-58c37018-f18a-42aa-87a7-cbd37cd2a17d.png)
+
+
